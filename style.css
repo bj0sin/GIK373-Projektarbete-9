@@ -1,40 +1,30 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  align-items: flex end;
-  gap: 1rem;
   padding: 16px 24px;
-  font-size: 1rem;
-  background-color: rgb(38, 156, 85);
+  background-color: rgba(0, 76, 13, 1);
 }
 
 .nav-links {
   display: flex;
   align-items: flex-end;
-  text-align: right;
   list-style: none;
-  color: black;
-  text-decoration: none;
-  font-size: 1rem;
-  padding: 1rem;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
-.nav-links:hover {
+.nav-links a {
+  color: rgba(250, 255, 224, 1);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.nav-links a:hover {
   background-color: aquamarine;
   border-radius: 5px;
 }
 
-/*.title {
-  display: grid;
-  grid-template-columns: 1fr;
-  background-color: aquamarine;
-  padding: 5px;
-} */
-
-.header {
-  display: grid;
-  grid-template-columns: 1fr;
-  background-color: aqua;
-  font-size: 4rem;
+.logo img {
+  width: 100%;
+  filter: brightness(0) invert(1);
+  height: 10rem;
 }
