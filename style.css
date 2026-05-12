@@ -13,19 +13,25 @@
 
 .navbar {
   display: flex;
-  grid-template-columns: 1fr 1fr 1fr;
-  text-align: right;
-  padding: 10px;
+  align-items: flex end;
+  gap: 1rem;
+  list-style: none;
   font-size: 1rem;
   background-color: rgb(38, 156, 85);
 }
 
-.navbar li {
+.navbar li a {
   display: flex;
-  grid-template-columns: 1fr 1fr 1fr;
-  padding: 10px;
+  align-items: flex-end;
   text-align: right;
   color: black;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.navbar li a:hover {
+  background-color: aquamarine;
+  border-radius: 5px;
 }
 
 /*.title {
@@ -35,9 +41,9 @@
   padding: 5px;
 } */
 
-.h1 {
+.header {
   display: grid;
   grid-template-columns: 1fr;
-  font-style: normal;
+  background-color: aqua;
   font-size: 3rem;
 }
