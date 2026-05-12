@@ -13,9 +13,10 @@
 
 .navbar {
   display: flex;
+  justify-content: space-between;
   align-items: flex end;
   gap: 1rem;
-  list-style: none;
+  padding: 16px 24px;
   font-size: 1rem;
   background-color: rgb(38, 156, 85);
 }
