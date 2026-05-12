@@ -18,9 +18,23 @@
   font-size: 1rem;
 }
 
-.nav-links a:hover {
-  background-color: aquamarine;
-  border-radius: 5px;
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: rgb(197, 233, 203);
+  transition: width 0.2s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a.active::after {
+  width: 100%;
 }
 
 .logo img {
