@@ -86,3 +86,37 @@ body {
   color: rgb(255, 255, 255);
   align-items: center;
 }
+
+/* css: om oss*/
+
+.container {
+  background-color: rgba(0, 76, 13, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 80%;
+  padding: 40px;
+  margin: 40px auto;
+  border-radius: 10px;
+}
+
+.text {
+  color: rgba(250, 255, 224, 1);
+  width: 60%;
+  font-size: 1.2rem;
+  font-family: "Inter", sans-serif;
+  margin-top: 0px;
+}
+
+img {
+  width: 30%;
+  border-radius: 10px;
+  margin-left: 80px;
+}
+
+.kalla {
+  margin-top: 10px;
+  font-size: 3rem;
+  color: rgba(0, 76, 13, 1);
+}
