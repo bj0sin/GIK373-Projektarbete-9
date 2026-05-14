@@ -1,3 +1,5 @@
+/* hela hemsidans css*/
+
 * {
   margin: 0;
   padding: 0;
@@ -55,9 +57,11 @@ body {
 }
 
 .logo img {
-  width: 100%;
   height: 5rem;
+  width: 100%;
 }
+
+/* hem */
 
 .hero {
   position: relative;
@@ -87,6 +91,39 @@ body {
   align-items: center;
 }
 
+.karta-sektion {
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: center;
+}
+
+.kort {
+  background-color: rgba(0, 76, 13, 1);
+  width: 100%;
+  height: 400px;
+  border-radius: 10px;
+  padding: 40px;
+  display: flex;
+  gap: 40px;
+}
+
+.kort-text {
+  flex: 1;
+  color: rgba(250, 255, 224, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#sverigekarta {
+  flex: 1;
+  background-color: rgba(250, 255, 224, 0.1);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* css: om oss*/
 
 .container {
@@ -109,7 +146,7 @@ body {
   margin-top: 0px;
 }
 
-img {
+.container img {
   width: 30%;
   border-radius: 10px;
   margin-left: 80px;
