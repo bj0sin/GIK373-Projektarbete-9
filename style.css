@@ -177,3 +177,20 @@ h2 {
 .kallor li {
   margin-bottom: 15px;
 }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  margin-top: 40px;
+  background-color: rgba(0, 76, 13, 1);
+  color: rgba(250, 255, 224, 1);
+}
+
+.footer-contact {
+  color: rgba(250, 255, 224, 1);
+  line-height: 1.8;
+  font-size: 1.3rem;
+  margin-left: 42px;
+}
