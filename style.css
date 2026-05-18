@@ -65,7 +65,7 @@ body {
 
 .hero {
   position: relative;
-  height: 400px;
+  height: 500px;
   overflow: hidden;
   width: 100%;
 }
@@ -81,14 +81,24 @@ body {
   position: absolute;
   inset: 0;
   background: rgba(23, 58, 30, 0.59);
+  z-index: 1;
 }
 
-.hero h1 {
+.hero-center-banner {
   position: absolute;
-  display: flex;
-  justify-content: center;
-  color: rgb(255, 255, 255);
-  align-items: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+  z-index: 5;
+}
+
+.hero-center-banner h1 {
+  color: rgba(250, 255, 224, 1);
+  font-size: 6rem;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.5rem;
 }
 
 .karta-sektion {
@@ -113,6 +123,16 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.kort-text h2 {
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  font-size: 1.8rem;
+}
+
+.kort-text p {
+  font-size: 1.2rem;
 }
 
 #sverigekarta {
@@ -219,6 +239,10 @@ body {
   display: flex;
   flex-direction: column;
   color: rgba(250, 255, 224, 1);
+}
+
+.lank-kort:hover {
+  background-color: rgba(10, 66, 21, 0.77);
 }
 
 .lank-kort h3 {
