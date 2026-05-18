@@ -24,38 +24,44 @@
 
     <main>
       <div class="statistik-kort">
-        <div id="Stapelgraf"></div>
+        <h4>Stapelgraf</h4>
+        <div class="chartText">Stapelgrafen är en fin och intressant graf.</div>
+        <canvas id="stapelgraf"></canvas>
         <!--  src = VISUALISERING HÄR -->
-        <p>Stapelgraf</p>
-
-        <div class="statistik-kort"></div>
-        <div id="Cirkeldiagram"></div>
-        <!--  src = VISUALISERING HÄR -->
-        <p>Cirkeldiagram</p>
-
-        <div class="statistik-kort"></div>
-        <div id="Linjediagram"></div>
-        <!--  src = VISUALISERING HÄR -->
-        <p>Linjediagram</p>
-
-        <div class="statistik-kort"></div>
-        <div id="Drop-down"></div>
-        <!--  src = VISUALISERING HÄR -->
-        <p>Drop down linjediagram</p>
       </div>
-      <script src="script.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-      <footer class="footer">
-        <div class="footer-contact">
-          <h3>Kontakt</h3>
-          <p><i class="fa-solid fa-location-dot"></i> Skogsbacken 9</p>
+      <div class="statistik-kort">
+        <h4>Cirkeldiagram</h4>
+        <div class="chartText"></div>
+        <canvas id="cirkeldiagram"></canvas>
+        <!--  src = VISUALISERING HÄR -->
+      </div>
 
-          <p><i class="fa-solid fa-envelope"></i> Våtmarkskollen@du.se</p>
+      <div class="statistik-kort">
+        <h4>Linjediagram</h4>
+        <div class="chartText"></div>
+        <canvas id="linjediagram"></canvas>
+        <!--  src = VISUALISERING HÄR -->
+      </div>
 
-          <p><i class="fa-brands fa-instagram"></i> Våtmarkskollensverige</p>
-        </div>
-      </footer>
+      <div class="statistik-kort">
+        <div class="chartText"></div>
+        <h4>Drop-down linjediagram</h4>
+        <canvas id="dropDown"></canvas>
+        <!--  src = VISUALISERING HÄR -->
+      </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <footer class="footer">
+      <div class="footer-contact">
+        <h3>Kontakt</h3>
+        <p><i class="fa-solid fa-location-dot"></i> Skogsbacken 9</p>
+
+        <p><i class="fa-solid fa-envelope"></i> Våtmarkskollen@du.se</p>
+
+        <p><i class="fa-brands fa-instagram"></i> Våtmarkskollensverige</p>
+      </div>
+    </footer>
   </body>
 </html>
