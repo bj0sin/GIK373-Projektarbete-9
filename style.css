@@ -17,7 +17,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 18px 40px;
-  background-color: rgba(0, 76, 13, 1);
+  background-color: rgb(23, 53, 5);
 }
 
 .nav-links {
@@ -71,11 +71,81 @@ body {
   width: 100%;
 }
 
+/*Jennifer*/
+
+h4 {
+  display: grid;
+  grid-template-rows: 1fr, 2fr;
+  justify-self: auto;
+  font-size: large;
+  margin-left: 25px;
+  margin-top: 25px;
+  justify-content: baseline;
+}
+
+.chartText {
+  display: grid;
+  justify-self: auto;
+  grid-template-rows: 1fr, 2fr;
+  font-size: small;
+  color: bisque;
+  margin-left: 25px;
+}
+
+.statistik-kort {
+  display: grid;
+  grid-template-rows: 1, 4fr;
+  gap: 25px;
+  background-color: rgba(0, 76, 13, 1);
+  border-radius: 10px;
+  margin: 75px;
+}
+
+#stapelgraf {
+  display: grid;
+  grid-template-rows: 1, 4fr;
+  justify-self: end;
+  background-color: bisque;
+  border-radius: 10px;
+  margin: 50px;
+  height: 350px;
+}
+
+#cirkeldiagram {
+  display: grid;
+  grid-template-rows: 1, 4fr;
+  justify-self: end;
+  background-color: bisque;
+  border-radius: 10px;
+  margin: 50px;
+  height: 350px;
+}
+
+#linjediagram {
+  display: grid;
+  grid-template-rows: 1, 4fr;
+  justify-self: end;
+  background-color: bisque;
+  border-radius: 10px;
+  margin: 50px;
+  height: 350px;
+}
+
+#dropDown {
+  display: grid;
+  grid-template-rows: 1, 4fr;
+  justify-self: end;
+  background-color: bisque;
+  border-radius: 10px;
+  margin: 50px;
+  height: 350px;
+} /*Jennifer*/
+
 /* hem */
 
 .hero {
   position: relative;
-  height: 500px;
+  height: 80vh;
   overflow: hidden;
   width: 100%;
 }
@@ -90,7 +160,7 @@ body {
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(23, 58, 30, 0.59);
+  background: rgba(23, 58, 30, 0.441);
   z-index: 1;
 }
 
@@ -108,7 +178,8 @@ body {
   font-size: 6rem;
   margin: 0;
   font-weight: 800;
-  letter-spacing: 0.5rem;
+  letter-spacing: 8px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.291);
 }
 
 .karta-sektion {
@@ -118,7 +189,7 @@ body {
 }
 
 .kort {
-  background-color: rgba(0, 76, 13, 1);
+  background-color: rgb(15, 56, 2);
   width: 100%;
   height: 700px;
   border-radius: 10px;
@@ -137,11 +208,12 @@ body {
 
 .kort-text h2 {
   padding-bottom: 2rem;
-  font-size: 1.8rem;
+  font-size: 3rem;
 }
 
 .kort-text p {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
+  padding-bottom: 1.6rem;
 }
 
 #sverigekarta {
