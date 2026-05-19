@@ -37,6 +37,16 @@ body {
   font-size: 1.3rem;
 }
 
+@media (max-width: 600px) {
+  .nav-links a {
+    font-size: 1.1rem;
+    display: block;
+    /* gör dem lättare att klicka */
+    padding: 10px 0;
+    /* större touchyta */
+  }
+}
+
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -167,7 +177,7 @@ h4 {
   color: rgba(250, 255, 224, 1);
   font-size: 6rem;
   margin: 0;
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: 0.5rem;
 }
 
@@ -180,7 +190,7 @@ h4 {
 .kort {
   background-color: rgba(0, 76, 13, 1);
   width: 100%;
-  height: 400px;
+  height: 700px;
   border-radius: 10px;
   padding: 40px;
   display: flex;
@@ -192,12 +202,11 @@ h4 {
   color: rgba(250, 255, 224, 1);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .kort-text h2 {
   padding-bottom: 2rem;
-  padding-top: 2rem;
   font-size: 1.8rem;
 }
 
@@ -333,91 +342,195 @@ h4 {
   margin-top: auto;
 }
 
-/* css: om oss*/
+/* =====================
+   OM OSS CONTAINER
+===================== */
 
 .container {
   background-color: rgba(0, 76, 13, 1);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  gap: 40px;
 
   width: 80%;
   padding: 40px;
   margin: 40px auto;
   border-radius: 10px;
+
+  flex-wrap: wrap;
+  /* viktigt för mindre skärmar */
 }
 
 .text {
   color: rgba(250, 255, 224, 1);
-  width: 60%;
+
   font-size: 1.2rem;
   font-family: "Inter", sans-serif;
-  margin-top: 0px;
+  flex: 1;
+  min-width: 250px;
 }
 
 .text h2 {
-  font-size: 60px;
+  font-size: clamp(32px, 4vw, 60px);
+  /* mer responsiv än fast 60px */
 }
 
 .container img {
   width: 30%;
   border-radius: 10px;
-  margin-left: 80px;
+  margin-left: 0;
+  min-width: 250px;
 }
 
-.kalla-dropdown {
-  margin-left: 10%;
-  margin-top: 10px;
-  color: rgba(0, 76, 13, 1);
+/* TABLET */
+@media (max-width: 1440px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .container img {
+    width: 70%;
+  }
 }
 
-.kalla-dropdown summary {
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 40px;
+/* MOBILE */
+@media (max-width: 600px) {
+  .container {
+    width: 92%;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .text {
+    font-size: 1rem;
+  }
+
+  .container img {
+    width: 100%;
+  }
 }
 
-.kallor {
-  margin-top: 10px;
-  font-size: 1.2rem;
-  line-height: 1.6;
+/* EXTRA SMALL MOBILE */
+@media (max-width: 480px) {
+  .text h2 {
+    font-size: 28px;
+  }
+
+  .container {
+    padding: 15px;
+  }
 }
 
-.kallor li {
-  margin-bottom: 15px;
+/* =====================
+   KÄLLOR + DATA (BOXAR)
+===================== */
+
+.info-container {
+  display: flex;
+  gap: 40px;
+  width: 80%;
+  margin: 40px auto;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
+.kalla-dropdown,
 .data-dropdown {
-  margin-left: 10%;
-  margin-top: 10px;
+  flex: 1;
+  min-width: 280px;
+  padding: 1.5rem;
+
+  background-color: rgba(0, 76, 13, 1);
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.kalla-dropdown[open],
+.data-dropdown[open] {
+  background-color: rgb(200, 211, 156);
+  /* beige */
+}
+
+.kalla-dropdown[open] summary,
+.data-dropdown[open] summary,
+.kalla-dropdown[open] .kallor,
+.data-dropdown[open] .data {
   color: rgba(0, 76, 13, 1);
 }
 
+/* rubriker */
+.kalla-dropdown summary,
 .data-dropdown summary {
   cursor: pointer;
   font-weight: bold;
-  font-size: 40px;
+  font-size: clamp(22px, 3vw, 40px);
+  color: rgba(250, 255, 224, 1);
 }
 
+/* innehåll */
+.kallor,
 .data {
   margin-top: 10px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.6;
+  padding-left: 20px;
+  color: rgba(250, 255, 224, 1);
 }
+
+.kallor li,
+.data li {
+  margin-bottom: 15px;
+  overflow-wrap: break-word;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .info-container {
+    width: 92%;
+    gap: 20px;
+  }
+
+  .kalla-dropdown,
+  .data-dropdown {
+    min-width: 100%;
+  }
+}
+
+/* =====================
+   FOOTER
+===================== */
 
 .footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding: 40px;
   margin-top: 40px;
+
   background-color: rgba(0, 76, 13, 1);
   color: rgba(250, 255, 224, 1);
+
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .footer-contact {
-  color: rgba(250, 255, 224, 1);
   line-height: 1.8;
   font-size: 1.3rem;
-  margin-left: 42px;
+}
+
+/* MOBILE FOOTER */
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .footer-contact {
+    font-size: 1.1rem;
+  }
 }
