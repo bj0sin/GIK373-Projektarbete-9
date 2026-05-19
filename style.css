@@ -372,7 +372,7 @@ body {
   min-width: 280px;
   padding: 1.5rem;
 
-  background-color: rgba(0, 76, 13, 1);
+  background-color: rgb(39, 90, 48);
   border-radius: 10px;
   transition: background-color 0.3s ease;
 }
