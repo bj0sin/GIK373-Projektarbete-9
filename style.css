@@ -71,6 +71,76 @@ body {
   width: 100%;
 }
 
+/*Jennifer*/
+
+h4 {
+  display: grid;
+  grid-template-rows: 1fr, 2fr;
+  justify-self: auto;
+  font-size: large;
+  margin-left: 25px;
+  margin-top: 25px;
+  justify-content: baseline;
+}
+
+.chartText {
+  display: grid;
+  justify-self: auto;
+  grid-template-rows: 1fr, 2fr;
+  font-size: small;
+  color: bisque;
+  margin-left: 25px;
+}
+
+.statistik-kort {
+  display: grid;
+  grid-template-rows: 1, 4fr;
+  gap: 25px;
+  background-color: rgba(0, 76, 13, 1);
+  border-radius: 10px;
+  margin: 75px;
+}
+
+#stapelgraf {
+  display: grid;
+  grid-template-rows: 1, 4fr;
+  justify-self: end;
+  background-color: bisque;
+  border-radius: 10px;
+  margin: 50px;
+  height: 350px;
+}
+
+#cirkeldiagram {
+  display: grid;
+  grid-template-rows: 1, 4fr;
+  justify-self: end;
+  background-color: bisque;
+  border-radius: 10px;
+  margin: 50px;
+  height: 350px;
+}
+
+#linjediagram {
+  display: grid;
+  grid-template-rows: 1, 4fr;
+  justify-self: end;
+  background-color: bisque;
+  border-radius: 10px;
+  margin: 50px;
+  height: 350px;
+}
+
+#dropDown {
+  display: grid;
+  grid-template-rows: 1, 4fr;
+  justify-self: end;
+  background-color: bisque;
+  border-radius: 10px;
+  margin: 50px;
+  height: 350px;
+} /*Jennifer*/
+
 /* hem */
 
 .hero {
