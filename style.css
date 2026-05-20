@@ -18,6 +18,11 @@ h3 {
   font-family: Geologica, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
