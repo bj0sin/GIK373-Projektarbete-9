@@ -324,7 +324,7 @@ body {
 ===================== */
 
 .container {
-  background-color: rgba(0, 76, 13, 1);
+  background-color: rgb(53, 87, 33);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -419,14 +419,14 @@ body {
   min-width: 280px;
   padding: 1.5rem;
 
-  background-color: rgb(39, 90, 48);
+  background-color: rgb(53, 87, 33);
   border-radius: 10px;
   transition: background-color 0.3s ease;
 }
 
 .kalla-dropdown[open],
 .data-dropdown[open] {
-  background-color: rgb(200, 211, 156);
+  background-color: rgb(165, 194, 147);
   /* beige */
 }
 
@@ -434,7 +434,7 @@ body {
 .data-dropdown[open] summary,
 .kalla-dropdown[open] .kallor,
 .data-dropdown[open] .data {
-  color: rgba(0, 76, 13, 1);
+  color: rgb(53, 87, 33);
 }
 
 /* rubriker */
@@ -487,7 +487,7 @@ body {
   padding: 40px;
   margin-top: 40px;
 
-  background-color: rgba(0, 76, 13, 1);
+  background-color: rgb(23, 53, 5);
   color: rgba(250, 255, 224, 1);
 
   flex-wrap: wrap;
