@@ -1,6 +1,9 @@
 const vatmarkUrl =
   "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/MI/MI1303/MI1303B/ExplVatmark";
 
+const befolkningUrl =
+  "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/BE/BE0101/BE0101A/BefolkningNy";
+
 const vatmarkQuery = {
   query: [
     {
@@ -30,6 +33,57 @@ const vatmarkQuery = {
           "24",
           "25",
         ],
+      },
+    },
+  ],
+  response: {
+    format: "JSON",
+  },
+};
+
+const befolkningQuery = {
+  query: [
+    {
+      code: "Region",
+      selection: {
+        filter: "vs:RegionLän07",
+        values: [
+          "01",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "12",
+          "13",
+          "14",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+        ],
+      },
+    },
+    {
+      code: ContentsCode,
+      selection: {
+        filter: "item",
+        values: ["BE0101N1"],
+      },
+    },
+    {
+      code: "Tid",
+      selection: {
+        filter: "item",
+        values: ["2020", "2021", "2022", "2023", "2024"],
       },
     },
   ],
