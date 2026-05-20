@@ -1,8 +1,8 @@
 const vatmarkUrl =
   "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/MI/MI1303/MI1303B/ExplVatmark";
 
-/*const befolkningUrl =
-  "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/BE/BE0101/BE0101A/BefolkningNy"; */
+const befolkningUrl =
+  "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/BE/BE0101/BE0101A/BefolkningNy";
 
 const vatmarkQuery = {
   query: [
@@ -35,9 +35,30 @@ const vatmarkQuery = {
         ],
       },
     },
+    {
+      code: "Exploateringstyp",
+      selection: {
+        filter: "item",
+        values: ["BYGGN", "JVAG", "VAG", "TOT"],
+      },
+    },
+    {
+      code: "ContentsCode",
+      selection: {
+        filter: "item",
+        values: ["000006WZ", "000006WX"],
+      },
+    },
+    {
+      code: "Tid",
+      selection: {
+        filter: "item",
+        values: ["2020", "2021", "2022", "2023", "2024"],
+      },
+    },
   ],
   response: {
-    format: "JSON",
+    format: "json",
   },
 };
 
@@ -146,8 +167,17 @@ async function displayVatmarkMap() {
       geojson:
         "https://raw.githubusercontent.com/okfse/sweden-geojson/refs/heads/master/swedish_regions.geojson",
       featureidkey: "properties.name",
-      colorscale: "Greens",
-      reversescale: true,
+      colorscale: [
+        [0, "#FAFFE0"],
+        [0.5, "#8b966c"],
+        [1, "#173505"],
+      ],
+      colorbar: {
+        title: "Hektar",
+        outlinewidth: 0,
+      },
+      hovertemplate:
+        "<b>%{location}</b><br>Exploaterad yta: %{z} hektar<extra></extra>",
     },
   ];
 
@@ -157,7 +187,7 @@ async function displayVatmarkMap() {
       zoom: 3.5,
     },
     margin: { r: 0, t: 0, b: 0, l: 0 },
-    autosize: true,
+    dragmode: false,
   };
 
   Plotly.newPlot("sverigekarta", data, layout);
