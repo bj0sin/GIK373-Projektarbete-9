@@ -361,7 +361,7 @@ body {
   color: rgba(250, 255, 224, 1);
 
   font-size: 1.2rem;
-  font-family: "Inter", sans-serif;
+  font-family: "questrial", sans-serif;
   flex: 1;
   min-width: 250px;
   max-width: 50%;
@@ -369,6 +369,7 @@ body {
 
 .text h2 {
   font-size: clamp(32px, 4vw, 60px);
+
 
   /* mer responsiv än fast 60px */
 }
@@ -453,7 +454,7 @@ body {
 
 .kalla-dropdown[open],
 .data-dropdown[open] {
-  background-color: rgba(23, 53, 5, 0.183);
+  background-color: rgba(23, 53, 5, 0.24);
   /* beige */
 }
 
