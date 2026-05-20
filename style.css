@@ -211,12 +211,13 @@ h3 {
 }
 
 #sverigekarta {
-  flex: 1;
+  flex: 0.6;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 600px;
 }
 
 .fakta-sektion {

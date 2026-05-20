@@ -172,10 +172,7 @@ async function displayVatmarkMap() {
         [0.5, "#8b966c"],
         [1, "#173505"],
       ],
-      colorbar: {
-        title: "Hektar",
-        outlinewidth: 0,
-      },
+      showscale: false,
       hovertemplate:
         "<b>%{location}</b><br>Exploaterad yta: %{z} hektar<extra></extra>",
     },
@@ -190,7 +187,12 @@ async function displayVatmarkMap() {
     dragmode: false,
   };
 
-  Plotly.newPlot("sverigekarta", data, layout);
+  const config = {
+    displayModeBar: false, // Döljer verktygsfältet i hörnet
+    responsive: true, // Gör kartan följsam
+  };
+
+  Plotly.newPlot("sverigekarta", data, layout, config);
 }
 
 displayVatmarkMap();
