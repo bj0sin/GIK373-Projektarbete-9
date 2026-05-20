@@ -12,6 +12,12 @@ body {
   line-height: 1.5;
 }
 
+h1,
+h2,
+h3 {
+  font-family: Geologica, sans-serif;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -161,7 +167,7 @@ body {
 
 .hero-center-banner h1 {
   color: rgba(250, 255, 224, 1);
-  font-size: 6rem;
+  font-size: 6.5rem;
   margin: 0;
   font-weight: 800;
   letter-spacing: 8px;
@@ -196,6 +202,7 @@ body {
 .kort-text h2 {
   padding-bottom: 2rem;
   font-size: 3rem;
+  font-family: Geologica, sans-serif;
 }
 
 .kort-text p {
@@ -318,7 +325,7 @@ body {
 .lank-kort h3 {
   font-size: 1.3rem;
   margin-bottom: 15px;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.291);
+  font-family: Geologica, sans-serif;
 }
 
 .lank-kort p {
@@ -370,7 +377,6 @@ body {
 
 .text h2 {
   font-size: clamp(32px, 4vw, 60px);
-
 
   /* mer responsiv än fast 60px */
 }
@@ -521,7 +527,13 @@ body {
   gap: 20px;
 }
 
-.footer-contact {
+.footer-contact h3 {
+  line-height: 1.8;
+  font-size: 1.6rem;
+  font-family: Geologica, sans-serif;
+}
+
+.footer-contact p {
   line-height: 1.8;
   font-size: 1.3rem;
 }
