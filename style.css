@@ -17,7 +17,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 18px 40px;
-  background-color: rgb(23, 53, 5);
+  background-color: rgba(23, 53, 5);
 }
 
 .nav-links {
@@ -80,9 +80,20 @@ body {
   height: 100%;
 }
 
-#stapeldiagram {
-  flex: 1;
-  background-color: rgba(255, 255, 255, 0.1);
+.chartText {
+  display: grid;
+  justify-self: auto;
+  grid-template-rows: 1fr, 2fr;
+  font-size: small;
+  color: bisque;
+  margin-left: 25px;
+}
+
+.statistik-kort {
+  display: grid;
+  grid-template-rows: 1, 4fr;
+  gap: 25px;
+  background-color: rgba(23, 53, 5);
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -111,14 +122,9 @@ body {
   flex: 1;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  <<<<<<< HEAD margin: 50px;
-  height: 350px;
-}
-
-/*Jennifer*
-=======display: flex;
-justify-content: center;
-align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 >>>>>>>445a3f6ef31a45463066b78a543e366294b89d62
@@ -170,7 +176,7 @@ align-items: center;
 }
 
 .kort {
-  background-color: rgb(15, 56, 2);
+  background-color: rgba(23, 53, 5);
   width: 100%;
   height: 700px;
   border-radius: 10px;
@@ -220,25 +226,24 @@ align-items: center;
   width: 100%;
 }
 
-.knapp {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  background-color: rgba(250, 255, 224, 1);
-}
-
 .karusell {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   flex: 1;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.karusell::-webkit-scrollbar {
+  display: none;
 }
 
 .fakta-kort {
-  flex: 0 0 320px;
+  flex: 0 0 600px;
+  height: 650px;
   scroll-snap-align: start;
-  background-color: rgba(0, 76, 13, 1);
+  background-color: rgba(23, 53, 5);
   border-radius: 10px;
   overflow: hidden;
   display: flex;
@@ -247,7 +252,8 @@ align-items: center;
 
 .fakta-bild {
   width: 100%;
-  height: 200px;
+  height: 350px;
+  object-fit: cover;
 }
 
 .fakta-text {
@@ -258,18 +264,19 @@ align-items: center;
 }
 
 .fakta-text h3 {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   margin-bottom: 10px;
 }
 
 .fakta-text p {
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
 
 .fakta-kalla {
   margin-top: auto;
   font-style: italic;
   padding-top: 15px;
+  color: rgb(195, 202, 162);
 }
 
 .statistik-lankar-sektion {
@@ -282,7 +289,7 @@ align-items: center;
 
 .statistik-lankar-sektion h2 {
   color: rgba(0, 76, 13, 1);
-  font-size: 2rem;
+  font-size: 4rem;
   margin-bottom: 40px;
 }
 
@@ -294,7 +301,7 @@ align-items: center;
 }
 
 .lank-kort {
-  background-color: rgba(0, 76, 13, 1);
+  background-color: rgba(23, 53, 5);
   border-radius: 10px;
   padding: 30px 20px;
   text-decoration: none;
@@ -330,7 +337,7 @@ align-items: center;
 ===================== */
 
 .container {
-  background-color: rgb(53, 87, 33);
+  background-color: rgba(23, 53, 5);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -425,7 +432,7 @@ align-items: center;
   min-width: 280px;
   padding: 1.5rem;
 
-  background-color: rgb(53, 87, 33);
+  background-color: rgba(23, 53, 5);
   border-radius: 10px;
   transition: background-color 0.3s ease;
 }
@@ -440,7 +447,7 @@ align-items: center;
 .data-dropdown[open] summary,
 .kalla-dropdown[open] .kallor,
 .data-dropdown[open] .data {
-  color: rgb(53, 87, 33);
+  color: rgba(23, 53, 5);
 }
 
 /* rubriker */
@@ -493,7 +500,7 @@ align-items: center;
   padding: 40px;
   margin-top: 40px;
 
-  background-color: rgb(23, 53, 5);
+  background-color: rgba(23, 53, 5);
   color: rgba(250, 255, 224, 1);
 
   flex-wrap: wrap;
