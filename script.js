@@ -62,7 +62,7 @@ const vatmarkQuery = {
   },
 };
 
-/* const befolkningQuery = {
+const befolkningQuery = {
   query: [
     {
       code: "Region",
@@ -94,7 +94,7 @@ const vatmarkQuery = {
       },
     },
     {
-      code: ContentsCode,
+      code: "ContentsCode",
       selection: {
         filter: "item",
         values: ["BE0101N1"],
@@ -111,7 +111,7 @@ const vatmarkQuery = {
   response: {
     format: "JSON",
   },
-}; */
+};
 
 const regionCodeMap = {
   "01": "Stockholm",
@@ -137,33 +137,45 @@ const regionCodeMap = {
   25: "Norrbotten",
 };
 
-async function buildVatmarkData() {
+async function fetchVatmark() {
   const response = await fetch(vatmarkUrl, {
     method: "POST",
     body: JSON.stringify(vatmarkQuery),
   });
-  const rawData = await response.json();
-
-  console.log(rawData);
-
-  const hektarVarden = rawData.data.map((item) => Number(item.values[0]));
-
-  const regioner = rawData.data.map((item) => regionCodeMap[item.key[0]]);
-
-  return {
-    regioner,
-    hektarVarden,
-  };
+  const data = await response.json();
+  return data.data;
 }
 
+async function fetchBefolkning() {
+  const response = await fetch(befolkningUrl, {
+    method: "POST",
+    body: JSON.stringify(befolkningQuery),
+  });
+  const data = await response.json();
+  return data.data;
+}
+
+/* 
+KARTAN
+*/
 async function displayVatmarkMap() {
-  const mapData = await buildVatmarkData();
+  const allVatmarkData = await fetchVatmark();
+
+  const kartaData = allVatmarkData.filter((item) => {
+    return item.key.includes("TOT") && item.key.includes("2024");
+  });
+
+  const regionerList = kartaData.map((item) => regionCodeMap[item.key[0]]);
+
+  const direktHektar = kartaData.map((item) => Number(item.values[0]));
+  const totalHektar = kartaData.map((item) => Number(item.values[1]));
 
   const data = [
     {
       type: "choroplethmap",
-      locations: mapData.regioner,
-      z: mapData.hektarVarden,
+      locations: regionerList,
+      z: totalHektar,
+      customdata: direktHektar,
       geojson:
         "https://raw.githubusercontent.com/okfse/sweden-geojson/refs/heads/master/swedish_regions.geojson",
       featureidkey: "properties.name",
@@ -174,22 +186,25 @@ async function displayVatmarkMap() {
       ],
       showscale: false,
       hovertemplate:
-        "<b>%{location}</b><br>Exploaterad yta: %{z} hektar<extra></extra>",
+        "<b>%{location}</b><br>" +
+        "Direkt + Indirekt exploatering: <b>%{z} ha</b><br>" +
+        "Varav enbart direkt: %{customdata} ha<extra></extra>",
+      marker: { line: { color: "rgba(23,53,5,0.3)", width: 1 } },
     },
   ];
 
   const layout = {
     map: {
       center: { lon: 16.0, lat: 62 },
-      zoom: 3.5,
+      zoom: 3.9,
     },
     margin: { r: 0, t: 0, b: 0, l: 0 },
     dragmode: false,
   };
 
   const config = {
-    displayModeBar: false, // Döljer verktygsfältet i hörnet
-    responsive: true, // Gör kartan följsam
+    displayModeBar: false,
+    responsive: true,
   };
 
   Plotly.newPlot("sverigekarta", data, layout, config);
