@@ -170,12 +170,21 @@ async function displayVatmarkMap() {
   const direktHektar = kartaData.map((item) => Number(item.values[0]));
   const totalHektar = kartaData.map((item) => Number(item.values[1]));
 
+  const indirektHektar = totalHektar.map(
+    (total, index) => total - direktHektar[index],
+  );
+
+  const hoverData = direktHektar.map((direkt, index) => [
+    direkt,
+    indirektHektar[index],
+  ]);
+
   const data = [
     {
       type: "choroplethmap",
       locations: regionerList,
       z: totalHektar,
-      customdata: direktHektar,
+      customdata: hoverData,
       geojson:
         "https://raw.githubusercontent.com/okfse/sweden-geojson/refs/heads/master/swedish_regions.geojson",
       featureidkey: "properties.name",
@@ -186,9 +195,9 @@ async function displayVatmarkMap() {
       ],
       showscale: false,
       hovertemplate:
-        "<b>%{location}</b><br>" +
-        "Direkt + Indirekt exploatering: <b>%{z} ha</b><br>" +
-        "Varav enbart direkt: %{customdata} ha<extra></extra>",
+        "<b>%{location}</b><br><br>" +
+        "Direkt exploatering: <b>%{customdata[0]} ha</b><br>" +
+        "Indirekt exploatering: <b>%{customdata[1]} ha</b><extra></extra>",
       marker: { line: { color: "rgba(23,53,5,0.3)", width: 1 } },
     },
   ];
@@ -211,3 +220,19 @@ async function displayVatmarkMap() {
 }
 
 displayVatmarkMap();
+
+/*
+GRAF 1
+*/
+
+/*
+GRAF 2
+*/
+
+/*
+GRAF 3
+*/
+
+/*
+GRAF 4
+*/
