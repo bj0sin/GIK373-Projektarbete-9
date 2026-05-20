@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -27,34 +27,70 @@
     </nav>
 
     <main>
-      <div class="statistik-kort">
-        <h4>Stapelgraf</h4>
-        <div class="chartText">Stapelgrafen är en fin och intressant graf.</div>
-        <canvas id="stapelgraf"></canvas>
-        <!--  src = VISUALISERING HÄR -->
-      </div>
+      <section class="hero">
+        <img
+          src="assets/axel-josefsson-g6C92nVS8Xs-unsplash.jpg"
+          alt="banner-img"
+        />
 
-      <div class="statistik-kort">
-        <h4>Cirkeldiagram</h4>
-        <div class="chartText"></div>
-        <canvas id="cirkeldiagram"></canvas>
-        <!--  src = VISUALISERING HÄR -->
-      </div>
+        <div class="overlay"></div>
+        <div class="hero-center-banner">
+          <h1>Statistik</h1>
+        </div>
+      </section>
 
-      <div class="statistik-kort">
-        <h4>Linjediagram</h4>
-        <div class="chartText"></div>
-        <canvas id="linjediagram"></canvas>
-        <!--  src = VISUALISERING HÄR -->
-      </div>
+      <!-- Visualisering 1 -->
+      <section class="karta-sektion">
+        <div class="kort">
+          <div class="kort-text">
+            <h2>Stapeldiagram</h2>
+            <p>hej</p>
+            <p>hej</p>
+          </div>
 
-      <div class="statistik-kort">
-        <div class="chartText"></div>
-        <h4>Drop-down linjediagram</h4>
-        <canvas id="dropDown"></canvas>
-        <!--  src = VISUALISERING HÄR -->
-      </div>
+          <div id="stapeldiagram"></div>
+        </div>
+      </section>
+      <!-- Visualisering 2 -->
+      <section class="karta-sektion">
+        <div class="kort">
+          <div class="kort-text">
+            <h2>Cirkeldiagram</h2>
+            <p>hej</p>
+            <p>hej</p>
+          </div>
+
+          <div id="cirkeldiagram"></div>
+        </div>
+      </section>
+
+      <!-- Visualisering 3 -->
+      <section class="karta-sektion">
+        <div class="kort">
+          <div class="kort-text">
+            <h2>Linjediagram</h2>
+            <p>hej</p>
+            <p>hej</p>
+          </div>
+
+          <div id="linjediagram"></div>
+        </div>
+      </section>
+
+      <!-- Visualisering 4 -->
+      <section class="karta-sektion">
+        <div class="kort">
+          <div class="kort-text">
+            <h2>Dropdown linjediagram</h2>
+            <p>hej</p>
+            <p>hej</p>
+          </div>
+
+          <div id="dropdowndiagram"></div>
+        </div>
+      </section>
     </main>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
     <footer class="footer">

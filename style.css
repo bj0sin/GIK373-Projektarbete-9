@@ -73,76 +73,55 @@ body {
 
 /*Jennifer*/
 
-h4 {
-  display: grid;
-  grid-template-rows: 1fr, 2fr;
-  justify-self: auto;
-  font-size: large;
-  margin-left: 25px;
-  margin-top: 25px;
-  justify-content: baseline;
+.hero img {
+  width: 100%;
+  object-fit: cover;
+  inset: 0;
+  height: 100%;
 }
 
-.chartText {
-  display: grid;
-  justify-self: auto;
-  grid-template-rows: 1fr, 2fr;
-  font-size: small;
-  color: bisque;
-  margin-left: 25px;
-}
-
-.statistik-kort {
-  display: grid;
-  grid-template-rows: 1, 4fr;
-  gap: 25px;
-  background-color: rgba(0, 76, 13, 1);
+#stapeldiagram {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  margin: 75px;
-}
-
-#stapelgraf {
-  display: grid;
-  grid-template-rows: 1, 4fr;
-  justify-self: end;
-  background-color: bisque;
-  border-radius: 10px;
-  margin: 50px;
-  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #cirkeldiagram {
-  display: grid;
-  grid-template-rows: 1, 4fr;
-  justify-self: end;
-  background-color: bisque;
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  margin: 50px;
-  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #linjediagram {
-  display: grid;
-  grid-template-rows: 1, 4fr;
-  justify-self: end;
-  background-color: bisque;
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  margin: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#dropdowndiagram {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  <<<<<<< HEAD margin: 50px;
   height: 350px;
 }
 
-#dropDown {
-  display: grid;
-  grid-template-rows: 1, 4fr;
-  justify-self: end;
-  background-color: bisque;
-  border-radius: 10px;
-  margin: 50px;
-  height: 350px;
+/*Jennifer*
+=======display: flex;
+justify-content: center;
+align-items: center;
 }
 
-/*Jennifer*/
-
+>>>>>>>445a3f6ef31a45463066b78a543e366294b89d62
 /* hem */
 
 .hero {
