@@ -1,8 +1,8 @@
 const vatmarkUrl =
   "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/MI/MI1303/MI1303B/ExplVatmark";
 
-const befolkningUrl =
-  "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/BE/BE0101/BE0101A/BefolkningNy";
+/*const befolkningUrl =
+  "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/BE/BE0101/BE0101A/BefolkningNy"; */
 
 const vatmarkQuery = {
   query: [
@@ -41,7 +41,7 @@ const vatmarkQuery = {
   },
 };
 
-const befolkningQuery = {
+/* const befolkningQuery = {
   query: [
     {
       code: "Region",
@@ -90,7 +90,7 @@ const befolkningQuery = {
   response: {
     format: "JSON",
   },
-};
+}; */
 
 const regionCodeMap = {
   "01": "Stockholm",

@@ -81,47 +81,44 @@ body {
 .statistik-sektion {
   padding: 60px 40px;
   display: flex;
-  flex-direction: center;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .statistik-kort {
   background-color: rgba(23, 53, 5);
-  width: 100%;
-  height: 700px;
+  width: 1100px;
+  height: 600px;
   border-radius: 10px;
-  padding: 40px;
+  padding: 50px;
   display: flex;
-  gap: 40px;
+  gap: 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.291);
 }
 
-#stapeldiagram {
+.statistik-text {
   flex: 1;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  color: rgba(250, 255, 224, 1);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-#cirkeldiagram {
-  flex: 1;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.statistik-text h2 {
+  padding-bottom: 1.8rem;
+  font-size: 2rem;
 }
 
-#linjediagram {
-  flex: 1;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.statistik-text p {
+  font-size: 1.2rem;
+  padding-bottom: 1.6rem;
 }
 
+#stapeldiagram,
+#cirkeldiagram,
+#linjediagram,
 #dropdowndiagram {
+  max-width: 600px;
   flex: 1;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
@@ -185,6 +182,7 @@ body {
   padding: 40px;
   display: flex;
   gap: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.291);
 }
 
 .kort-text {
@@ -310,6 +308,7 @@ body {
   display: flex;
   flex-direction: column;
   color: rgba(250, 255, 224, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.291);
 }
 
 .lank-kort:hover {
@@ -319,6 +318,7 @@ body {
 .lank-kort h3 {
   font-size: 1.3rem;
   margin-bottom: 15px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.291);
 }
 
 .lank-kort p {
@@ -351,6 +351,7 @@ body {
   border-radius: 10px;
 
   flex-wrap: wrap;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.291);
   /* viktigt för mindre skärmar */
 }
 
@@ -375,7 +376,6 @@ body {
 
 .dropdown-om ul,
 .dropdown-om p {
-
   margin-left: 5%;
 }
 
@@ -391,7 +391,6 @@ body {
 @media (max-width: 1440px) {
   .container {
     flex-direction: column;
-
   }
 
   .container img {
