@@ -44,8 +44,23 @@
         </div>
       </section>
 
+      <div class="statistik-layout">
+
+        <aside class="sidomeny">
+          <nav class="scroll-nav">
+            <ul>
+            <li><a href="#stapel-sektion" class="nav-lank active">Top 10 regioner</a></li>
+            <li><a href="#cirkel-sektion" class="nav-lank active">Störst påverkan</a></li>
+            <li><a href="#linje-sektion" class="nav-lank active">Förändring över tid</a></li>
+            <li><a href="#dropdown-sektion" class="nav-lank active">Påverkan per capita</a></li>
+            </ul>
+          </nav>
+        </aside>
+
+      <div class="grafer-container">
+
       <!-- Visualisering 1 -->
-      <section class="statistik-sektion">
+      <section class="statistik-sektion" id="stapel-sektion">
         <div class="statistik-kort">
           <div class="statistik-text">
             <h2>Stapeldiagram</h2>
@@ -59,7 +74,7 @@
       </section>
 
       <!-- Visualisering 2 -->
-      <section class="statistik-sektion">
+      <section class="statistik-sektion" id="cirkel-sektion">
         <div class="statistik-kort">
           <div class="statistik-text">
             <h2>Cirkeldiagram</h2>
@@ -71,7 +86,7 @@
       </section>
 
       <!-- Visualisering 3 -->
-      <section class="statistik-sektion">
+      <section class="statistik-sektion" id="linje-sektion">
         <div class="statistik-kort">
           <div class="statistik-text">
             <h2>Linjediagram</h2>
@@ -83,7 +98,7 @@
       </section>
 
       <!-- Visualisering 4 -->
-      <section class="statistik-sektion">
+      <section class="statistik-sektion" id="dropdown-sektion">
         <div class="statistik-kort">
           <div class="statistik-text">
             <h2>Dropdown linjediagram</h2>
@@ -94,9 +109,12 @@
         </div>
       </section>
     </main>
+    </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
+
     <footer class="footer">
       <div class="footer-contact">
         <h3>Kontakt</h3>

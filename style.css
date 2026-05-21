@@ -48,8 +48,6 @@ html {
   font-size: 1.3rem;
 }
 
-
-
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -82,6 +80,36 @@ html {
   inset: 0;
   height: 100%;
 }
+
+/* Sidomeny */
+
+.statistik-layout {
+  display: flex;
+  gap: 60px;
+  margin: 50px auto;
+  padding: 0 40px;
+  align-items: flex-start;
+}
+
+.sidomeny {
+  flex: 0 0 260px;
+  position: sticky;
+  top: 120px;
+}
+
+.scroll-nav {
+  background-color: rgba(23, 53, 5, 0.05);
+  padding: 30px 25px;
+  border-radius: 10px;
+}
+
+.scroll-nav h3 {
+  color: rgba(23, 53, 5, 1);
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+/* Statistik kort*/
 
 .statistik-sektion {
   padding: 60px 40px;
@@ -411,10 +439,6 @@ html {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-
-
-
-
 /* =====================
    KÄLLOR + DATA (BOXAR)
 ===================== */
@@ -464,10 +488,7 @@ html {
   font-weight: bold;
 
   color: rgba(250, 255, 224, 1);
-
-
 }
-
 
 /* INNEHÅLL */
 .kallor,
@@ -489,7 +510,6 @@ html {
   margin-bottom: 15px;
   overflow-wrap: break-word;
 }
-
 
 /* =====================
    FOOTER
@@ -521,49 +541,34 @@ html {
   font-size: 1.3rem;
 }
 
-
-
-
-
-
-
-
 /*MOBILE 600px*/
 
 @media (max-width: 600px) {
-
-
   .navbar {
     padding: 18px;
-
   }
 
   .nav-links {
     gap: 4rem;
-
   }
 
   .nav-links a {
     padding-bottom: 4px;
-
   }
 
   .logo img {
     height: 4rem;
-
   }
 
   /*statistik*/
 
   .statistik-kort {
-
     width: 100%;
     height: 400px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-
   }
 
   .statistik-text h2 {
@@ -581,7 +586,6 @@ html {
   #linjediagram,
   #dropdowndiagram {
     margin-top: auto;
-
   }
 
   /* hem */
@@ -589,7 +593,6 @@ html {
   .hero {
     height: 40vh;
   }
-
 
   .hero-center-banner h1 {
     font-size: 3rem;
@@ -601,7 +604,6 @@ html {
     flex-direction: column;
   }
 
-
   .kort-text h2 {
     padding-bottom: 1rem;
     font-size: 1.5rem;
@@ -612,11 +614,9 @@ html {
     padding-bottom: 1rem;
   }
 
-
   .fakta-kort {
     flex: 0 0 350px;
     height: 500px;
-
   }
 
   .fakta-bild {
@@ -624,7 +624,6 @@ html {
     height: 250px;
     object-fit: cover;
   }
-
 
   .fakta-text h3 {
     font-size: 1.5rem;
@@ -637,7 +636,6 @@ html {
 
   .lank-grid {
     grid-template-columns: 1fr;
-
   }
 
   .lank-kort {
@@ -648,25 +646,20 @@ html {
    OM OSS CONTAINER
 ===================== */
   .container {
-
     display: flex;
     flex-direction: column;
-
   }
 
   .text h2 {
     padding-bottom: 1rem;
     font-size: 1.5rem;
-
   }
 
   .text p,
   .text li {
     font-size: 1rem;
     padding-bottom: 1rem;
-
   }
-
 
   /* =====================
    KÄLLOR + DATA (BOXAR)
@@ -679,9 +672,7 @@ html {
 
   .kalla-dropdown,
   .data-dropdown {
-
     padding: 20px;
-
   }
 
   .kalla-dropdown,
@@ -692,7 +683,6 @@ html {
   .kalla-dropdown summary,
   .data-dropdown summary {
     font-size: 1.5rem;
-
   }
 
   .footer {
