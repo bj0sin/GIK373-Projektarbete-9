@@ -558,11 +558,11 @@ html {
   .statistik-kort {
 
     width: 100%;
-    height: 450px;
-    padding: 30px;
+    height: 400px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 
   }
 
@@ -581,40 +581,36 @@ html {
   #linjediagram,
   #dropdowndiagram {
     margin-top: auto;
+
   }
 
   /* hem */
 
   .hero {
     height: 40vh;
-
   }
 
 
   .hero-center-banner h1 {
     font-size: 3rem;
-
   }
 
   .kort {
     height: auto;
     display: flex;
     flex-direction: column;
-
   }
 
 
   .kort-text h2 {
     padding-bottom: 1rem;
     font-size: 1.5rem;
-
   }
 
   .kort-text p {
     font-size: 1rem;
     padding-bottom: 1rem;
   }
-
 
 
   .fakta-kort {
@@ -656,7 +652,6 @@ html {
     display: flex;
     flex-direction: column;
 
-
   }
 
   .text h2 {
@@ -673,16 +668,20 @@ html {
   }
 
 
-
-
-
   /* =====================
    KÄLLOR + DATA (BOXAR)
 ===================== */
 
   .info-container {
     width: 80%;
-    gap: 20px;
+    gap: 10px;
+  }
+
+  .kalla-dropdown,
+  .data-dropdown {
+
+    padding: 20px;
+
   }
 
   .kalla-dropdown,
@@ -690,7 +689,13 @@ html {
     min-width: 100%;
   }
 
-  footer {
+  .kalla-dropdown summary,
+  .data-dropdown summary {
+    font-size: 1.5rem;
+
+  }
+
+  .footer {
     flex-direction: column;
     text-align: center;
     padding: 20px;
