@@ -228,7 +228,54 @@ GRAF 1
 /*
 GRAF 2
 */
+async function displayCirkeldiagram() {
+  const allData = await fetchVatmark();
 
+  if (!allData) return;
+
+  const filtered = allData.filter(
+    (item) => item.key.includes("TOT") && item.key.includes("2024"),
+  );
+
+  let bygg = 0,
+    jord = 0,
+    vag = 0;
+
+  filtered.forEach((item) => {
+    const type = item.key[1];
+    const value = Number(item.values[0]);
+
+    if (type === "BYGGN") bygg += value;
+    if (type === "JVAG") jord += value;
+    if (type === "VAG") vag += value;
+  });
+
+  const ctx = document.getElementById("cirkeldiagram");
+
+  if (!ctx) {
+    console.log("Canvas hittas inte!");
+    return;
+  }
+
+  new Chart(ctx, {
+    type: "pie",
+    data: {
+      labels: ["Byggnation", "Jordbruk", "Vägar"],
+      datasets: [
+        {
+          data: [bygg, jord, vag],
+          backgroundColor: ["#173505", "#4f7d33", "#8b966c"],
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+    },
+  });
+}
+
+window.addEventListener("DOMContentLoaded", displayCirkeldiagram);
 /*
 GRAF 3
 */
