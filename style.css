@@ -359,6 +359,7 @@ h3 {
 
   flex-wrap: wrap;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.291);
+  cursor: pointer;
   /* viktigt för mindre skärmar */
 }
 
@@ -415,6 +416,7 @@ h3 {
 
   .text {
     font-size: 1rem;
+
   }
 
   .container img {
