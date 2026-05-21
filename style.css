@@ -350,42 +350,46 @@ html {
 /* =====================
    OM OSS CONTAINER
 ===================== */
-
 .container {
   background-color: rgba(23, 53, 5);
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 40px;
 
   width: 80%;
+  max-width: 1400px;
+
+  margin: 60px auto;
   padding: 40px;
-  margin: 40px auto;
+
   border-radius: 10px;
 
-  flex-wrap: wrap;
+  display: flex;
+  grid-template-columns: repeat(2 1fr);
+  gap: 40px;
+
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.291);
-  cursor: pointer;
-  /* viktigt för mindre skärmar */
 }
 
+/* TEXTDEL */
 .text {
+  flex: 1;
+  color: rgba(250, 255, 224, 1);
+
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  color: rgba(250, 255, 224, 1);
-
-  font-size: 1.2rem;
-  font-family: "questrial", sans-serif;
-  flex: 1;
-  min-width: 250px;
-  max-width: 50%;
 }
 
 .text h2 {
-  font-size: clamp(32px, 4vw, 60px);
+  padding-bottom: 2rem;
+  font-size: 3rem;
+  font-family: Geologica, sans-serif;
+}
 
-  /* mer responsiv än fast 60px */
+.text p,
+.text li {
+  font-size: 1.4rem;
+  padding-bottom: 1rem;
+  line-height: 1.6;
+  font-family: Questrial, sans-serif;
 }
 
 .dropdown-om ul,
@@ -393,42 +397,23 @@ html {
   margin-left: 5%;
 }
 
+/* BILD */
 .container img {
-  width: 30%;
-  max-height: 500px;
+  flex: 0.6;
+
+  width: 100%;
+  max-width: 500px;
+  min-height: 600px;
+
   object-fit: cover;
   border-radius: 10px;
-  min-width: 250px;
+
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* TABLET */
-@media (max-width: 1440px) {
-  .container {
-    flex-direction: column;
-  }
 
-  .container img {
-    width: 70%;
-  }
-}
 
-/* MOBILE */
-@media (max-width: 600px) {
-  .container {
-    width: 92%;
-    padding: 20px;
-    gap: 20px;
-  }
 
-  .text {
-    font-size: 1rem;
-
-  }
-
-  .container img {
-    width: 100%;
-  }
-}
 
 /* =====================
    KÄLLOR + DATA (BOXAR)
@@ -438,26 +423,28 @@ html {
   display: flex;
   gap: 40px;
   width: 80%;
-  margin: 40px auto;
+  max-width: 1400px;
+  margin: 60px auto;
   align-items: flex-start;
   flex-wrap: wrap;
 }
 
+/* KORTEN */
 .kalla-dropdown,
 .data-dropdown {
   flex: 1;
   min-width: 280px;
-  padding: 1.5rem;
-
+  padding: 40px;
   background-color: rgba(23, 53, 5);
   border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.291);
   transition: background-color 0.3s ease;
 }
 
+/* NÄR DROPDOWN ÄR ÖPPEN */
 .kalla-dropdown[open],
 .data-dropdown[open] {
-  background-color: rgba(23, 53, 5, 0.24);
-  /* beige */
+  background-color: rgba(250, 255, 224, 1);
 }
 
 .kalla-dropdown[open] summary,
@@ -467,23 +454,34 @@ html {
   color: rgba(23, 53, 5);
 }
 
-/* rubriker */
+/* RUBRIKER */
 .kalla-dropdown summary,
 .data-dropdown summary {
   cursor: pointer;
+
+  font-size: 1.8rem;
+  font-family: Geologica, sans-serif;
   font-weight: bold;
-  font-size: clamp(22px, 3vw, 40px);
+
   color: rgba(250, 255, 224, 1);
+
+
 }
 
-/* innehåll */
+
+/* INNEHÅLL */
 .kallor,
 .data {
-  margin-top: 10px;
-  font-size: 1.1rem;
-  line-height: 1.6;
+  margin-top: 20px;
+
+  font-size: 1.2rem;
+  line-height: 1.8;
+
   padding-left: 20px;
+
   color: rgba(250, 255, 224, 1);
+
+  font-family: Questrial, sans-serif;
 }
 
 .kallor li,
@@ -492,18 +490,6 @@ html {
   overflow-wrap: break-word;
 }
 
-/* MOBILE */
-@media (max-width: 600px) {
-  .info-container {
-    width: 92%;
-    gap: 20px;
-  }
-
-  .kalla-dropdown,
-  .data-dropdown {
-    min-width: 100%;
-  }
-}
 
 /* =====================
    FOOTER
@@ -512,7 +498,7 @@ html {
 .footer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: right;
 
   padding: 40px;
   margin-top: 40px;
@@ -535,18 +521,8 @@ html {
   font-size: 1.3rem;
 }
 
-/* MOBILE FOOTER */
-@media (max-width: 600px) {
-  .footer {
-    flex-direction: column;
-    text-align: center;
-    padding: 20px;
-  }
 
-  .footer-contact {
-    font-size: 1.1rem;
-  }
-}
+
 
 
 
@@ -556,138 +532,55 @@ html {
 
 @media (max-width: 600px) {
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    background-color: rgba(250, 255, 224, 1);
-    font-family: "Inter", sans-serif;
-    line-height: 1.5;
-  }
-
-  h1,
-  h2,
-  h3 {
-    font-family: Geologica, sans-serif;
-  }
-
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 80px;
-  }
 
   .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 40px;
-    background-color: rgba(23, 53, 5);
+    padding: 18px;
+
   }
 
   .nav-links {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    gap: 5rem;
-    margin-right: 42px;
-    padding: 0;
+    gap: 4rem;
+
   }
 
   .nav-links a {
-    font-size: 1.1rem;
-    display: block;
-    padding: 10px 0;
-    color: rgba(250, 255, 224, 1);
-    text-decoration: none;
-    position: relative;
     padding-bottom: 4px;
-    font-size: 1.1rem;
-  }
 
-
-  .nav-links a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0%;
-    height: 2px;
-    background-color: rgba(250, 255, 224, 1);
-    transition: width 0.2s ease;
-  }
-
-  .nav-links a:hover::after {
-    width: 100%;
-  }
-
-  .nav-links a.active::after {
-    width: 100%;
   }
 
   .logo img {
-    height: 5rem;
-    width: 100%;
+    height: 4rem;
+
   }
 
-  /*Jennifer*/
-
-  .hero img {
-    width: 100%;
-    object-fit: cover;
-    inset: 0;
-    height: 100%;
-  }
-
-  .statistik-sektion {
-    padding: 60px 40px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
+  /*statistik*/
 
   .statistik-kort {
-    background-color: rgba(23, 53, 5);
-    width: 1100px;
-    height: 600px;
-    border-radius: 10px;
-    padding: 50px;
-    display: flex;
-    gap: 50px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.291);
-  }
 
-  .statistik-text {
-    flex: 1;
-    color: rgba(250, 255, 224, 1);
+    width: 100%;
+    height: 450px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    gap: 20px;
+
   }
 
   .statistik-text h2 {
-    padding-bottom: 1.8rem;
-    font-size: 2rem;
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
   }
 
   .statistik-text p {
-    font-size: 1.2rem;
-    padding-bottom: 1.6rem;
+    font-size: 1rem;
+    padding-bottom: 0;
   }
 
   #stapeldiagram,
   #cirkeldiagram,
   #linjediagram,
   #dropdowndiagram {
-    max-width: 600px;
-    flex: 1;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-top: auto;
   }
 
   /* hem */
@@ -753,34 +646,42 @@ html {
 
   .lank-kort {
     padding: 15px;
+  }
 
-
-    /* =====================
+  /* =====================
    OM OSS CONTAINER
 ===================== */
+  .container {
 
-    .container {
-      width: 92%;
-      padding: 20px;
-      gap: 20px;
-    }
+    display: flex;
+    flex-direction: column;
 
-    .text {
-      font-size: 1rem;
 
-    }
-
-    .container img {
-      width: 100%;
-    }
   }
+
+  .text h2 {
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+
+  }
+
+  .text p,
+  .text li {
+    font-size: 1rem;
+    padding-bottom: 1rem;
+
+  }
+
+
+
+
 
   /* =====================
    KÄLLOR + DATA (BOXAR)
 ===================== */
 
   .info-container {
-    width: 92%;
+    width: 80%;
     gap: 20px;
   }
 
@@ -789,12 +690,7 @@ html {
     min-width: 100%;
   }
 
-
-  /* =====================
-   FOOTER
-===================== */
-
-  .footer {
+  footer {
     flex-direction: column;
     text-align: center;
     padding: 20px;
@@ -803,3 +699,4 @@ html {
   .footer-contact {
     font-size: 1.1rem;
   }
+}
