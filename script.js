@@ -1,8 +1,8 @@
 const vatmarkUrl =
   "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/MI/MI1303/MI1303B/ExplVatmark";
 
-/*const befolkningUrl =
-  "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/BE/BE0101/BE0101A/BefolkningNy"; */
+const befolkningUrl =
+  "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/BE/BE0101/BE0101A/BefolkningNy";
 
 const vatmarkQuery = {
   query: [
@@ -35,13 +35,34 @@ const vatmarkQuery = {
         ],
       },
     },
+    {
+      code: "Exploateringstyp",
+      selection: {
+        filter: "item",
+        values: ["BYGGN", "JVAG", "VAG", "TOT"],
+      },
+    },
+    {
+      code: "ContentsCode",
+      selection: {
+        filter: "item",
+        values: ["000006WZ", "000006WX"],
+      },
+    },
+    {
+      code: "Tid",
+      selection: {
+        filter: "item",
+        values: ["2020", "2021", "2022", "2023", "2024"],
+      },
+    },
   ],
   response: {
-    format: "JSON",
+    format: "json",
   },
 };
 
-/* const befolkningQuery = {
+const befolkningQuery = {
   query: [
     {
       code: "Region",
@@ -73,7 +94,7 @@ const vatmarkQuery = {
       },
     },
     {
-      code: ContentsCode,
+      code: "ContentsCode",
       selection: {
         filter: "item",
         values: ["BE0101N1"],
@@ -90,7 +111,7 @@ const vatmarkQuery = {
   response: {
     format: "JSON",
   },
-}; */
+};
 
 const regionCodeMap = {
   "01": "Stockholm",
@@ -116,51 +137,102 @@ const regionCodeMap = {
   25: "Norrbotten",
 };
 
-async function buildVatmarkData() {
+async function fetchVatmark() {
   const response = await fetch(vatmarkUrl, {
     method: "POST",
     body: JSON.stringify(vatmarkQuery),
   });
-  const rawData = await response.json();
-
-  console.log(rawData);
-
-  const hektarVarden = rawData.data.map((item) => Number(item.values[0]));
-
-  const regioner = rawData.data.map((item) => regionCodeMap[item.key[0]]);
-
-  return {
-    regioner,
-    hektarVarden,
-  };
+  const data = await response.json();
+  return data.data;
 }
 
+async function fetchBefolkning() {
+  const response = await fetch(befolkningUrl, {
+    method: "POST",
+    body: JSON.stringify(befolkningQuery),
+  });
+  const data = await response.json();
+  return data.data;
+}
+
+/* 
+KARTAN
+*/
 async function displayVatmarkMap() {
-  const mapData = await buildVatmarkData();
+  const allVatmarkData = await fetchVatmark();
+
+  const kartaData = allVatmarkData.filter((item) => {
+    return item.key.includes("TOT") && item.key.includes("2024");
+  });
+
+  const regionerList = kartaData.map((item) => regionCodeMap[item.key[0]]);
+
+  const direktHektar = kartaData.map((item) => Number(item.values[0]));
+  const totalHektar = kartaData.map((item) => Number(item.values[1]));
+
+  const indirektHektar = totalHektar.map(
+    (total, index) => total - direktHektar[index],
+  );
+
+  const hoverData = direktHektar.map((direkt, index) => [
+    direkt,
+    indirektHektar[index],
+  ]);
 
   const data = [
     {
       type: "choroplethmap",
-      locations: mapData.regioner,
-      z: mapData.hektarVarden,
+      locations: regionerList,
+      z: totalHektar,
+      customdata: hoverData,
       geojson:
         "https://raw.githubusercontent.com/okfse/sweden-geojson/refs/heads/master/swedish_regions.geojson",
       featureidkey: "properties.name",
-      colorscale: "Greens",
-      reversescale: true,
+      colorscale: [
+        [0, "#FAFFE0"],
+        [0.5, "#8b966c"],
+        [1, "#173505"],
+      ],
+      showscale: false,
+      hovertemplate:
+        "<b>%{location}</b><br><br>" +
+        "Direkt exploatering: <b>%{customdata[0]} ha</b><br>" +
+        "Indirekt exploatering: <b>%{customdata[1]} ha</b><extra></extra>",
+      marker: { line: { color: "rgba(23,53,5,0.3)", width: 1 } },
     },
   ];
 
   const layout = {
     map: {
       center: { lon: 16.0, lat: 62 },
-      zoom: 3.5,
+      zoom: 3.9,
     },
     margin: { r: 0, t: 0, b: 0, l: 0 },
-    autosize: true,
+    dragmode: false,
   };
 
-  Plotly.newPlot("sverigekarta", data, layout);
+  const config = {
+    displayModeBar: false,
+    responsive: true,
+  };
+
+  Plotly.newPlot("sverigekarta", data, layout, config);
 }
 
 displayVatmarkMap();
+
+/*
+GRAF 1
+*/
+
+/*
+GRAF 2
+*/
+
+/*
+GRAF 3
+*/
+
+/*
+GRAF 4
+*/
