@@ -228,49 +228,66 @@ GRAF 1
 /*
 GRAF 2
 */
+/*
+GRAF 2 – CIRKELDIAGRAM
+Visar fördelning mellan exploateringstyper år 2024
+*/
+
 async function displayCirkeldiagram() {
   const allData = await fetchVatmark();
 
-  if (!allData) return;
+  let byggnation = 0;
+  let jarnvag = 0;
+  let vagar = 0;
 
-  const filtered = allData.filter(
-    (item) => item.key.includes("TOT") && item.key.includes("2024"),
-  );
+  allData.forEach((item) => {
+    const region = item.key[0];
+    const exploateringstyp = item.key[1];
+    const innehall = item.key[2];
+    const ar = item.key[3];
 
-  let bygg = 0,
-    jord = 0,
-    vag = 0;
+    // bara år 2024
+    // bara direkt exploatering (000006WZ)
+    if (ar === "2024" && innehall === "000006WZ") {
+      const value = Number(item.values[0]);
 
-  filtered.forEach((item) => {
-    const type = item.key[1];
-    const value = Number(item.values[0]);
-
-    if (type === "BYGGN") bygg += value;
-    if (type === "JVAG") jord += value;
-    if (type === "VAG") vag += value;
+      if (exploateringstyp === "BYGGN") {
+        byggnation += value;
+      } else if (exploateringstyp === "JVAG") {
+        jarnvag += value;
+      } else if (exploateringstyp === "VAG") {
+        vagar += value;
+      }
+    }
   });
 
   const ctx = document.getElementById("cirkeldiagram");
 
-  if (!ctx) {
-    console.log("Canvas hittas inte!");
-    return;
-  }
-
   new Chart(ctx, {
     type: "pie",
+
     data: {
-      labels: ["Byggnation", "Jordbruk", "Vägar"],
+      labels: ["Byggnation", "Järnvägar", "Vägar"],
+
       datasets: [
         {
-          data: [bygg, jord, vag],
+          data: [byggnation, jarnvag, vagar],
+
           backgroundColor: ["#173505", "#4f7d33", "#8b966c"],
+
+          borderWidth: 1,
         },
       ],
     },
+
     options: {
       responsive: true,
-      maintainAspectRatio: false,
+
+      plugins: {
+        legend: {
+          position: "bottom",
+        },
+      },
     },
   });
 }
