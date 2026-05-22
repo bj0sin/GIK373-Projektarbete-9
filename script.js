@@ -137,6 +137,12 @@ const regionCodeMap = {
   25: "Norrbotten",
 };
 
+const typeNames = {
+  BYGGN: "Byggnation",
+  JVAG: "Järnväg",
+  VAG: "Vägar",
+};
+
 async function fetchVatmark() {
   const response = await fetch(vatmarkUrl, {
     method: "POST",
@@ -224,14 +230,14 @@ GRAF 1 Stapeldiagram
 */
 
 async function displayStapeldiagram() {
-  const allData = await fetchVatmark();
-  console.log(allData);
+  const allVatmarkData = await fetchVatmark();
+  console.log(allVatmarkData);
 
   //Filtrera till;
   //År 2024
   //Hektar
   //Exkludera totalen
-  const filtrerad = allData.filter((item) => {
+  const filtrerad = allVatmarkData.filter((item) => {
     return item.key[2] === "2024" && item.key[1] !== "TOT";
   });
 
@@ -255,7 +261,7 @@ async function displayStapeldiagram() {
     .slice(0, 10)
     .map(([code]) => ({
       code,
-      name: regionNameMap[code] ?? code,
+      name: regionCodeMap[code] ?? code,
     }));
 
   //Exploateringstyper
@@ -297,7 +303,7 @@ async function displayStapeldiagram() {
         title: {
           display: true,
           color: "#FAFFE0",
-          text: "Topp 10 regioner vs våtmarksexploatering i hektar (2024)",
+          text: "Topp 10 regioner med våtmarksexploatering i hektar (2024)",
           font: {
             size: 18,
             weight: "bold",
@@ -307,6 +313,7 @@ async function displayStapeldiagram() {
         legend: {
           position: "bottom",
           labels: {
+            color: "#FAFFE0",
             font: {
               size: 14,
             },
@@ -359,7 +366,7 @@ async function displayCirkeldiagram() {
   let jarnvag = 0;
   let vagar = 0;
 
-  allData.forEach((item) => {
+  allVatmarkData.forEach((item) => {
     // Plocka rätt index från SCB
     const exploateringstyp = item.key[1];
     const ar = item.key[2];
@@ -381,7 +388,7 @@ async function displayCirkeldiagram() {
 
   const ctx = document.getElementById("cirkeldiagram");
 
-  new Chart(ctx, {
+  new Chart(document.getElementById("cirkeldiagram"), {
     type: "pie",
 
     data: {
@@ -390,7 +397,6 @@ async function displayCirkeldiagram() {
       datasets: [
         {
           data: [byggnation, jarnvag, vagar],
-
           backgroundColor: ["#173505", "#4f7d33", "#8b966c"],
 
           borderWidth: 1,
@@ -401,9 +407,26 @@ async function displayCirkeldiagram() {
     options: {
       responsive: true,
 
+      layout: {
+        padding: 30,
+      },
+
       plugins: {
         legend: {
           position: "bottom",
+          labels: {
+            color: "#FAFFE0",
+          },
+        },
+      },
+
+      title: {
+        display: true,
+        text: "Störst påverkan på våtmarker i hektar",
+        color: "#FAFFE0",
+        font: {
+          size: 14,
+          weight: "bold",
         },
       },
     },

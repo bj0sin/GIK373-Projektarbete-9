@@ -125,7 +125,7 @@ html {
   display: flex;
   gap: 50px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.291);
-  align-items: stretch;
+  align-items: center;
 }
 
 .statistik-text {
@@ -151,8 +151,10 @@ html {
 #linjediagram,
 #dropdowndiagram {
   max-width: 600px;
-  background-color: rgba(255, 255, 255, 0.1);
+  min-height: 450px;
+  background-color: rgba(255, 255, 255, 0.195);
   border-radius: 10px;
+  flex: 1;
 }
 
 /* hem */
@@ -357,7 +359,6 @@ html {
   font-size: 1.3rem;
   margin-bottom: 15px;
   font-family: Geologica, sans-serif;
-
 }
 
 .lank-kort p {
@@ -374,14 +375,10 @@ html {
 }
 
 .ikon {
-
   width: 10rem;
   height: 10rem;
   margin: 20px;
-
 }
-
-
 
 /* =====================
    OM OSS CONTAINER
@@ -651,11 +648,9 @@ html {
   }
 
   .ikon {
-
     width: 5rem;
     height: 5rem;
     margin: 20px;
-
   }
 
   /* =====================
