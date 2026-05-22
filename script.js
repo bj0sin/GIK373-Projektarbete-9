@@ -219,8 +219,6 @@ async function displayVatmarkMap() {
   Plotly.newPlot("sverigekarta", data, layout, config);
 }
 
-displayVatmarkMap();
-
 /*
 GRAF 1 Stapeldiagram
 */
@@ -316,27 +314,26 @@ async function displayStapeldiagram() {
   });
 }
 
-/*
- GRAF 2 – CIRKELDIAGRAM
- Visar fördelning mellan exploateringstyper år 2024
- */
-
 async function displayCirkeldiagram() {
-  const allData = await fetchVatmark();
+  const allVatmarkData = await fetchVatmark();
+
+  // filtrera fram rätt data
+  const filteredData = allVatmarkData.filter((item) => {
+    return item.key.includes("2024") && item.key.includes("000006WZ");
+  });
 
   let byggnation = 0;
   let jarnvag = 0;
   let vagar = 0;
 
   allData.forEach((item) => {
-    const region = item.key[0];
+    // Plocka rätt index från SCB
     const exploateringstyp = item.key[1];
-    const innehall = item.key[2];
-    const ar = item.key[3];
+    const ar = item.key[2];
 
-    // bara år 2024
-    // bara direkt exploatering (000006WZ)
-    if (ar === "2024" && innehall === "000006WZ") {
+    // Filtrera bara på år 2024 (innehållskoden ligger i values-arrayen istället)
+    if (ar === "2024") {
+      // Värdet på plats 0 är direkt exploatering (000006WZ)
       const value = Number(item.values[0]);
 
       if (exploateringstyp === "BYGGN") {
@@ -390,6 +387,13 @@ async function displayCirkeldiagram() {
 
 /* LADDA ALLA DIAGRAM */
 window.addEventListener("DOMContentLoaded", () => {
-  displayStapeldiagram();
-  displayCirkeldiagram();
+  if (document.getElementById("sverigekarta")) {
+    displayVatmarkMap();
+  }
+  if (document.getElementById("stapeldiagram")) {
+    displayStapeldiagram();
+  }
+  if (document.getElementById("cirkeldiagram")) {
+    displayCirkeldiagram();
+  }
 });
