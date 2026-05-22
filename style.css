@@ -76,7 +76,11 @@ html {
   width: 100%;
   object-fit: cover;
   inset: 0;
-  height: 100%;
+  height: 60vh;
+}
+
+.overlay-img {
+  height: 60vh;
 }
 
 /* Sidomeny */
