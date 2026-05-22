@@ -171,7 +171,7 @@ async function displayVatmarkMap() {
   const totalHektar = kartaData.map((item) => Number(item.values[1]));
 
   const indirektHektar = totalHektar.map(
-    (total, index) => total - direktHektar[index],
+    (total, index) => total - direktHektar[index]
   );
 
   const hoverData = direktHektar.map((direkt, index) => [
@@ -220,17 +220,19 @@ async function displayVatmarkMap() {
 }
 
 /*
-GRAF 1
+GRAF 1 Stapeldiagram
 */
+
 async function displayStapeldiagram() {
   const allData = await fetchVatmark();
   console.log(allData);
+
   //Filtrera till;
   //År 2024
   //Hektar
   //Exkludera totalen
   const filtrerad = allData.filter((item) => {
-    return item.key[2] === "2024" && item.key[1] !== "TOT";
+    return item.key[3] === "2024" && item.key[1] !== "TOT";
   });
 
   //Hektar per region
@@ -258,9 +260,9 @@ async function displayStapeldiagram() {
 
   //Färger
   const colors = {
-    BYGGN: "#FF0000",
-    JVAG: "#00FF00",
-    VAG: "#0000FF",
+    BYGGN: "#FAFFE0",
+    JVAG: "#8b966c",
+    VAG: "#173505",
   };
 
   //Dataset för uppbyggnad av staplar
@@ -270,7 +272,7 @@ async function displayStapeldiagram() {
 
     data: topRegioner.map((region) => {
       const found = filtrerad.find(
-        (item) => item.key[0] === region && item.key[1] === typ,
+        (item) => item.key[0] === region && item.key[1] === typ
       );
       return found ? Number(found.values[0]) : 0;
     }),
