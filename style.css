@@ -67,16 +67,61 @@ html {
   width: 100%;
 }
 
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
 .logo img {
   height: 5rem;
   width: 100%;
 }
 
-.hero img {
-  width: 100%;
-  object-fit: cover;
-  inset: 0;
+/* STATISTIK HERO */
+
+.statistik-hero {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-top-row {
+  display: flex;
+  height: 500px;
+}
+
+.hero-image-box {
+  flex: 0 0 65%;
   height: 100%;
+}
+
+.hero-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-color-box {
+  flex: 1;
+  background-color: rgb(16, 37, 4);
+  color: rgba(250, 255, 224, 1);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.hero-color-box h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+.hero-color-box p {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  opacity: 0.9;
 }
 
 /* Sidomeny */
@@ -87,24 +132,57 @@ html {
   margin: 50px auto;
   padding: 0 40px;
   align-items: flex-start;
+  max-width: 1400px;
 }
 
 .sidomeny {
   flex: 0 0 260px;
   position: sticky;
-  top: 120px;
+  top: 100px;
 }
 
 .scroll-nav {
   background-color: rgba(23, 53, 5, 0.05);
   padding: 30px 25px;
   border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.195);
+  margin-top: 60px;
 }
 
 .scroll-nav h3 {
   color: rgba(23, 53, 5, 1);
   margin-bottom: 20px;
   font-size: 1.2rem;
+}
+
+.scroll-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0;
+}
+
+.scroll-nav a {
+  color: rgba(23, 53, 5, 0.6);
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: block;
+  padding-left: 0;
+}
+
+.scroll-nav a:hover {
+  color: rgba(23, 53, 5, 1);
+}
+
+.scroll-nav a.active {
+  color: rgba(23, 53, 5, 1);
+  font-weight: bold;
+  transform: translateX(8px);
+  border-left: 3px solid rgba(23, 53, 5, 1);
+  padding-left: 10px;
 }
 
 /* Statistik kort*/
@@ -553,156 +631,192 @@ html {
     padding: 18px;
   }
 
-  .nav-links {
-    gap: 4rem;
-  }
+  @media (max-width: 768px) {
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      position: relative;
+      z-index: 1000;
+    }
 
-  .nav-links a {
-    padding-bottom: 4px;
-  }
+    /* vanliga desktop-menyn */
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
 
-  .logo img {
-    height: 4rem;
-  }
+    /* göm hamburger på desktop */
+    .hamburger {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: rgba(250, 255, 224, 1);
+    }
 
-  /*statistik*/
+    /* MOBIL */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
 
-  .statistik-kort {
-    width: 100%;
-    height: 400px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: rgba(23, 53, 5, 1);
+        padding: 15px;
+        border-radius: 10px;
+        margin-right: 0;
+      }
 
-  .statistik-text h2 {
-    padding-bottom: 1rem;
-    font-size: 1.5rem;
-  }
+      .nav-links.active {
+        display: flex;
+      }
+    }
 
-  .statistik-text p {
-    font-size: 1rem;
-    padding-bottom: 0;
-  }
+    .logo img {
+      height: 4rem;
+    }
 
-  #stapeldiagram,
-  #cirkeldiagram,
-  #linjediagram,
-  #dropdowndiagram {
-    margin-top: auto;
-  }
+    /*statistik*/
 
-  /* hem */
+    .statistik-kort {
+      width: 100%;
+      height: 400px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
-  .hero {
-    height: 40vh;
-  }
+    .statistik-text h2 {
+      padding-bottom: 1rem;
+      font-size: 1.5rem;
+    }
 
-  .hero-center-banner h1 {
-    font-size: 3rem;
-  }
+    .statistik-text p {
+      font-size: 1rem;
+      padding-bottom: 0;
+    }
 
-  .kort {
-    height: auto;
-    display: flex;
-    flex-direction: column;
-  }
+    #stapeldiagram,
+    #cirkeldiagram,
+    #linjediagram,
+    #dropdowndiagram {
+      margin-top: auto;
+    }
 
-  .kort-text h2 {
-    padding-bottom: 1rem;
-    font-size: 1.5rem;
-  }
+    /* hem */
 
-  .kort-text p {
-    font-size: 1rem;
-    padding-bottom: 1rem;
-  }
+    .hero {
+      height: 40vh;
+    }
 
-  .fakta-kort {
-    flex: 0 0 350px;
-    height: 500px;
-  }
+    .hero-center-banner h1 {
+      font-size: 3rem;
+    }
 
-  .fakta-bild {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-  }
+    .kort {
+      height: auto;
+      display: flex;
+      flex-direction: column;
+    }
 
-  .fakta-text h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
+    .kort-text h2 {
+      padding-bottom: 1rem;
+      font-size: 1.5rem;
+    }
 
-  .fakta-text p {
-    font-size: 1rem;
-  }
+    .kort-text p {
+      font-size: 1rem;
+      padding-bottom: 1rem;
+    }
 
-  .lank-grid {
-    grid-template-columns: 1fr;
-  }
+    .fakta-kort {
+      flex: 0 0 350px;
+      height: 500px;
+    }
 
-  .lank-kort {
-    padding: 15px;
-  }
+    .ikon {
+      width: 5rem;
+      height: 5rem;
+      margin: 20px;
+    }
 
-  .ikon {
-    width: 5rem;
-    height: 5rem;
-    margin: 20px;
-  }
+    .lank-grid {
+      grid-template-columns: 1fr;
+    }
 
-  /* =====================
+    .lank-kort {
+      padding: 15px;
+    }
+
+    .ikon {
+      width: 5rem;
+      height: 5rem;
+      margin: 20px;
+    }
+
+    /* =====================
    OM OSS CONTAINER
 ===================== */
-  .container {
-    display: flex;
-    flex-direction: column;
-  }
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
 
-  .text h2 {
-    padding-bottom: 1rem;
-    font-size: 1.5rem;
-  }
+    .text h2 {
+      padding-bottom: 1rem;
+      font-size: 1.5rem;
+    }
 
-  .text p,
-  .text li {
-    font-size: 1rem;
-    padding-bottom: 1rem;
-  }
+    .text p,
+    .text li {
+      font-size: 1rem;
+      padding-bottom: 1rem;
+    }
 
-  /* =====================
+    .container img {
+      display: none;
+    }
+
+    /* =====================
    KÄLLOR + DATA (BOXAR)
 ===================== */
 
-  .info-container {
-    width: 80%;
-    gap: 10px;
-  }
+    .info-container {
+      width: 80%;
+      gap: 10px;
+    }
 
-  .kalla-dropdown,
-  .data-dropdown {
-    padding: 20px;
-  }
+    .kalla-dropdown,
+    .data-dropdown {
+      padding: 20px;
+    }
 
-  .kalla-dropdown,
-  .data-dropdown {
-    min-width: 100%;
-  }
+    .kalla-dropdown,
+    .data-dropdown {
+      min-width: 100%;
+    }
 
-  .kalla-dropdown summary,
-  .data-dropdown summary {
-    font-size: 1.5rem;
-  }
+    .kalla-dropdown summary,
+    .data-dropdown summary {
+      font-size: 1.5rem;
+    }
 
-  .footer {
-    flex-direction: column;
-    text-align: center;
-    padding: 20px;
-  }
+    .footer {
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
 
-  .footer-contact {
-    font-size: 1.1rem;
+    .footer-contact {
+      font-size: 1.1rem;
+    }
   }
 }

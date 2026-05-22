@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -25,23 +25,46 @@
         </a>
       </div>
 
-      <ul class="nav-links">
+      <!-- NY: hamburger -->
+      <div class="hamburger" id="hamburger">☰</div>
+
+      <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Hem</a></li>
         <li><a href="statistik.html" class="active">Statistik</a></li>
         <li><a href="om_oss.html">Om oss</a></li>
       </ul>
     </nav>
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+    </script>
 
     <main>
-      <section class="hero">
-        <img
-          src="assets/axel-josefsson-g6C92nVS8Xs-unsplash.jpg"
-          alt="banner-img"
-        />
-        <div class="overlay-img"></div>
-        <div class="hero-center-banner">
-          <h1></h1>
-        </div>
+      <section class="statistik-hero">
+        
+        <div class="hero-top-row">
+
+      <div class="hero-color-box">
+            <h1>DEN MYLLRANDE VÅTMARKEN</h1>
+            <p>Vi har dikat ut nästan alla våtmarker i Sveriges slättlandskap. Nu läcker de dränerade torvmarkerna omkring 11 miljoner ton koldioxidekvivalenter varje år – mer än hela den svenska personbilstrafiken.</p>
+          </div>
+        
+
+
+    <div class="hero-image-box">
+            <img
+              src="assets/axel-josefsson-g6C92nVS8Xs-unsplash.jpg"
+              alt="Svensk våtmark"
+            />
+          </div>
+          </div>
+          
+        
+
       </section>
 
       <div class="statistik-layout">
@@ -69,7 +92,7 @@
             </ul>
           </nav>
         </aside>
-      </div>
+
       <div>
         <div class="grafer-container">
           <!-- Visualisering 1 -->
