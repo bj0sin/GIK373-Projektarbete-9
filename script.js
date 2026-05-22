@@ -219,24 +219,20 @@ async function displayVatmarkMap() {
   Plotly.newPlot("sverigekarta", data, layout, config);
 }
 
-displayVatmarkMap();
-
 /*
-GRAF 1
+GRAF 1 Stapeldiagram
 */
+
 async function displayStapeldiagram() {
   const allData = await fetchVatmark();
   console.log(allData);
+
   //Filtrera till;
   //År 2024
   //Hektar
   //Exkludera totalen
   const filtrerad = allData.filter((item) => {
-    return (
-      item.key[3] === "2024" &&
-      item.key[2] === "000006WZ" &&
-      item.key[1] !== "TOT"
-    );
+    return item.key[2] === "2024" && item.key[1] !== "TOT";
   });
 
   //Hektar per region
@@ -264,9 +260,9 @@ async function displayStapeldiagram() {
 
   //Färger
   const colors = {
-    BYGGN: "#FF0000",
-    JVAG: "#00FF00",
-    VAG: "#0000FF",
+    BYGGN: "#FAFFE0",
+    JVAG: "#8b966c",
+    VAG: "#173505",
   };
 
   //Dataset för uppbyggnad av staplar
@@ -293,24 +289,54 @@ async function displayStapeldiagram() {
     options: {
       indexAxis: "y",
       responsive: true,
+      maintainAspectRatio: false,
       plugins: {
         title: {
           display: true,
+          color: "#FAFFE0",
           text: "Topp 10 regioner vs våtmarksexploatering i hektar (2024)",
+          font: {
+            size: 18,
+            weight: "bold",
+          },
         },
 
         legend: {
           position: "bottom",
+          labels: {
+            font: {
+              size: 14,
+            },
+            padding: 20,
+          },
         },
       },
 
       scales: {
         x: {
-          beginAtZero: true,
+          ticks: {
+            color: "#FAFFE0",
+            font: {
+              size: 12,
+            },
+          },
 
           title: {
             display: true,
+            color: "#FAFFE0",
             text: "Hektar",
+            font: {
+              size: 14,
+              weight: "bold",
+            },
+          },
+        },
+        y: {
+          ticks: {
+            color: "#FAFFE0",
+            font: {
+              size: 12,
+            },
           },
         },
       },
@@ -330,16 +356,23 @@ async function displayCirkeldiagram() {
   let jarnvag = 0;
   let vagar = 0;
 
-  filteredData.forEach((item) => {
+  allData.forEach((item) => {
+    // Plocka rätt index från SCB
     const exploateringstyp = item.key[1];
-    const value = Number(item.values[0]);
+    const ar = item.key[2];
 
-    if (exploateringstyp === "BYGGN") {
-      byggnation += value;
-    } else if (exploateringstyp === "JVAG") {
-      jarnvag += value;
-    } else if (exploateringstyp === "VAG") {
-      vagar += value;
+    // Filtrera bara på år 2024 (innehållskoden ligger i values-arrayen istället)
+    if (ar === "2024") {
+      // Värdet på plats 0 är direkt exploatering (000006WZ)
+      const value = Number(item.values[0]);
+
+      if (exploateringstyp === "BYGGN") {
+        byggnation += value;
+      } else if (exploateringstyp === "JVAG") {
+        jarnvag += value;
+      } else if (exploateringstyp === "VAG") {
+        vagar += value;
+      }
     }
   });
 
@@ -384,6 +417,38 @@ async function displayCirkeldiagram() {
 
 /* LADDA ALLA DIAGRAM */
 window.addEventListener("DOMContentLoaded", () => {
-  displayStapeldiagram();
-  displayCirkeldiagram();
+  if (document.getElementById("sverigekarta")) {
+    displayVatmarkMap();
+  }
+  if (document.getElementById("stapeldiagram")) {
+    displayStapeldiagram();
+  }
+  if (document.getElementById("cirkeldiagram")) {
+    displayCirkeldiagram();
+  }
+});
+
+/* SIDOMENY SCROLLSPY*/
+window.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          document
+            .querySelectorAll(".nav-lank")
+            .forEach((lank) => lank.classList.remove("active"));
+
+          const rattLank = document.querySelector(
+            `.nav-lank[href="#${entry.target.id}"]`,
+          );
+          if (rattLank) rattLank.classList.add("active");
+        }
+      });
+    },
+    { rootMargin: "-30% 0px -50% 0px" },
+  );
+
+  document
+    .querySelectorAll(".statistik-sektion")
+    .forEach((graf) => observer.observe(graf));
 });
