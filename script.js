@@ -312,13 +312,13 @@ async function displayStapeldiagram() {
   });
 }
 
-/*
- GRAF 2 – CIRKELDIAGRAM
- Visar fördelning mellan exploateringstyper år 2024
- */
-
 async function displayCirkeldiagram() {
-  const allData = await fetchVatmark();
+  const allVatmarkData = await fetchVatmark();
+
+  // filtrera fram rätt data
+  const filteredData = allVatmarkData.filter((item) => {
+    return item.key.includes("2024") && item.key.includes("000006WZ");
+  });
 
   let byggnation = 0;
   let jarnvag = 0;
