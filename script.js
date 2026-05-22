@@ -171,7 +171,7 @@ async function displayVatmarkMap() {
   const totalHektar = kartaData.map((item) => Number(item.values[1]));
 
   const indirektHektar = totalHektar.map(
-    (total, index) => total - direktHektar[index],
+    (total, index) => total - direktHektar[index]
   );
 
   const hoverData = direktHektar.map((direkt, index) => [
@@ -253,7 +253,10 @@ async function displayStapeldiagram() {
   const topRegioner = Object.entries(regionTotals)
     .sort((a, b) => b[1] - a[1])
     .slice(0, 10)
-    .map(([region]) => region);
+    .map(([code]) => ({
+      code,
+      name: regionNameMap[code] ?? code,
+    }));
 
   //Exploateringstyper
   const exploateringstyper = ["BYGGN", "JVAG", "VAG"];
@@ -267,12 +270,12 @@ async function displayStapeldiagram() {
 
   //Dataset för uppbyggnad av staplar
   const datasets = exploateringstyper.map((typ) => ({
-    label: typ,
+    label: typeNames[typ],
     backgroundColor: colors[typ],
 
     data: topRegioner.map((region) => {
       const found = filtrerad.find(
-        (item) => item.key[0] === region && item.key[1] === typ,
+        (item) => item.key[0] === region.code && item.key[1] === typ
       );
       return found ? Number(found.values[0]) : 0;
     }),
@@ -282,7 +285,7 @@ async function displayStapeldiagram() {
   new Chart(document.getElementById("stapeldiagram"), {
     type: "bar",
     data: {
-      labels: topRegioner,
+      labels: topRegioner.map((r) => r.name),
       datasets,
     },
 
@@ -439,13 +442,13 @@ window.addEventListener("DOMContentLoaded", () => {
             .forEach((lank) => lank.classList.remove("active"));
 
           const rattLank = document.querySelector(
-            `.nav-lank[href="#${entry.target.id}"]`,
+            `.nav-lank[href="#${entry.target.id}"]`
           );
           if (rattLank) rattLank.classList.add("active");
         }
       });
     },
-    { rootMargin: "-30% 0px -50% 0px" },
+    { rootMargin: "-30% 0px -50% 0px" }
   );
 
   document

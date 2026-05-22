@@ -78,15 +78,76 @@ html {
   width: 100%;
 }
 
-.hero img {
-  width: 100%;
-  object-fit: cover;
-  inset: 0;
-  height: 60vh;
+/* STATISTIK HERO */
+
+.statistik-hero {
+  display: flex;
+  flex-direction: column;
 }
 
-.overlay-img {
-  height: 60vh;
+.hero-top-row {
+  display: flex;
+
+  height: 500px;
+}
+
+.hero-image-box {
+  flex: 0 0 65%;
+  height: 100%;
+}
+
+.hero-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-color-box {
+  flex: 1;
+  background-color: rgb(16, 37, 4);
+  color: rgba(250, 255, 224, 1);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.hero-color-box h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+.hero-color-box p {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.hero-stats-box {
+  background-color: rgba(23, 53, 5, 1);
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  max-width: 800px;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  margin: 0 auto;
+  margin-top: 50px;
+  height: 400px;
+}
+
+.hero-stats-box h3 {
+  color: rgba(250, 255, 224, 1);
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.hero-stats-box p {
+  color: rgba(250, 255, 224, 1);
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 /* Sidomeny */
@@ -195,11 +256,6 @@ html {
   max-width: 600px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 450px;
 }
 
 /* hem */
@@ -404,7 +460,6 @@ html {
   font-size: 1.3rem;
   margin-bottom: 15px;
   font-family: Geologica, sans-serif;
-
 }
 
 .lank-kort p {
@@ -421,14 +476,10 @@ html {
 }
 
 .ikon {
-
   width: 10rem;
   height: 10rem;
   margin: 20px;
-
 }
-
-
 
 /* =====================
    OM OSS CONTAINER
@@ -715,19 +766,10 @@ html {
       height: 500px;
     }
 
-    .fakta-bild {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-    }
-
-    .fakta-text h3 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
-
-    .fakta-text p {
-      font-size: 1rem;
+    .ikon {
+      width: 5rem;
+      height: 5rem;
+      margin: 20px;
     }
 
     .lank-grid {
