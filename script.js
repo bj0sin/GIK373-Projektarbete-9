@@ -171,7 +171,7 @@ async function displayVatmarkMap() {
   const totalHektar = kartaData.map((item) => Number(item.values[1]));
 
   const indirektHektar = totalHektar.map(
-    (total, index) => total - direktHektar[index]
+    (total, index) => total - direktHektar[index],
   );
 
   const hoverData = direktHektar.map((direkt, index) => [
@@ -219,8 +219,6 @@ async function displayVatmarkMap() {
   Plotly.newPlot("sverigekarta", data, layout, config);
 }
 
-displayVatmarkMap();
-
 /*
 GRAF 1
 */
@@ -232,11 +230,7 @@ async function displayStapeldiagram() {
   //Hektar
   //Exkludera totalen
   const filtrerad = allData.filter((item) => {
-    return (
-      item.key[3] === "2024" &&
-      item.key[2] === "000006WZ" &&
-      item.key[1] !== "TOT"
-    );
+    return item.key[2] === "2024" && item.key[1] !== "TOT";
   });
 
   //Hektar per region
@@ -276,7 +270,7 @@ async function displayStapeldiagram() {
 
     data: topRegioner.map((region) => {
       const found = filtrerad.find(
-        (item) => item.key[0] === region && item.key[1] === typ
+        (item) => item.key[0] === region && item.key[1] === typ,
       );
       return found ? Number(found.values[0]) : 0;
     }),
@@ -331,14 +325,13 @@ async function displayCirkeldiagram() {
   let vagar = 0;
 
   allData.forEach((item) => {
-    const region = item.key[0];
+    // Plocka rätt index från SCB
     const exploateringstyp = item.key[1];
-    const innehall = item.key[2];
-    const ar = item.key[3];
+    const ar = item.key[2];
 
-    // bara år 2024
-    // bara direkt exploatering (000006WZ)
-    if (ar === "2024" && innehall === "000006WZ") {
+    // Filtrera bara på år 2024 (innehållskoden ligger i values-arrayen istället)
+    if (ar === "2024") {
+      // Värdet på plats 0 är direkt exploatering (000006WZ)
       const value = Number(item.values[0]);
 
       if (exploateringstyp === "BYGGN") {
@@ -392,6 +385,13 @@ async function displayCirkeldiagram() {
 
 /* LADDA ALLA DIAGRAM */
 window.addEventListener("DOMContentLoaded", () => {
-  displayStapeldiagram();
-  displayCirkeldiagram();
+  if (document.getElementById("sverigekarta")) {
+    displayVatmarkMap();
+  }
+  if (document.getElementById("stapeldiagram")) {
+    displayStapeldiagram();
+  }
+  if (document.getElementById("cirkeldiagram")) {
+    displayCirkeldiagram();
+  }
 });
