@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 512">
+  <!-- Generator: Adobe Illustrator 30.4.0, SVG Export Plug-In . SVG Version: 2.1.4 Build 226)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #faffe0;
+      }
+    </style>
+  </defs>
+  <g id="_01_align_center">
+    <path class="st0" d="M277.3,128h-42.7c-23.6,0-42.7,19.1-42.7,42.7v341.3h128V170.7c0-23.6-19.1-42.7-42.7-42.7Z"/>
+    <path class="st0" d="M469.3,0h-42.7C403.1,0,384,19.1,384,42.7v469.3h128V42.7C512,19.1,492.9,0,469.3,0Z"/>
+    <path class="st0" d="M85.3,256h-42.7c-23.6,0-42.7,19.1-42.7,42.7v213.3h128v-213.3c0-23.6-19.1-42.7-42.7-42.7Z"/>
+  </g>
+</svg>

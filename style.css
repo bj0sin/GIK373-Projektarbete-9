@@ -342,6 +342,8 @@ html {
   padding: 30px 20px;
   text-decoration: none;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   color: rgba(250, 255, 224, 1);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.291);
@@ -355,6 +357,7 @@ html {
   font-size: 1.3rem;
   margin-bottom: 15px;
   font-family: Geologica, sans-serif;
+
 }
 
 .lank-kort p {
@@ -369,6 +372,16 @@ html {
   font-size: 0.9rem;
   margin-top: auto;
 }
+
+.ikon {
+
+  width: 10rem;
+  height: 10rem;
+  margin: 20px;
+
+}
+
+
 
 /* =====================
    OM OSS CONTAINER
@@ -635,6 +648,14 @@ html {
 
   .lank-kort {
     padding: 15px;
+  }
+
+  .ikon {
+
+    width: 5rem;
+    height: 5rem;
+    margin: 20px;
+
   }
 
   /* =====================
