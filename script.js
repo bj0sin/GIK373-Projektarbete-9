@@ -222,21 +222,19 @@ async function displayVatmarkMap() {
 displayVatmarkMap();
 
 /*
-GRAF 1
+GRAF 1 Stapeldiagram
 */
+
 async function displayStapeldiagram() {
   const allData = await fetchVatmark();
   console.log(allData);
+
   //Filtrera till;
   //År 2024
   //Hektar
   //Exkludera totalen
   const filtrerad = allData.filter((item) => {
-    return (
-      item.key[3] === "2024" &&
-      item.key[2] === "000006WZ" &&
-      item.key[1] !== "TOT"
-    );
+    return item.key[3] === "2024" && item.key[1] !== "TOT";
   });
 
   //Hektar per region
@@ -264,9 +262,9 @@ async function displayStapeldiagram() {
 
   //Färger
   const colors = {
-    BYGGN: "#FF0000",
-    JVAG: "#00FF00",
-    VAG: "#0000FF",
+    BYGGN: "#FAFFE0",
+    JVAG: "#8b966c",
+    VAG: "#173505",
   };
 
   //Dataset för uppbyggnad av staplar
