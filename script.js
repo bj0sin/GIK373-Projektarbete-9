@@ -171,7 +171,7 @@ async function displayVatmarkMap() {
   const totalHektar = kartaData.map((item) => Number(item.values[1]));
 
   const indirektHektar = totalHektar.map(
-    (total, index) => total - direktHektar[index]
+    (total, index) => total - direktHektar[index],
   );
 
   const hoverData = direktHektar.map((direkt, index) => [
@@ -272,7 +272,7 @@ async function displayStapeldiagram() {
 
     data: topRegioner.map((region) => {
       const found = filtrerad.find(
-        (item) => item.key[0] === region && item.key[1] === typ
+        (item) => item.key[0] === region && item.key[1] === typ,
       );
       return found ? Number(found.values[0]) : 0;
     }),
@@ -396,4 +396,29 @@ window.addEventListener("DOMContentLoaded", () => {
   if (document.getElementById("cirkeldiagram")) {
     displayCirkeldiagram();
   }
+});
+
+/* SIDOMENY SCROLLSPY*/
+window.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          document
+            .querySelectorAll(".nav-lank")
+            .forEach((lank) => lank.classList.remove("active"));
+
+          const rattLank = document.querySelector(
+            `.nav-lank[href="#${entry.target.id}"]`,
+          );
+          if (rattLank) rattLank.classList.add("active");
+        }
+      });
+    },
+    { rootMargin: "-30% 0px -50% 0px" },
+  );
+
+  document
+    .querySelectorAll(".statistik-sektion")
+    .forEach((graf) => observer.observe(graf));
 });
