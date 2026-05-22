@@ -81,7 +81,6 @@ html {
 
 .hero-top-row {
   display: flex;
-
   height: 500px;
 }
 
@@ -119,31 +118,6 @@ html {
   opacity: 0.9;
 }
 
-.hero-stats-box {
-  background-color: rgba(23, 53, 5, 1);
-  padding: 30px;
-  border-radius: 10px;
-  display: flex;
-  max-width: 800px;
-  flex-direction: column;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  margin: 0 auto;
-  margin-top: 50px;
-  height: 400px;
-}
-
-.hero-stats-box h3 {
-  color: rgba(250, 255, 224, 1);
-  font-size: 1.3rem;
-  margin-bottom: 8px;
-}
-
-.hero-stats-box p {
-  color: rgba(250, 255, 224, 1);
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
 /* Sidomeny */
 
 .statistik-layout {
@@ -166,6 +140,7 @@ html {
   padding: 30px 25px;
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.195);
+  margin-top: 60px;
 }
 
 .scroll-nav h3 {
