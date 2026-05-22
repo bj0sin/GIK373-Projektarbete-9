@@ -45,72 +45,87 @@
       </section>
 
       <div class="statistik-layout">
-
         <aside class="sidomeny">
           <nav class="scroll-nav">
             <ul>
-            <li><a href="#stapel-sektion" class="nav-lank active">Top 10 regioner</a></li>
-            <li><a href="#cirkel-sektion" class="nav-lank active">Störst påverkan</a></li>
-            <li><a href="#linje-sektion" class="nav-lank active">Förändring över tid</a></li>
-            <li><a href="#dropdown-sektion" class="nav-lank active">Påverkan per capita</a></li>
+              <li>
+                <a href="#stapel-sektion" class="nav-lank active"
+                  >Top 10 regioner</a
+                >
+              </li>
+              <li>
+                <a href="#cirkel-sektion" class="nav-lank">Störst påverkan</a>
+              </li>
+              <li>
+                <a href="#linje-sektion" class="nav-lank"
+                  >Förändring över tid</a
+                >
+              </li>
+              <li>
+                <a href="#dropdown-sektion" class="nav-lank"
+                  >Påverkan per capita</a
+                >
+              </li>
             </ul>
           </nav>
         </aside>
 
-      <div class="grafer-container">
+        <div class="grafer-container">
+          <!-- Visualisering 1 -->
+          <section class="statistik-sektion" id="stapel-sektion">
+            <div class="statistik-kort">
+              <div class="statistik-text">
+                <h2>Stapeldiagram</h2>
+                <p>“Vilka regioner och typer av exploatering dominerar?”</p>
+                <p>
+                  Stapeldiagram: top 10 regioner vs hektar och typ av
+                  exploatering
+                </p>
+              </div>
+              <canvas id="stapeldiagram"></canvas>
+            </div>
+          </section>
 
-      <!-- Visualisering 1 -->
-      <section class="statistik-sektion" id="stapel-sektion">
-        <div class="statistik-kort">
-          <div class="statistik-text">
-            <h2>Stapeldiagram</h2>
-            <p>“Vilka regioner och typer av exploatering dominerar?”</p>
-            <p>
-              Stapeldiagram: top 10 regioner vs hektar och typ av exploatering
-            </p>
-          </div>
-          <canvas id="stapeldiagram"></canvas>
-        </div>
-      </section>
+          <!-- Visualisering 2 -->
+          <section class="statistik-sektion" id="cirkel-sektion">
+            <div class="statistik-kort">
+              <div class="statistik-text">
+                <h2>Cirkeldiagram</h2>
+                <p>“Vad orsakar störst påverkan på våtmarker?”</p>
+                <p>Cirkeldiagram: typ av exploatering</p>
+              </div>
+              <canvas id="cirkeldiagram"></canvas>
+            </div>
+          </section>
 
-      <!-- Visualisering 2 -->
-      <section class="statistik-sektion" id="cirkel-sektion">
-        <div class="statistik-kort">
-          <div class="statistik-text">
-            <h2>Cirkeldiagram</h2>
-            <p>“Vad orsakar störst påverkan på våtmarker?”</p>
-            <p>Cirkeldiagram: typ av exploatering</p>
-          </div>
-          <canvas id="cirkeldiagram"></canvas>
-        </div>
-      </section>
+          <!-- Visualisering 3 -->
+          <section class="statistik-sektion" id="linje-sektion">
+            <div class="statistik-kort">
+              <div class="statistik-text">
+                <h2>Linjediagram</h2>
+                <p>“Hur har exploateringen förändrats över tid?”</p>
+                <p>Linjediagram: år, exploatering i olika former</p>
+              </div>
+              <canvas id="linjediagram"></canvas>
+            </div>
+          </section>
 
-      <!-- Visualisering 3 -->
-      <section class="statistik-sektion" id="linje-sektion">
-        <div class="statistik-kort">
-          <div class="statistik-text">
-            <h2>Linjediagram</h2>
-            <p>“Hur har exploateringen förändrats över tid?”</p>
-            <p>Linjediagram: år, exploatering i olika former</p>
-          </div>
-          <canvas id="linjediagram"></canvas>
+          <!-- Visualisering 4 -->
+          <section class="statistik-sektion" id="dropdown-sektion">
+            <div class="statistik-kort">
+              <div class="statistik-text">
+                <h2>Dropdown linjediagram</h2>
+                <p>“Hur påverkas våtmarker i relation till befolkning?”</p>
+                <p>
+                  Drop down linjediagram: exploatering per 100000 invånare, år
+                </p>
+              </div>
+              <canvas id="dropdowndiagram"></canvas>
+            </div>
+          </section>
         </div>
-      </section>
-
-      <!-- Visualisering 4 -->
-      <section class="statistik-sektion" id="dropdown-sektion">
-        <div class="statistik-kort">
-          <div class="statistik-text">
-            <h2>Dropdown linjediagram</h2>
-            <p>“Hur påverkas våtmarker i relation till befolkning?”</p>
-            <p>Drop down linjediagram: exploatering per 100000 invånare, år</p>
-          </div>
-          <canvas id="dropdowndiagram"></canvas>
-        </div>
-      </section>
+      </div>
     </main>
-    </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
