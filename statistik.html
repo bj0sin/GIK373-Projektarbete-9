@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -25,12 +25,23 @@
         </a>
       </div>
 
-      <ul class="nav-links">
+      <!-- NY: hamburger -->
+      <div class="hamburger" id="hamburger">☰</div>
+
+      <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Hem</a></li>
         <li><a href="statistik.html" class="active">Statistik</a></li>
         <li><a href="om_oss.html">Om oss</a></li>
       </ul>
     </nav>
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+    </script>
 
     <main>
       <section class="hero">
