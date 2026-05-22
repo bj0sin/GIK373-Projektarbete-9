@@ -158,50 +158,19 @@ html {
 .sidomeny {
   flex: 0 0 260px;
   position: sticky;
-  top: 100px;
+  top: 120px;
 }
 
 .scroll-nav {
   background-color: rgba(23, 53, 5, 0.05);
   padding: 30px 25px;
   border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.195);
 }
 
 .scroll-nav h3 {
   color: rgba(23, 53, 5, 1);
   margin-bottom: 20px;
   font-size: 1.2rem;
-}
-
-.scroll-nav ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 0;
-}
-
-.scroll-nav a {
-  color: rgba(23, 53, 5, 0.6);
-  text-decoration: none;
-  font-size: 1.05rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  display: block;
-  padding-left: 0;
-}
-
-.scroll-nav a:hover {
-  color: rgba(23, 53, 5, 1);
-}
-
-.scroll-nav a.active {
-  color: rgba(23, 53, 5, 1);
-  font-weight: bold;
-  transform: translateX(8px);
-  border-left: 3px solid rgba(23, 53, 5, 1);
-  padding-left: 10px;
 }
 
 /* Statistik kort*/
@@ -250,11 +219,6 @@ html {
   max-width: 600px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 450px;
 }
 
 /* hem */
@@ -444,6 +408,8 @@ html {
   padding: 30px 20px;
   text-decoration: none;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   color: rgba(250, 255, 224, 1);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.291);
@@ -470,6 +436,12 @@ html {
   font-weight: bold;
   font-size: 0.9rem;
   margin-top: auto;
+}
+
+.ikon {
+  width: 10rem;
+  height: 10rem;
+  margin: 20px;
 }
 
 /* =====================
@@ -737,6 +709,12 @@ html {
 
   .lank-kort {
     padding: 15px;
+  }
+
+  .ikon {
+    width: 5rem;
+    height: 5rem;
+    margin: 20px;
   }
 
   /* =====================
