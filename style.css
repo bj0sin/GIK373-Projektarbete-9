@@ -72,8 +72,6 @@ html {
   width: 100%;
 }
 
-/*Jennifer*/
-
 .hero img {
   width: 100%;
   object-fit: cover;
@@ -193,11 +191,6 @@ html {
   align-items: center;
 }
 
-#cirkeldiagram {
-  width: 100%;
-  height: 350px;
-}
-
 /* hem */
 
 .hero {
@@ -283,6 +276,12 @@ html {
   justify-content: center;
   align-items: center;
   min-height: 600px;
+}
+
+.fakta-sektion h2 {
+  color: rgba(0, 76, 13, 1);
+  font-size: 4rem;
+  margin-bottom: 40px;
 }
 
 .fakta-sektion {
