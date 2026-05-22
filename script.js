@@ -232,7 +232,7 @@ async function displayStapeldiagram() {
   //Hektar
   //Exkludera totalen
   const filtrerad = allData.filter((item) => {
-    return item.key[3] === "2024" && item.key[1] !== "TOT";
+    return item.key[2] === "2024" && item.key[1] !== "TOT";
   });
 
   //Hektar per region
@@ -289,24 +289,54 @@ async function displayStapeldiagram() {
     options: {
       indexAxis: "y",
       responsive: true,
+      maintainAspectRatio: false,
       plugins: {
         title: {
           display: true,
+          color: "#FAFFE0",
           text: "Topp 10 regioner vs våtmarksexploatering i hektar (2024)",
+          font: {
+            size: 18,
+            weight: "bold",
+          },
         },
 
         legend: {
           position: "bottom",
+          labels: {
+            font: {
+              size: 14,
+            },
+            padding: 20,
+          },
         },
       },
 
       scales: {
         x: {
-          beginAtZero: true,
+          ticks: {
+            color: "#FAFFE0",
+            font: {
+              size: 12,
+            },
+          },
 
           title: {
             display: true,
+            color: "#FAFFE0",
             text: "Hektar",
+            font: {
+              size: 14,
+              weight: "bold",
+            },
+          },
+        },
+        y: {
+          ticks: {
+            color: "#FAFFE0",
+            font: {
+              size: 12,
+            },
           },
         },
       },
