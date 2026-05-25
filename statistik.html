@@ -99,12 +99,9 @@
           <section class="statistik-sektion" id="stapel-sektion">
             <div class="statistik-kort">
               <div class="statistik-text">
-                <h2>Stapeldiagram</h2>
-                <p>“Vilka regioner och typer av exploatering dominerar?”</p>
-                <p>
-                  Stapeldiagram: top 10 regioner vs hektar och typ av
-                  exploatering
-                </p>
+                <h2>Regional exploatering: Norrbotten i topp</h2>
+                <p>Diagrammet visar de regioner som har högst grad av exploatering. Norrbotten har den största exploateringen jämfört med övriga regioner, vilket visar på omfattande påverkan på mark och naturresurser i området.</p>
+                
               </div>
               <canvas id="stapeldiagram"></canvas>
             </div>
@@ -114,9 +111,9 @@
           <section class="statistik-sektion" id="cirkel-sektion">
             <div class="statistik-kort">
               <div class="statistik-text">
-                <h2>Cirkeldiagram</h2>
-                <p>“Vad orsakar störst påverkan på våtmarker?”</p>
-                <p>Cirkeldiagram: typ av exploatering</p>
+                <h2>Vägar står för den största påverkan på våtmarker</h2>
+                <p>Diagrammet visar vilka faktorer som påverkar våtmarker mest. Vägar står för den största delen av påverkan, vilket tyder på att infrastruktur och markexploatering har stor betydelse för förändringar i våtmarksmiljöer.</p>
+              
               </div>
               <canvas id="cirkeldiagram"></canvas>
             </div>
@@ -138,11 +135,14 @@
           <section class="statistik-sektion" id="dropdown-sektion">
             <div class="statistik-kort">
               <div class="statistik-text">
-                <h2>Dropdown linjediagram</h2>
-                <p>“Hur påverkas våtmarker i relation till befolkning?”</p>
+                <h2>Infrastruktur driver påverkan i glesbygd</h2>
+                
                 <p>
-                  Drop down linjediagram: exploatering per 100000 invånare, år
+Diagrammet visar att påverkan per invånare är störst i glesbefolkade regioner. Det är storskalig infrastruktur som slukar de stora ytorna, snarare än städernas befolkningstillväxt.
                 </p>
+                <label for="regionDropdown" style="margin-top: 20px; font-weight: bold;">Välj region:</label>
+      <select id="regionDropdown" class="region-select">
+        </select>
               </div>
               <canvas id="dropdowndiagram"></canvas>
             </div>

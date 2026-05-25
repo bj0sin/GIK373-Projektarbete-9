@@ -220,8 +220,8 @@ html {
 }
 
 .statistik-text p {
-  font-size: 1.2rem;
-  padding-bottom: 1.6rem;
+  font-size: 1.1rem;
+  padding-bottom: 1.4rem;
 }
 
 #stapeldiagram,
@@ -233,6 +233,26 @@ html {
   background-color: rgba(255, 255, 255, 0.195);
   border-radius: 10px;
   flex: 1;
+}
+
+.region-select {
+  padding: 10px 15px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: rgba(250, 255, 224, 1);
+  color: rgba(23, 53, 5, 1);
+  border: none;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  width: 100%;
+  max-width: 300px;
+  font-weight: bold;
+}
+
+.region-select:focus {
+  outline: 2px solid #8b966c;
 }
 
 /* hem */
@@ -395,6 +415,36 @@ html {
   color: rgb(195, 202, 162);
 }
 
+.karusell-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 25px;
+  width: 100%;
+  flex-direction: row !important;
+  align-items: center;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  background-color: rgba(23, 53, 5, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  transition:
+    background-color 03s ease,
+    transform 0.2s ease;
+}
+
+.dot:hover {
+  background-color: rgba(23, 53, 5, 0.6);
+}
+
+.dot.active {
+  background-color: rgba(23, 53, 5, 1);
+  transform: scale(1.2);
+}
+
 .statistik-lankar-sektion {
   padding: 60px 40px;
   display: flex;
@@ -503,6 +553,10 @@ html {
   font-family: Questrial, sans-serif;
 }
 
+.dropdown-om summary {
+  cursor: pointer;
+}
+
 .dropdown-om ul,
 .dropdown-om p {
   margin-left: 5%;
@@ -603,220 +657,232 @@ html {
   justify-content: space-between;
   align-items: right;
 
-  padding: 40px;
-  margin-top: 40px;
+  padding: 50px;
+  margin-top: 60px;
 
   background-color: rgba(23, 53, 5);
   color: rgba(250, 255, 224, 1);
 
   flex-wrap: wrap;
   gap: 20px;
+
+  height: 400px;
 }
 
 .footer-contact h3 {
   line-height: 1.8;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-family: Geologica, sans-serif;
+  padding-bottom: 1.5rem;
 }
 
 .footer-contact p {
   line-height: 1.8;
   font-size: 1.3rem;
+  padding-bottom: 1.1rem;
 }
 
 /*MOBILE 600px*/
 
 @media (max-width: 600px) {
   .navbar {
-    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+    z-index: 1000;
   }
 
-  @media (max-width: 768px) {
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px;
-      position: relative;
-      z-index: 1000;
-    }
+  /* vanliga desktop-menyn */
+  .nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+  }
 
-    /* vanliga desktop-menyn */
-    .nav-links {
-      display: flex;
-      gap: 20px;
-      list-style: none;
-    }
+  /* göm hamburger på desktop */
+  .hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: rgba(250, 255, 224, 1);
+  }
 
-    /* göm hamburger på desktop */
-    .hamburger {
-      display: none;
-      font-size: 28px;
-      cursor: pointer;
-      color: rgba(250, 255, 224, 1);
-    }
+  /* MOBIL */
 
-    /* MOBIL */
-    @media (max-width: 768px) {
-      .hamburger {
-        display: block;
-      }
+  .hamburger {
+    display: block;
+  }
 
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        right: 0;
-        background: rgba(23, 53, 5, 1);
-        padding: 15px;
-        border-radius: 10px;
-        margin-right: 0;
-      }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: rgba(23, 53, 5, 1);
+    padding: 15px;
+    border-radius: 10px;
+    margin-right: 0;
+  }
 
-      .nav-links.active {
-        display: flex;
-      }
-    }
+  .nav-links.active {
+    display: flex;
+  }
 
-    .logo img {
-      height: 4rem;
-    }
+  .logo img {
+    height: 4rem;
+  }
 
-    /*statistik*/
+  /*statistik*/
 
-    .statistik-kort {
-      width: 100%;
-      height: 400px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+  .statistik-kort {
+    width: 100%;
+    height: 400px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 
-    .statistik-text h2 {
-      padding-bottom: 1rem;
-      font-size: 1.5rem;
-    }
+  .statistik-text h2 {
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+  }
 
-    .statistik-text p {
-      font-size: 1rem;
-      padding-bottom: 0;
-    }
+  .statistik-text p {
+    font-size: 1rem;
+    padding-bottom: 0;
+  }
 
-    #stapeldiagram,
-    #cirkeldiagram,
-    #linjediagram,
-    #dropdowndiagram {
-      margin-top: auto;
-    }
+  #stapeldiagram,
+  #cirkeldiagram,
+  #linjediagram,
+  #dropdowndiagram {
+    margin-top: auto;
+  }
 
-    /* hem */
+  /* hem */
 
-    .hero {
-      height: 40vh;
-    }
+  .hero {
+    height: 40vh;
+  }
 
-    .hero-center-banner h1 {
-      font-size: 3rem;
-    }
+  .hero-center-banner h1 {
+    font-size: 3rem;
+  }
 
-    .kort {
-      height: auto;
-      display: flex;
-      flex-direction: column;
-    }
+  .kort {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
 
-    .kort-text h2 {
-      padding-bottom: 1rem;
-      font-size: 1.5rem;
-    }
+  .kort-text h2 {
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+  }
 
-    .kort-text p {
-      font-size: 1rem;
-      padding-bottom: 1rem;
-    }
+  .kort-text p {
+    font-size: 1rem;
+    padding-bottom: 1rem;
+  }
 
-    .fakta-kort {
-      flex: 0 0 350px;
-      height: 500px;
-    }
+  .fakta-kort {
+    flex: 0 0 350px;
+    height: 500px;
+  }
 
-    .ikon {
-      width: 5rem;
-      height: 5rem;
-      margin: 20px;
-    }
+  .fakta-sektion h2 {
+    font-size: 2.5rem;
+  }
 
-    .lank-grid {
-      grid-template-columns: 1fr;
-    }
+  .fakta-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
 
-    .lank-kort {
-      padding: 15px;
-    }
+  .fakta-text p {
+    font-size: 1rem;
+  }
 
-    .ikon {
-      width: 5rem;
-      height: 5rem;
-      margin: 20px;
-    }
+  .fakta-bild {
+    height: 200px;
+  }
 
-    /* =====================
+  .ikon {
+    width: 5rem;
+    height: 5rem;
+    margin: 20px;
+  }
+
+  .statistik-lankar-sektion h2 {
+    font-size: 2.5rem;
+  }
+
+  .lank-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lank-kort {
+    padding: 15px;
+  }
+
+  /* =====================
    OM OSS CONTAINER
 ===================== */
-    .container {
-      display: flex;
-      flex-direction: column;
-    }
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
 
-    .text h2 {
-      padding-bottom: 1rem;
-      font-size: 1.5rem;
-    }
+  .text h2 {
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+  }
 
-    .text p,
-    .text li {
-      font-size: 1rem;
-      padding-bottom: 1rem;
-    }
+  .text p,
+  .text li {
+    font-size: 1rem;
+    padding-bottom: 1rem;
+  }
 
-    .container img {
-      display: none;
-    }
+  .container img {
+    display: none;
+  }
 
-    /* =====================
+  /* =====================
    KÄLLOR + DATA (BOXAR)
 ===================== */
 
-    .info-container {
-      width: 80%;
-      gap: 10px;
-    }
+  .info-container {
+    width: 80%;
+    gap: 10px;
+  }
 
-    .kalla-dropdown,
-    .data-dropdown {
-      padding: 20px;
-    }
+  .kalla-dropdown,
+  .data-dropdown {
+    padding: 20px;
+  }
 
-    .kalla-dropdown,
-    .data-dropdown {
-      min-width: 100%;
-    }
+  .kalla-dropdown,
+  .data-dropdown {
+    min-width: 100%;
+  }
 
-    .kalla-dropdown summary,
-    .data-dropdown summary {
-      font-size: 1.5rem;
-    }
+  .kalla-dropdown summary,
+  .data-dropdown summary {
+    font-size: 1.5rem;
+  }
 
-    .footer {
-      flex-direction: column;
-      text-align: center;
-      padding: 20px;
-    }
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
 
-    .footer-contact {
-      font-size: 1.1rem;
-    }
+  .footer-contact {
+    font-size: 1.1rem;
   }
 }
