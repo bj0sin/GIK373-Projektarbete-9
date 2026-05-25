@@ -694,7 +694,7 @@ window.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    { rootMargin: "-20% 0px -30% 0px" },
+    { rootMargin: "-30% 0px -50% 0px" },
   );
 
   document
