@@ -635,195 +635,203 @@ html {
 
 @media (max-width: 600px) {
   .navbar {
-    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+    z-index: 1000;
   }
 
-  @media (max-width: 768px) {
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px;
-      position: relative;
-      z-index: 1000;
-    }
 
-    /* vanliga desktop-menyn */
-    .nav-links {
-      display: flex;
-      gap: 20px;
-      list-style: none;
-    }
 
-    /* göm hamburger på desktop */
-    .hamburger {
-      display: none;
-      font-size: 28px;
-      cursor: pointer;
-      color: rgba(250, 255, 224, 1);
-    }
+  /* vanliga desktop-menyn */
+  .nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+  }
 
-    /* MOBIL */
-    @media (max-width: 768px) {
-      .hamburger {
-        display: block;
-      }
+  /* göm hamburger på desktop */
+  .hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: rgba(250, 255, 224, 1);
+  }
 
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        right: 0;
-        background: rgba(23, 53, 5, 1);
-        padding: 15px;
-        border-radius: 10px;
-        margin-right: 0;
-      }
+  /* MOBIL */
 
-      .nav-links.active {
-        display: flex;
-      }
-    }
+  .hamburger {
+    display: block;
+  }
 
-    .logo img {
-      height: 4rem;
-    }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: rgba(23, 53, 5, 1);
+    padding: 15px;
+    border-radius: 10px;
+    margin-right: 0;
+  }
 
-    /*statistik*/
+  .nav-links.active {
+    display: flex;
+  }
+}
 
-    .statistik-kort {
-      width: 100%;
-      height: 400px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+.logo img {
+  height: 4rem;
+}
 
-    .statistik-text h2 {
-      padding-bottom: 1rem;
-      font-size: 1.5rem;
-    }
+/*statistik*/
 
-    .statistik-text p {
-      font-size: 1rem;
-      padding-bottom: 0;
-    }
+.statistik-kort {
+  width: 100%;
+  height: 400px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-    #stapeldiagram,
-    #cirkeldiagram,
-    #linjediagram,
-    #dropdowndiagram {
-      margin-top: auto;
-    }
+.statistik-text h2 {
+  padding-bottom: 1rem;
+  font-size: 1.5rem;
+}
 
-    /* hem */
+.statistik-text p {
+  font-size: 1rem;
+  padding-bottom: 0;
+}
 
-    .hero {
-      height: 40vh;
-    }
+#stapeldiagram,
+#cirkeldiagram,
+#linjediagram,
+#dropdowndiagram {
+  margin-top: auto;
+}
 
-    .hero-center-banner h1 {
-      font-size: 3rem;
-    }
+/* hem */
 
-    .kort {
-      height: auto;
-      display: flex;
-      flex-direction: column;
-    }
+.hero {
+  height: 40vh;
+}
 
-    .kort-text h2 {
-      padding-bottom: 1rem;
-      font-size: 1.5rem;
-    }
+.hero-center-banner h1 {
+  font-size: 3rem;
+}
 
-    .kort-text p {
-      font-size: 1rem;
-      padding-bottom: 1rem;
-    }
+.kort {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
 
-    .fakta-kort {
-      flex: 0 0 350px;
-      height: 500px;
-    }
+.kort-text h2 {
+  padding-bottom: 1rem;
+  font-size: 1.5rem;
+}
 
-    .ikon {
-      width: 5rem;
-      height: 5rem;
-      margin: 20px;
-    }
+.kort-text p {
+  font-size: 1rem;
+  padding-bottom: 1rem;
+}
 
-    .lank-grid {
-      grid-template-columns: 1fr;
-    }
+.fakta-kort {
+  flex: 0 0 350px;
+  height: 500px;
+}
 
-    .lank-kort {
-      padding: 15px;
-    }
+.fakta-text h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
 
-    .ikon {
-      width: 5rem;
-      height: 5rem;
-      margin: 20px;
-    }
+.fakta-text p {
+  font-size: 1rem;
+}
 
-    /* =====================
+.fakta-bild {
+  height: 200px;
+}
+
+.ikon {
+  width: 5rem;
+  height: 5rem;
+  margin: 20px;
+}
+
+.lank-grid {
+  grid-template-columns: 1fr;
+}
+
+.lank-kort {
+  padding: 15px;
+}
+
+.ikon {
+  width: 5rem;
+  height: 5rem;
+  margin: 20px;
+}
+
+/* =====================
    OM OSS CONTAINER
 ===================== */
-    .container {
-      display: flex;
-      flex-direction: column;
-    }
+.container {
+  display: flex;
+  flex-direction: column;
+}
 
-    .text h2 {
-      padding-bottom: 1rem;
-      font-size: 1.5rem;
-    }
+.text h2 {
+  padding-bottom: 1rem;
+  font-size: 1.5rem;
+}
 
-    .text p,
-    .text li {
-      font-size: 1rem;
-      padding-bottom: 1rem;
-    }
+.text p,
+.text li {
+  font-size: 1rem;
+  padding-bottom: 1rem;
+}
 
-    .container img {
-      display: none;
-    }
+.container img {
+  display: none;
+}
 
-    /* =====================
+/* =====================
    KÄLLOR + DATA (BOXAR)
 ===================== */
 
-    .info-container {
-      width: 80%;
-      gap: 10px;
-    }
+.info-container {
+  width: 80%;
+  gap: 10px;
+}
 
-    .kalla-dropdown,
-    .data-dropdown {
-      padding: 20px;
-    }
+.kalla-dropdown,
+.data-dropdown {
+  padding: 20px;
+}
 
-    .kalla-dropdown,
-    .data-dropdown {
-      min-width: 100%;
-    }
+.kalla-dropdown,
+.data-dropdown {
+  min-width: 100%;
+}
 
-    .kalla-dropdown summary,
-    .data-dropdown summary {
-      font-size: 1.5rem;
-    }
+.kalla-dropdown summary,
+.data-dropdown summary {
+  font-size: 1.5rem;
+}
 
-    .footer {
-      flex-direction: column;
-      text-align: center;
-      padding: 20px;
-    }
+.footer {
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+}
 
-    .footer-contact {
-      font-size: 1.1rem;
-    }
-  }
+.footer-contact {
+  font-size: 1.1rem;
 }
