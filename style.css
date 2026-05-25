@@ -501,11 +501,18 @@ html {
   padding-bottom: 1rem;
   line-height: 1.6;
   font-family: Questrial, sans-serif;
+
+}
+
+.dropdown-om summary {
+  cursor: pointer;
 }
 
 .dropdown-om ul,
 .dropdown-om p {
   margin-left: 5%;
+
+
 }
 
 /* BILD */
