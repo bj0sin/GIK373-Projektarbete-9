@@ -233,10 +233,6 @@ async function displayStapeldiagram() {
   const allVatmarkData = await fetchVatmark();
   console.log(allVatmarkData);
 
-  //Filtrera till;
-  //År 2024
-  //Hektar
-  //Exkludera totalen
   const filteredData = allVatmarkData.filter((item) => {
     return item.key[2] === "2024" && item.key[1] !== "TOT";
   });
@@ -255,7 +251,6 @@ async function displayStapeldiagram() {
     regionTotals[region] += hektar;
   });
 
-  //Topp 10 regioner
   const topRegioner = Object.entries(regionTotals)
     .sort((a, b) => b[1] - a[1])
     .slice(0, 10)
@@ -264,17 +259,14 @@ async function displayStapeldiagram() {
       name: regionCodeMap[code] ?? code,
     }));
 
-  //Exploateringstyper
   const exploateringstyper = ["BYGGN", "JVAG", "VAG"];
 
-  //Färger
   const colors = {
     BYGGN: "#FAFFE0",
     JVAG: "#8b966c",
     VAG: "#173505",
   };
 
-  //Dataset för uppbyggnad av staplar
   const datasets = exploateringstyper.map((typ) => ({
     label: typeNames[typ],
     backgroundColor: colors[typ],
@@ -287,7 +279,6 @@ async function displayStapeldiagram() {
     }),
   }));
 
-  //Skapa diagram
   new Chart(document.getElementById("stapeldiagram"), {
     type: "bar",
     data: {
@@ -354,6 +345,8 @@ async function displayStapeldiagram() {
   });
 }
 
+/* GRAF 2 CIRKELDIAGRAM*/
+
 async function displayCirkeldiagram() {
   const allVatmarkData = await fetchVatmark();
 
@@ -367,13 +360,10 @@ async function displayCirkeldiagram() {
   let vagar = 0;
 
   allVatmarkData.forEach((item) => {
-    // Plocka rätt index från SCB
     const exploateringstyp = item.key[1];
     const ar = item.key[2];
 
-    // Filtrera bara på år 2024 (innehållskoden ligger i values-arrayen istället)
     if (ar === "2024") {
-      // Värdet på plats 0 är direkt exploatering (000006WZ)
       const value = Number(item.values[0]);
 
       if (exploateringstyp === "BYGGN") {
@@ -437,8 +427,110 @@ async function displayCirkeldiagram() {
   */
 
 /*
-  GRAF 4
+  GRAF 4 drop down
   */
+
+async function displayDropdownDiagram() {
+  const vatmarkData = await fetchVatmark();
+  const befolkData = await fetchBefolkning();
+
+  const years = ["2020", "2021", "2022", "2023", "2024"];
+  const combinedData = {};
+
+  Object.keys(regionCodeMap).forEach((code) => {
+    combinedData[code] = {};
+    years.forEach(
+      (year) => (combinedData[code][year] = { vatmark: 0, befolkning: 0 }),
+    );
+  });
+
+  vatmarkData.forEach((item) => {
+    const region = item.key[0];
+    const typ = item.key[1];
+    const year = item.key[2];
+
+    if (typ === "TOT" && combinedData[region]) {
+      combinedData[region][year].vatmark = Number(item.values[1]);
+    }
+  });
+
+  befolkData.forEach((item) => {
+    const region = item.key[0];
+    const year = item.key.find((k) => years.includes(k));
+
+    if (combinedData[region] && year) {
+      combinedData[region][year].befolkning = Number(item.values[0]);
+    }
+  });
+
+  function getPerCapitaData(regionCode) {
+    return years.map((year) => {
+      const v = combinedData[regionCode][year].vatmark;
+      const b = combinedData[regionCode][year].befolkning;
+      if (b === 0) return 0;
+      return (v / b) * 100000;
+    });
+  }
+
+  const dropdown = document.getElementById("regionDropdown");
+  Object.entries(regionCodeMap).forEach(([code, name]) => {
+    const option = document.createElement("option");
+    option.value = code;
+    option.textContent = name;
+    dropdown.appendChild(option);
+  });
+
+  dropdown.value = "01";
+
+  const ctx = document.getElementById("dropdowndiagram").getContext("2d");
+  let myChart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: years,
+      datasets: [
+        {
+          label: `Hektar per 100 000 inv. (${regionCodeMap["01"]})`,
+          data: getPerCapitaData("01"),
+          borderColor: "#FAFFE0",
+          backgroundColor: "rgba(250, 255, 224, 0.2)",
+          borderWidth: 3,
+          pointBackgroundColor: "#173505",
+          pointBorderColor: "#FAFFE0",
+          pointRadius: 5,
+          fill: true,
+          tension: 0.3,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          labels: { color: "#FAFFE0", font: { size: 14 } },
+        },
+      },
+      scales: {
+        x: {
+          ticks: { color: "#FAFFE0" },
+          grid: { color: "rgba(255,255,255,0.1)" },
+        },
+        y: {
+          ticks: { color: "#FAFFE0" },
+          grid: { color: "rgba(255,255,255,0.1)" },
+          title: { display: true, text: "Hektar", color: "#FAFFE0" },
+        },
+      },
+    },
+  });
+
+  dropdown.addEventListener("change", (e) => {
+    const selectedRegion = e.target.value;
+    myChart.data.datasets[0].data = getPerCapitaData(selectedRegion);
+    myChart.data.datasets[0].label = `Hektar per 100 000 inv. (${regionCodeMap[selectedRegion]})`;
+    myChart.update();
+  });
+}
 
 /* LADDA ALLA DIAGRAM */
 window.addEventListener("DOMContentLoaded", () => {
@@ -450,6 +542,9 @@ window.addEventListener("DOMContentLoaded", () => {
   }
   if (document.getElementById("cirkeldiagram")) {
     displayCirkeldiagram();
+  }
+  if (document.getElementById("dropdowndiagram")) {
+    displayDropdownDiagram();
   }
 });
 

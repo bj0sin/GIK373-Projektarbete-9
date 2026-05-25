@@ -235,6 +235,26 @@ html {
   flex: 1;
 }
 
+.region-select {
+  padding: 10px 15px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: rgba(250, 255, 224, 1);
+  color: rgba(23, 53, 5, 1);
+  border: none;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  width: 100%;
+  max-width: 300px;
+  font-weight: bold;
+}
+
+.region-select:focus {
+  outline: 2px solid #8b966c;
+}
+
 /* hem */
 
 .hero {
@@ -531,7 +551,6 @@ html {
   padding-bottom: 1rem;
   line-height: 1.6;
   font-family: Questrial, sans-serif;
-
 }
 
 .dropdown-om summary {
@@ -541,8 +560,6 @@ html {
 .dropdown-om ul,
 .dropdown-om p {
   margin-left: 5%;
-
-
 }
 
 /* BILD */
