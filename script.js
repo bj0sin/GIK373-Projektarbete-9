@@ -543,6 +543,9 @@ window.addEventListener("DOMContentLoaded", () => {
   if (document.getElementById("cirkeldiagram")) {
     displayCirkeldiagram();
   }
+  if (document.getElementById("linjediagram")) {
+    displayLinjeDiagram();
+  }
   if (document.getElementById("dropdowndiagram")) {
     displayDropdownDiagram();
   }
