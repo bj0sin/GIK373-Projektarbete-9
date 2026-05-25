@@ -177,7 +177,7 @@ async function displayVatmarkMap() {
   const totalHektar = kartaData.map((item) => Number(item.values[1]));
 
   const indirektHektar = totalHektar.map(
-    (total, index) => total - direktHektar[index]
+    (total, index) => total - direktHektar[index],
   );
 
   const hoverData = direktHektar.map((direkt, index) => [
@@ -281,7 +281,7 @@ async function displayStapeldiagram() {
 
     data: topRegioner.map((region) => {
       const found = filtrerad.find(
-        (item) => item.key[0] === region.code && item.key[1] === typ
+        (item) => item.key[0] === region.code && item.key[1] === typ,
       );
       return found ? Number(found.values[0]) : 0;
     }),
@@ -465,16 +465,57 @@ window.addEventListener("DOMContentLoaded", () => {
             .forEach((lank) => lank.classList.remove("active"));
 
           const rattLank = document.querySelector(
-            `.nav-lank[href="#${entry.target.id}"]`
+            `.nav-lank[href="#${entry.target.id}"]`,
           );
           if (rattLank) rattLank.classList.add("active");
         }
       });
     },
-    { rootMargin: "-30% 0px -50% 0px" }
+    { rootMargin: "-30% 0px -50% 0px" },
   );
 
   document
     .querySelectorAll(".statistik-sektion")
     .forEach((graf) => observer.observe(graf));
+});
+
+/* PRICKAR UNDER KORT */
+window.addEventListener("DOMContentLoaded", () => {
+  const karusell = document.querySelector(".karusell");
+  const kort = document.querySelectorAll(".fakta-kort");
+  const dots = document.querySelectorAll(".dot");
+
+  if (!karusell) return;
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+      const scrollPos = kort[i].offsetLeft - karusell.offsetLeft;
+
+      karusell.scrollTo({
+        left: scrollPos,
+        behavior: "smooth",
+      });
+    });
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = Array.from(kort).indexOf(entry.target);
+
+          document.querySelector(".dot.active")?.classList.remove("active");
+          if (dots[index]) {
+            dots[index].classList.add("active");
+          }
+        }
+      });
+    },
+    {
+      root: karusell,
+      threshold: 0.5,
+    },
+  );
+
+  kort.forEach((k) => observer.observe(k));
 });
