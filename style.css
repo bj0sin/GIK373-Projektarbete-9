@@ -220,8 +220,8 @@ html {
 }
 
 .statistik-text p {
-  font-size: 1.2rem;
-  padding-bottom: 1.6rem;
+  font-size: 1.1rem;
+  padding-bottom: 1.4rem;
 }
 
 #stapeldiagram,
@@ -657,25 +657,29 @@ html {
   justify-content: space-between;
   align-items: right;
 
-  padding: 40px;
-  margin-top: 40px;
+  padding: 50px;
+  margin-top: 60px;
 
   background-color: rgba(23, 53, 5);
   color: rgba(250, 255, 224, 1);
 
   flex-wrap: wrap;
   gap: 20px;
+
+  height: 400px;
 }
 
 .footer-contact h3 {
   line-height: 1.8;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-family: Geologica, sans-serif;
+  padding-bottom: 1.5rem;
 }
 
 .footer-contact p {
   line-height: 1.8;
   font-size: 1.3rem;
+  padding-bottom: 1.1rem;
 }
 
 /*MOBILE 600px*/
@@ -689,8 +693,6 @@ html {
     position: relative;
     z-index: 1000;
   }
-
-
 
   /* vanliga desktop-menyn */
   .nav-links {
@@ -728,7 +730,6 @@ html {
   .nav-links.active {
     display: flex;
   }
-
 
   .logo img {
     height: 4rem;
@@ -827,7 +828,6 @@ html {
   .lank-kort {
     padding: 15px;
   }
-
 
   /* =====================
    OM OSS CONTAINER
