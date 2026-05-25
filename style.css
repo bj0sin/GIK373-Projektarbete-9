@@ -128,45 +128,37 @@ html {
 
 .statistik-layout {
   display: flex;
-  gap: 60px;
+  gap: 30px;
   margin: 50px auto;
   padding: 0 40px;
   align-items: flex-start;
-  max-width: 1400px;
+  max-width: 1440px;
 }
 
 .sidomeny {
-  flex: 0 0 260px;
+  flex: 0 0 170px;
   position: sticky;
   top: 100px;
 }
 
 .scroll-nav {
-  background-color: rgba(23, 53, 5, 0.05);
-  padding: 30px 25px;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.195);
+  background-color: transparent;
+  padding: 10px 0;
   margin-top: 60px;
-}
-
-.scroll-nav h3 {
-  color: rgba(23, 53, 5, 1);
-  margin-bottom: 20px;
-  font-size: 1.2rem;
 }
 
 .scroll-nav ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 25px;
   padding: 0;
 }
 
 .scroll-nav a {
   color: rgba(23, 53, 5, 0.6);
   text-decoration: none;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 600;
   transition: all 0.3s ease;
   display: block;
@@ -230,7 +222,7 @@ html {
 #linjediagram,
 #dropdowndiagram {
   max-width: 600px;
-  min-height: 450px;
+  min-height: 500px;
   background-color: rgba(255, 255, 255, 0.195);
   border-radius: 10px;
   flex: 1;

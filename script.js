@@ -177,7 +177,7 @@ async function displayVatmarkMap() {
   const totalHektar = kartaData.map((item) => Number(item.values[1]));
 
   const indirektHektar = totalHektar.map(
-    (total, index) => total - direktHektar[index]
+    (total, index) => total - direktHektar[index],
   );
 
   const hoverData = direktHektar.map((direkt, index) => [
@@ -273,7 +273,7 @@ async function displayStapeldiagram() {
 
     data: topRegioner.map((region) => {
       const found = filteredData.find(
-        (item) => item.key[0] === region.code && item.key[1] === typ
+        (item) => item.key[0] === region.code && item.key[1] === typ,
       );
       return found ? Number(found.values[0]) : 0;
     }),
@@ -563,7 +563,7 @@ async function displayDropdownDiagram() {
   Object.keys(regionCodeMap).forEach((code) => {
     combinedData[code] = {};
     years.forEach(
-      (year) => (combinedData[code][year] = { vatmark: 0, befolkning: 0 })
+      (year) => (combinedData[code][year] = { vatmark: 0, befolkning: 0 }),
     );
   });
 
@@ -685,13 +685,16 @@ window.addEventListener("DOMContentLoaded", () => {
             .forEach((lank) => lank.classList.remove("active"));
 
           const rattLank = document.querySelector(
-            `.nav-lank[href="#${entry.target.id}"]`
+            `.nav-lank[href="#${entry.target.id}"]`,
           );
           if (rattLank) rattLank.classList.add("active");
+
+          const kort = entry.target.querySelector(".statistik-kort");
+          if (kort) kort.classList.add("synlig");
         }
       });
     },
-    { rootMargin: "-30% 0px -50% 0px" }
+    { rootMargin: "-30% 0px -50% 0px" },
   );
 
   document
@@ -734,7 +737,7 @@ window.addEventListener("DOMContentLoaded", () => {
     {
       root: karusell,
       threshold: 0.5,
-    }
+    },
   );
 
   kort.forEach((k) => observer.observe(k));
