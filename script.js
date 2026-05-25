@@ -237,14 +237,14 @@ async function displayStapeldiagram() {
   //År 2024
   //Hektar
   //Exkludera totalen
-  const filtrerad = allVatmarkData.filter((item) => {
+  const filteredData = allVatmarkData.filter((item) => {
     return item.key[2] === "2024" && item.key[1] !== "TOT";
   });
 
   //Hektar per region
   const regionTotals = {};
 
-  filtrerad.forEach((item) => {
+  filteredData.forEach((item) => {
     const region = item.key[0];
     const hektar = Number(item.values[0]);
 
@@ -280,7 +280,7 @@ async function displayStapeldiagram() {
     backgroundColor: colors[typ],
 
     data: topRegioner.map((region) => {
-      const found = filtrerad.find(
+      const found = filteredData.find(
         (item) => item.key[0] === region.code && item.key[1] === typ,
       );
       return found ? Number(found.values[0]) : 0;
@@ -393,7 +393,6 @@ async function displayCirkeldiagram() {
 
     data: {
       labels: ["Byggnation", "Järnvägar", "Vägar"],
-
       datasets: [
         {
           data: [byggnation, jarnvag, vagar],
@@ -418,15 +417,15 @@ async function displayCirkeldiagram() {
             color: "#FAFFE0",
           },
         },
-      },
 
-      title: {
-        display: true,
-        text: "Störst påverkan på våtmarker i hektar",
-        color: "#FAFFE0",
-        font: {
-          size: 14,
-          weight: "bold",
+        title: {
+          display: true,
+          text: "Störst påverkan på våtmarker i hektar",
+          color: "#FAFFE0",
+          font: {
+            size: 18,
+            weight: "bold",
+          },
         },
       },
     },
