@@ -688,10 +688,13 @@ window.addEventListener("DOMContentLoaded", () => {
             `.nav-lank[href="#${entry.target.id}"]`,
           );
           if (rattLank) rattLank.classList.add("active");
+
+          const kort = entry.target.querySelector(".statistik-kort");
+          if (kort) kort.classList.add("synlig");
         }
       });
     },
-    { rootMargin: "-30% 0px -50% 0px" },
+    { rootMargin: "-20% 0px -30% 0px" },
   );
 
   document
