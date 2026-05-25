@@ -177,7 +177,7 @@ async function displayVatmarkMap() {
   const totalHektar = kartaData.map((item) => Number(item.values[1]));
 
   const indirektHektar = totalHektar.map(
-    (total, index) => total - direktHektar[index],
+    (total, index) => total - direktHektar[index]
   );
 
   const hoverData = direktHektar.map((direkt, index) => [
@@ -273,7 +273,7 @@ async function displayStapeldiagram() {
 
     data: topRegioner.map((region) => {
       const found = filteredData.find(
-        (item) => item.key[0] === region.code && item.key[1] === typ,
+        (item) => item.key[0] === region.code && item.key[1] === typ
       );
       return found ? Number(found.values[0]) : 0;
     }),
@@ -328,7 +328,7 @@ async function displayStapeldiagram() {
             text: "Hektar",
             font: {
               size: 14,
-              weight: "bold",
+              weight: "semi-bold",
             },
           },
         },
@@ -376,8 +376,6 @@ async function displayCirkeldiagram() {
     }
   });
 
-  const ctx = document.getElementById("cirkeldiagram");
-
   new Chart(document.getElementById("cirkeldiagram"), {
     type: "pie",
 
@@ -405,12 +403,16 @@ async function displayCirkeldiagram() {
           position: "bottom",
           labels: {
             color: "#FAFFE0",
+            font: {
+              size: 14,
+            },
+            padding: 20,
           },
         },
 
         title: {
           display: true,
-          text: "Störst påverkan på våtmarker i hektar",
+          text: "Störst påverkan på våtmarker i hektar (2024)",
           color: "#FAFFE0",
           font: {
             size: 18,
@@ -426,6 +428,127 @@ async function displayCirkeldiagram() {
   GRAF 3
   */
 
+//Skapa diagram
+async function displayLinjediagram() {
+  const allVatmarkData = await fetchVatmark();
+  console.log(allVatmarkData);
+
+  //Filtrera till;
+  //År 2020-2024
+  //Exkludera totalen
+  const tid = ["2020", "2021", "2022", "2023", "2024"];
+  const filteredData = allVatmarkData.filter((item) => {
+    return tid.includes(item.key[2]) && item.key[1] !== "TOT";
+  });
+  //År och Exploateringstyper
+  const exploateringstyper = ["BYGGN", "JVAG", "VAG"];
+
+  //Färger
+  const colors = {
+    BYGGN: "#FAFFE0",
+    JVAG: "#8b966c",
+    VAG: "#173505",
+  };
+
+  //Dataset för uppbyggnad av linjer
+  const datasets = exploateringstyper.map((typ) => {
+    const tidsData = tid.map((tid) => {
+      let total = 0;
+
+      filteredData.forEach((item) => {
+        if (item.key[1] === typ && item.key[2] === tid) {
+          total += Number(item.values[0]);
+        }
+      });
+
+      return total;
+    });
+
+    return {
+      label: typeNames[typ],
+      data: tidsData,
+      borderColor: colors[typ],
+      tension: 0.3,
+    };
+  });
+
+  //Skapa diagram
+  new Chart(document.getElementById("linjediagram"), {
+    type: "line",
+    data: {
+      labels: tid,
+      datasets,
+    },
+
+    options: {
+      indexAxis: "x",
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        title: {
+          display: true,
+          color: "#FAFFE0",
+          text: "Exploateringsökning i hektar (2020-2024)",
+          font: {
+            size: 18,
+            weight: "bold",
+          },
+        },
+
+        legend: {
+          position: "bottom",
+          labels: {
+            color: "#FAFFE0",
+            font: {
+              size: 14,
+            },
+            padding: 20,
+          },
+        },
+      },
+
+      scales: {
+        x: {
+          ticks: {
+            color: "#FAFFE0",
+            font: {
+              size: 12,
+            },
+          },
+
+          title: {
+            display: true,
+            color: "#FAFFE0",
+            text: "År",
+            font: {
+              size: 14,
+              weight: "semi-bold",
+            },
+          },
+        },
+        y: {
+          title: {
+            display: true,
+            text: "Hektar",
+            color: "#FAFFE0",
+            font: {
+              size: 14,
+              weight: "semi-bold",
+            },
+          },
+
+          ticks: {
+            color: "#FAFFE0",
+            font: {
+              size: 12,
+            },
+          },
+        },
+      },
+    },
+  });
+}
+
 /*
   GRAF 4 drop down
   */
@@ -440,7 +563,7 @@ async function displayDropdownDiagram() {
   Object.keys(regionCodeMap).forEach((code) => {
     combinedData[code] = {};
     years.forEach(
-      (year) => (combinedData[code][year] = { vatmark: 0, befolkning: 0 }),
+      (year) => (combinedData[code][year] = { vatmark: 0, befolkning: 0 })
     );
   });
 
@@ -562,13 +685,13 @@ window.addEventListener("DOMContentLoaded", () => {
             .forEach((lank) => lank.classList.remove("active"));
 
           const rattLank = document.querySelector(
-            `.nav-lank[href="#${entry.target.id}"]`,
+            `.nav-lank[href="#${entry.target.id}"]`
           );
           if (rattLank) rattLank.classList.add("active");
         }
       });
     },
-    { rootMargin: "-30% 0px -50% 0px" },
+    { rootMargin: "-30% 0px -50% 0px" }
   );
 
   document
@@ -611,7 +734,7 @@ window.addEventListener("DOMContentLoaded", () => {
     {
       root: karusell,
       threshold: 0.5,
-    },
+    }
   );
 
   kort.forEach((k) => observer.observe(k));
