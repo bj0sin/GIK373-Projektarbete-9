@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -45,26 +45,24 @@
 
     <main>
       <section class="statistik-hero">
-        
         <div class="hero-top-row">
-
-      <div class="hero-color-box">
+          <div class="hero-color-box">
             <h1>DEN MYLLRANDE VÅTMARKEN</h1>
-            <p>Vi har dikat ut nästan alla våtmarker i Sveriges slättlandskap. Nu läcker de dränerade torvmarkerna omkring 11 miljoner ton koldioxidekvivalenter varje år – mer än hela den svenska personbilstrafiken.</p>
+            <p>
+              Vi har dikat ut nästan alla våtmarker i Sveriges slättlandskap. Nu
+              läcker de dränerade torvmarkerna omkring 11 miljoner ton
+              koldioxidekvivalenter varje år – mer än hela den svenska
+              personbilstrafiken.
+            </p>
           </div>
-        
 
-
-    <div class="hero-image-box">
+          <div class="hero-image-box">
             <img
               src="assets/axel-josefsson-g6C92nVS8Xs-unsplash.jpg"
               alt="Svensk våtmark"
             />
           </div>
-          </div>
-          
-        
-
+        </div>
       </section>
 
       <div class="statistik-layout">
@@ -92,15 +90,19 @@
             </ul>
           </nav>
         </aside>
-       
-      <div>
+
         <div class="grafer-container">
           <!-- Visualisering 1 -->
           <section class="statistik-sektion" id="stapel-sektion">
             <div class="statistik-kort">
               <div class="statistik-text">
                 <h2>Regional exploatering: Norrbotten i topp</h2>
-                <p>Diagrammet visar de regioner som har högst grad av exploatering. Norrbotten har den största exploateringen jämfört med övriga regioner, vilket visar på omfattande påverkan på mark och naturresurser i området.</p>
+                <p>
+                  Diagrammet visar de regioner som har högst grad av
+                  exploatering. Norrbotten har den största exploateringen
+                  jämfört med övriga regioner, vilket visar på omfattande
+                  påverkan på mark och naturresurser i området.
+                </p>
                 <p>Data: SCB</p>
               </div>
               <canvas id="stapeldiagram"></canvas>
@@ -112,7 +114,12 @@
             <div class="statistik-kort">
               <div class="statistik-text">
                 <h2>Vägar står för den största påverkan på våtmarker</h2>
-                <p>Diagrammet visar vilka faktorer som påverkar våtmarker mest. Vägar står för den största delen av påverkan, vilket tyder på att infrastruktur och markexploatering har stor betydelse för förändringar i våtmarksmiljöer.</p>
+                <p>
+                  Diagrammet visar vilka faktorer som påverkar våtmarker mest.
+                  Vägar står för den största delen av påverkan, vilket tyder på
+                  att infrastruktur och markexploatering har stor betydelse för
+                  förändringar i våtmarksmiljöer.
+                </p>
                 <p>Data: SCB</p>
               </div>
               <canvas id="cirkeldiagram"></canvas>
@@ -124,10 +131,16 @@
             <div class="statistik-kort">
               <div class="statistik-text">
                 <h2>Ökning av exploatering 2020-2024</h2>
-                <p>Diagrammets punkter är interaktiva och där kan man se att en ökning skett av samtliga exploateringstyper trots en minskning på järnvägsfronten mellan 2021-2023. Byggnation har en långsam men stadig ökning. Störst påverkan har vägar haft med en minskning av våtmarkerna med 1010 hektar.</p>
+                <p>
+                  Diagrammets punkter är interaktiva och där kan man se att en
+                  ökning skett av samtliga exploateringstyper trots en minskning
+                  på järnvägsfronten mellan 2021-2023. Byggnation har en långsam
+                  men stadig ökning. Störst påverkan har vägar haft med en
+                  minskning av våtmarkerna med 1010 hektar.
+                </p>
               </div>
               <canvas id="linjediagram"></canvas>
-            </div> 
+            </div>
           </section>
 
           <!-- Visualisering 4 -->
@@ -135,12 +148,19 @@
             <div class="statistik-kort">
               <div class="statistik-text">
                 <h2>Infrastruktur driver påverkan i glesbygd</h2>
-                <p>Diagrammet visar att påverkan per invånare är störst i glesbefolkade regioner. Det är storskalig infrastruktur som slukar de stora ytorna, snarare än städernas befolkningstillväxt.
+                <p>
+                  Diagrammet visar att påverkan per invånare är störst i
+                  glesbefolkade regioner. Det är storskalig infrastruktur som
+                  slukar de stora ytorna, snarare än städernas
+                  befolkningstillväxt.
                 </p>
                 <p>Data: SCB</p>
-                <label for="regionDropdown" style="margin-top: 20px; font-weight: bold;">Välj region:</label>
-      <select id="regionDropdown" class="region-select">
-        </select>
+                <label
+                  for="regionDropdown"
+                  style="margin-top: 20px; font-weight: bold"
+                  >Välj region:</label
+                >
+                <select id="regionDropdown" class="region-select"></select>
               </div>
               <canvas id="dropdowndiagram"></canvas>
             </div>
