@@ -673,206 +673,218 @@ html {
 }
 
 /*MOBILE 600px*/
-
 @media (max-width: 600px) {
   .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
+    padding: 15px 20px;
     position: relative;
     z-index: 1000;
   }
-
-  /* vanliga desktop-menyn */
-  .nav-links {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-  }
-
-  /* göm hamburger på desktop */
-  .hamburger {
-    display: none;
-    font-size: 28px;
-    cursor: pointer;
-    color: rgba(250, 255, 224, 1);
-  }
-
-  /* MOBIL */
-
   .hamburger {
     display: block;
+    color: rgba(250, 255, 224, 1);
   }
-
   .nav-links {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 70px;
+    top: 100%;
     right: 0;
+    left: 0;
     background: rgba(23, 53, 5, 1);
-    padding: 15px;
-    border-radius: 10px;
-    margin-right: 0;
+    padding: 20px;
+    border-radius: 0 0 15px 15px;
+    margin: 0;
+    text-align: center;
+    gap: 1.5rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   }
-
   .nav-links.active {
     display: flex;
   }
-
   .logo img {
-    height: 4rem;
+    height: 3.5rem;
   }
 
-  /*statistik*/
-
-  .statistik-kort {
-    width: 100%;
-    height: 400px;
-    padding: 20px;
-    display: flex;
+  .hero-top-row {
     flex-direction: column;
-    gap: 10px;
-  }
-
-  .statistik-text h2 {
-    padding-bottom: 1rem;
-    font-size: 1.5rem;
-  }
-
-  .statistik-text p {
-    font-size: 1rem;
-    padding-bottom: 0;
-  }
-
-  #stapeldiagram,
-  #cirkeldiagram,
-  #linjediagram,
-  #dropdowndiagram {
-    margin-top: auto;
-  }
-
-  /* hem */
-
-  .hero {
-    height: 40vh;
-  }
-
-  .hero-center-banner h1 {
-    font-size: 3rem;
-  }
-
-  .kort {
     height: auto;
-    display: flex;
-    flex-direction: column;
   }
-
-  .kort-text h2 {
-    padding-bottom: 1rem;
-    font-size: 1.5rem;
+  .hero-color-box {
+    padding: 30px 20px;
+    text-align: center;
   }
-
-  .kort-text p {
-    font-size: 1rem;
-    padding-bottom: 1rem;
+  .hero-color-box h1 {
+    font-size: 2rem;
+    letter-spacing: 1px;
   }
-
-  .fakta-kort {
-    flex: 0 0 350px;
-    height: 500px;
+  .hero-color-box p {
+    font-size: 1.1rem;
   }
-
-  .fakta-sektion h2 {
-    font-size: 2.5rem;
-  }
-
-  .fakta-text h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-
-  .fakta-text p {
-    font-size: 1rem;
-  }
-
-  .fakta-bild {
+  .hero-image-box {
+    flex: none;
     height: 200px;
   }
 
-  .ikon {
-    width: 5rem;
-    height: 5rem;
-    margin: 20px;
+  .statistik-layout {
+    flex-direction: column;
+    padding: 0 15px;
+    margin: 20px auto;
+    gap: 15px;
   }
 
+  /* HORISONTELL SCROLL-NAV FÖR MOBIL */
+  .sidomeny {
+    flex: none;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    background-color: rgba(250, 255, 224, 1);
+    z-index: 90;
+    padding: 10px 0;
+    margin-bottom: 10px;
+  }
+  .scroll-nav {
+    margin-top: 0;
+    padding: 0;
+  }
+  .scroll-nav ul {
+    flex-direction: row !important;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 15px;
+    padding: 5px 5px 10px 5px;
+    scrollbar-width: none;
+  }
+  .scroll-nav ul::-webkit-scrollbar {
+    display: none;
+  }
+  .scroll-nav li {
+    flex: 0 0 auto;
+  }
+  .scroll-nav a {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    background: rgba(23, 53, 5, 0.05);
+    border-radius: 20px;
+  }
+  .scroll-nav a.active {
+    transform: none;
+    border-left: none;
+    background: rgba(23, 53, 5, 1);
+    color: rgba(250, 255, 224, 1);
+    font-weight: 600;
+    padding-left: 12px;
+  }
+
+  /* --- DIAGRAM-KORTEN --- */
+  .statistik-sektion {
+    padding: 10px 0;
+    width: 100%;
+  }
+  .statistik-kort {
+    flex-direction: column;
+    height: auto !important;
+    padding: 20px;
+    gap: 25px;
+    border-radius: 12px;
+  }
+  .statistik-text h2 {
+    font-size: 1.5rem;
+    padding-bottom: 0.8rem;
+  }
+  .statistik-text p {
+    font-size: 0.95rem;
+    padding-bottom: 0.8rem;
+  }
+
+  #stapeldiagram,
+  #linjediagram,
+  #dropdowndiagram {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  #cirkeldiagram {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .region-select {
+    margin-top: 5px;
+    padding: 8px 12px;
+    font-size: 1rem;
+  }
+
+  .hero {
+    height: 45vh;
+  }
+  .hero-center-banner h1 {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+  }
+  .kort {
+    height: auto;
+    flex-direction: column;
+    padding: 20px;
+  }
+  .kort-text h2 {
+    font-size: 1.6rem;
+    padding-bottom: 1rem;
+  }
+  .kort-text p {
+    font-size: 1rem;
+  }
+  #sverigekarta {
+    min-height: 350px;
+    width: 100%;
+  }
+  .fakta-sektion h2,
   .statistik-lankar-sektion h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    margin-bottom: 20px;
   }
-
+  .fakta-kort {
+    flex: 0 0 290px;
+    height: auto;
+  }
+  .fakta-bild {
+    height: 180px;
+  }
   .lank-grid {
     grid-template-columns: 1fr;
+    gap: 15px;
   }
-
-  .lank-kort {
-    padding: 15px;
-  }
-
-  /* =====================
-   OM OSS CONTAINER
-===================== */
   .container {
-    display: flex;
     flex-direction: column;
+    padding: 20px;
+    width: 100%;
   }
-
-  .text h2 {
-    padding-bottom: 1rem;
-    font-size: 1.5rem;
-  }
-
-  .text p,
-  .text li {
-    font-size: 1rem;
-    padding-bottom: 1rem;
-  }
-
   .container img {
     display: none;
   }
-
-  /* =====================
-   KÄLLOR + DATA (BOXAR)
-===================== */
-
   .info-container {
-    width: 80%;
-    gap: 10px;
+    width: 100%;
+    flex-direction: column;
+    gap: 15px;
   }
-
-  .kalla-dropdown,
-  .data-dropdown {
-    padding: 20px;
-  }
-
-  .kalla-dropdown,
-  .data-dropdown {
-    min-width: 100%;
-  }
-
-  .kalla-dropdown summary,
-  .data-dropdown summary {
-    font-size: 1.5rem;
-  }
-
   .footer {
+    height: auto;
     flex-direction: column;
     text-align: center;
-    padding: 20px;
-  }
-
-  .footer-contact {
-    font-size: 1.1rem;
+    padding: 30px 20px;
   }
 }
