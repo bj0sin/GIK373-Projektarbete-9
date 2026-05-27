@@ -1000,7 +1000,7 @@ html {
   }
 
   .kort {
-    height: auto;
+    height: 520px;
     flex-direction: column;
     padding: 20px;
   }
@@ -1029,7 +1029,7 @@ html {
     flex: 0 0 290px;
     display: flex;
     flex-direction: column;
-    height: 520px;
+    height: 480px;
   }
 
   .fakta-bild {
@@ -1037,6 +1037,20 @@ html {
     width: 100%;
     object-fit: cover;
     flex-shrink: 0;
+  }
+
+  .fakta-text h3 {
+    font-size: 1.2rem;
+  }
+
+  .fakta-text p {
+    font-size: 1rem;
+    margin-bottom: auto;
+  }
+
+  .fakta-kalla {
+    font-size: 0.2rem;
+    margin-top: auto;
   }
 
   .lank-grid {
@@ -1082,5 +1096,56 @@ html {
 
   .karusell-btn {
     display: none;
+  }
+
+  /* OM OSS */
+
+  .info-container .kalla-dropdown {
+    background-color: rgba(23, 53, 5, 1);
+  }
+
+  .info-container .data-dropdown {
+    background-color: rgba(23, 53, 5, 1);
+  }
+  .kalla-dropdown summary {
+    color: rgba(250, 255, 224, 1);
+  }
+  details[open] summary::marker {
+    color: rgba(250, 255, 224, 1);
+  }
+
+  .kalla-dropdown summary {
+    color: rgba(250, 255, 224, 1);
+  }
+
+  .kalla-dropdown[open] summary {
+    color: rgba(250, 255, 224, 1);
+  }
+
+  .kallor li {
+    color: rgba(250, 255, 224, 1);
+  }
+
+  .kallor a {
+    color: rgb(255, 255, 255);
+  }
+
+  .data-dropdown summary {
+    color: rgba(250, 255, 224, 1);
+  }
+
+  .data-dropdown[open] summary {
+    color: rgba(250, 255, 224, 1);
+  }
+
+  .data li {
+    color: rgba(250, 255, 224, 1);
+  }
+
+  .kallor a {
+    color: rgb(255, 255, 255);
+  }
+  .data a {
+    color: rgb(255, 255, 255);
   }
 }
