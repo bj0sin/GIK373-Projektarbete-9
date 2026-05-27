@@ -177,7 +177,7 @@ async function displayVatmarkMap() {
   const totalHektar = kartaData.map((item) => Number(item.values[1]));
 
   const indirektHektar = totalHektar.map(
-    (total, index) => total - direktHektar[index]
+    (total, index) => total - direktHektar[index],
   );
 
   const hoverData = direktHektar.map((direkt, index) => [
@@ -273,7 +273,7 @@ async function displayStapeldiagram() {
 
     data: topRegioner.map((region) => {
       const found = filteredData.find(
-        (item) => item.key[0] === region.code && item.key[1] === typ
+        (item) => item.key[0] === region.code && item.key[1] === typ,
       );
       return found ? Number(found.values[0]) : 0;
     }),
@@ -386,7 +386,7 @@ async function displayCirkeldiagram() {
           data: [byggnation, jarnvag, vagar],
           backgroundColor: ["#173505", "#4f7d33", "#8b966c"],
 
-          borderWidth: 1,
+          borderWidth: 0,
         },
       ],
     },
@@ -429,29 +429,23 @@ async function displayCirkeldiagram() {
   GRAF 3
   */
 
-//Skapa diagram
 async function displayLinjediagram() {
   const allVatmarkData = await fetchVatmark();
   console.log(allVatmarkData);
 
-  //Filtrera till;
-  //År 2020-2024
-  //Exkludera totalen
   const tid = ["2020", "2021", "2022", "2023", "2024"];
   const filteredData = allVatmarkData.filter((item) => {
     return tid.includes(item.key[2]) && item.key[1] !== "TOT";
   });
-  //År och Exploateringstyper
+
   const exploateringstyper = ["BYGGN", "JVAG", "VAG"];
 
-  //Färger
   const colors = {
     BYGGN: "#FAFFE0",
     JVAG: "#8b966c",
     VAG: "#173505",
   };
 
-  //Dataset för uppbyggnad av linjer
   const datasets = exploateringstyper.map((typ) => {
     const tidsData = tid.map((tid) => {
       let total = 0;
@@ -564,7 +558,7 @@ async function displayDropdownDiagram() {
   Object.keys(regionCodeMap).forEach((code) => {
     combinedData[code] = {};
     years.forEach(
-      (year) => (combinedData[code][year] = { vatmark: 0, befolkning: 0 })
+      (year) => (combinedData[code][year] = { vatmark: 0, befolkning: 0 }),
     );
   });
 
@@ -686,7 +680,7 @@ window.addEventListener("DOMContentLoaded", () => {
             .forEach((lank) => lank.classList.remove("active"));
 
           const rattLank = document.querySelector(
-            `.nav-lank[href="#${entry.target.id}"]`
+            `.nav-lank[href="#${entry.target.id}"]`,
           );
           if (rattLank) rattLank.classList.add("active");
 
@@ -695,7 +689,7 @@ window.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    { rootMargin: "-30% 0px -50% 0px" }
+    { rootMargin: "-30% 0px -50% 0px" },
   );
 
   document
@@ -703,7 +697,7 @@ window.addEventListener("DOMContentLoaded", () => {
     .forEach((graf) => observer.observe(graf));
 });
 
-/* PRICKAR UNDER KORT */
+/* PRICKAR UNDER KORT, KNAPPAR */
 window.addEventListener("DOMContentLoaded", () => {
   const karusell = document.querySelector(".karusell");
   const kort = document.querySelectorAll(".fakta-kort");
@@ -741,7 +735,7 @@ window.addEventListener("DOMContentLoaded", () => {
     {
       root: karusell,
       threshold: 0.5,
-    }
+    },
   );
 
   kort.forEach((k) => observer.observe(k));
