@@ -196,7 +196,7 @@ html {
   display: flex;
   gap: 50px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.291);
-  align-items: center;
+  align-items: flex-start;
 }
 
 .statistik-text {
@@ -436,7 +436,9 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
   z-index: 10;
   position: absolute;
 }
@@ -523,7 +525,9 @@ html {
   background-color: rgba(23, 53, 5, 0.3);
   border-radius: 50%;
   cursor: pointer;
-  transition: background-color 03s ease, transform 0.2s ease;
+  transition:
+    background-color 03s ease,
+    transform 0.2s ease;
 }
 
 .dot:hover {
@@ -840,13 +844,18 @@ html {
   /* HORISONTELL SCROLL-NAV FÖR MOBIL */
   .sidomeny {
     flex: none;
-    width: 100%;
+    align-self: flex-start;
+    width: calc(100% +30px);
     position: sticky;
+    position: -webkit-sticky;
     top: 0;
     background-color: rgba(250, 255, 224, 1);
     z-index: 90;
+    width: 100vw;
+    margin-left: -15px;
     padding: 10px 0;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(23, 53, 5, 0.12);
   }
 
   .scroll-nav {
@@ -858,9 +867,11 @@ html {
     flex-direction: row !important;
     overflow-x: auto;
     white-space: nowrap;
-    gap: 15px;
-    padding: 5px 5px 10px 5px;
+    gap: 25px;
+    margin: 0;
+    padding: 4px 15px 10px 15px;
     scrollbar-width: none;
+    display: flex;
   }
 
   .scroll-nav ul::-webkit-scrollbar {
@@ -872,19 +883,25 @@ html {
   }
 
   .scroll-nav a {
-    font-size: 0.9rem;
-    padding: 6px 12px;
-    background: rgba(23, 53, 5, 0.05);
-    border-radius: 20px;
+    font-size: 1rem;
+    padding: 6px 0;
+    background: transparent;
+    color: rgba(23, 53, 5, 0.6);
+    display: inline-block;
+
+    border-bottom: 3px solid transparent;
   }
 
   .scroll-nav a.active {
     transform: none;
     border-left: none;
-    background: rgba(23, 53, 5, 1);
-    color: rgba(250, 255, 224, 1);
-    font-weight: 600;
-    padding-left: 12px;
+    background: transparent;
+    color: rgba(23, 53, 5, 1);
+    font-weight: bold;
+
+    border-bottom: 3px solid rgba(23, 54, 5, 1);
+    padding-bottom: 2px;
+    padding-left: 0;
   }
 
   /* --- DIAGRAM-KORTEN --- */
@@ -965,14 +982,6 @@ html {
     border-radius: 8px;
     padding: 10px;
     box-sizing: border-box;
-  }
-
-  #stapeldiagram,
-  #linjediagram,
-  #dropdowndiagram,
-  #cirkeldiagram canvas {
-    width: 100% !important;
-    height: 100% !important;
   }
 
   .region-select {
