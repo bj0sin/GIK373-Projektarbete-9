@@ -423,8 +423,8 @@ html {
   color: rgba(250, 255, 224, 1);
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   font-size: 1.5rem;
   cursor: pointer;
   display: flex;
@@ -438,11 +438,11 @@ html {
 }
 
 .karusell-btn.prev {
-  left: -20px;
+  left: -0.5px;
 }
 
 .karusell-btn.next {
-  right: -20px;
+  right: -0.5px;
 }
 
 .karusell-btn:hover {
