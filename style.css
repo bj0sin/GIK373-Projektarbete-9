@@ -745,10 +745,12 @@ html {
     position: relative;
     z-index: 1000;
   }
+
   .hamburger {
     display: block;
     color: rgba(250, 255, 224, 1);
   }
+
   .nav-links {
     display: none;
     flex-direction: column;
@@ -764,9 +766,11 @@ html {
     gap: 1.5rem;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   }
+
   .nav-links.active {
     display: flex;
   }
+
   .logo img {
     height: 3.5rem;
   }
@@ -775,17 +779,21 @@ html {
     flex-direction: column;
     height: auto;
   }
+
   .hero-color-box {
     padding: 30px 20px;
     text-align: center;
   }
+
   .hero-color-box h1 {
     font-size: 2rem;
     letter-spacing: 1px;
   }
+
   .hero-color-box p {
     font-size: 1.1rem;
   }
+
   .hero-image-box {
     flex: none;
     height: 200px;
@@ -809,10 +817,12 @@ html {
     padding: 10px 0;
     margin-bottom: 10px;
   }
+
   .scroll-nav {
     margin-top: 0;
     padding: 0;
   }
+
   .scroll-nav ul {
     flex-direction: row !important;
     overflow-x: auto;
@@ -821,18 +831,22 @@ html {
     padding: 5px 5px 10px 5px;
     scrollbar-width: none;
   }
+
   .scroll-nav ul::-webkit-scrollbar {
     display: none;
   }
+
   .scroll-nav li {
     flex: 0 0 auto;
   }
+
   .scroll-nav a {
     font-size: 0.9rem;
     padding: 6px 12px;
     background: rgba(23, 53, 5, 0.05);
     border-radius: 20px;
   }
+
   .scroll-nav a.active {
     transform: none;
     border-left: none;
@@ -847,6 +861,7 @@ html {
     padding: 10px 0;
     width: 100%;
   }
+
   .statistik-kort {
     flex-direction: column;
     height: auto !important;
@@ -855,10 +870,12 @@ html {
     border-radius: 12px;
     align-items: stretch;
   }
+
   .statistik-text h2 {
     font-size: 1.5rem;
     padding-bottom: 0.8rem;
   }
+
   .statistik-text p {
     font-size: 0.95rem;
     padding-bottom: 0.8rem;
@@ -899,55 +916,83 @@ html {
   .hero {
     height: 45vh;
   }
+
   .hero-center-banner h1 {
     font-size: 2.2rem;
     letter-spacing: 2px;
   }
+
   .kort {
     height: auto;
     flex-direction: column;
     padding: 20px;
   }
+
   .kort-text h2 {
     font-size: 1.6rem;
     padding-bottom: 1rem;
   }
+
   .kort-text p {
     font-size: 1rem;
   }
+
   #sverigekarta {
     min-height: 350px;
     width: 100%;
   }
+
   .fakta-sektion h2,
   .statistik-lankar-sektion h2 {
     font-size: 2rem;
     margin-bottom: 20px;
   }
+
   .fakta-kort {
     flex: 0 0 290px;
     height: auto;
   }
+
   .fakta-bild {
     height: 180px;
   }
+
   .lank-grid {
     grid-template-columns: 1fr;
     gap: 15px;
   }
+
   .container {
     flex-direction: column;
-    padding: 20px;
-    width: 100%;
+    padding: 30px;
+    width: 80%;
   }
+
+
+  .container p {
+    font-size: 1rem;
+  }
+
   .container img {
     display: none;
   }
+
   .info-container {
-    width: 100%;
-    flex-direction: column;
     gap: 15px;
   }
+
+  .kalla-dropdown,
+  .data-dropdown {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .kalla-dropdown summary,
+  .data-dropdown summary {
+    font-size: 1rem;
+
+  }
+
   .footer {
     height: auto;
     flex-direction: column;
