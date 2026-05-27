@@ -224,6 +224,7 @@ html {
 #dropdowndiagram {
   max-width: 600px;
   min-height: 500px;
+  max-height: 500px;
   background-color: rgba(255, 255, 255, 0.195);
   border-radius: 10px;
   flex: 1;
@@ -247,10 +248,12 @@ html {
 }
 
 .referens-rad {
-  display: block;
-  width: 100%;
+  display: flex;
+  max-width: 40px;
+  gap: 15px;
   margin-top: 15px;
   clear: both;
+  align-items: flex-start;
 }
 
 .referens-rad::after {
@@ -261,10 +264,10 @@ html {
 
 .referens-kort {
   background-color: rgba(250, 255, 224, 0.08);
-
+  flex: 1;
   color: rgba(250, 255, 224, 1);
   border-radius: 6px;
-  margin-top: 10px;
+  margin-top: 0;
 }
 
 .referens-kort[open] {
@@ -281,6 +284,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .referens-kort summary::-webkit-details-marker {
@@ -290,6 +294,8 @@ html {
 .referens-kort summary::after {
   content: "▼";
   font-size: 0.75rem;
+  margin-left: auto;
+  padding-left: 15px;
 }
 
 .referens-kort[open] summary::after {
@@ -416,6 +422,36 @@ html {
   align-items: center;
   gap: 15px;
   width: 100%;
+}
+
+.karusell-btn {
+  background-color: rgba(23, 53, 5, 0.8);
+  color: rgba(250, 255, 224, 1);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 10;
+  position: absolute;
+}
+
+.karusell-btn.prev {
+  left: -0.5px;
+}
+
+.karusell-btn.next {
+  right: -0.5px;
+}
+
+.karusell-btn:hover {
+  background-color: rgba(23, 53, 5, 1);
+  transform: scale(1.1);
 }
 
 .karusell {
@@ -601,10 +637,9 @@ html {
 
 .text p,
 .text li {
-  font-size: 1.4rem;
+  font-size: 1rem;
   padding-bottom: 1rem;
   line-height: 1.6;
-  font-family: Questrial, sans-serif;
 }
 
 .dropdown-om summary {
@@ -641,7 +676,6 @@ html {
   max-width: 1400px;
   margin: 60px auto;
   align-items: flex-start;
-  flex-wrap: wrap;
 }
 
 /* KORTEN */
@@ -649,7 +683,7 @@ html {
 .data-dropdown {
   flex: 1;
   min-width: 280px;
-  padding: 40px;
+  padding: 20px;
   background-color: rgba(23, 53, 5);
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.291);
@@ -674,8 +708,7 @@ html {
 .data-dropdown summary {
   cursor: pointer;
 
-  font-size: 1.8rem;
-  font-family: Geologica, sans-serif;
+  font-size: 1rem;
   font-weight: bold;
 
   color: rgba(250, 255, 224, 1);
@@ -743,10 +776,12 @@ html {
     position: relative;
     z-index: 1000;
   }
+
   .hamburger {
     display: block;
     color: rgba(250, 255, 224, 1);
   }
+
   .nav-links {
     display: none;
     flex-direction: column;
@@ -762,9 +797,11 @@ html {
     gap: 1.5rem;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   }
+
   .nav-links.active {
     display: flex;
   }
+
   .logo img {
     height: 3.5rem;
   }
@@ -773,17 +810,21 @@ html {
     flex-direction: column;
     height: auto;
   }
+
   .hero-color-box {
     padding: 30px 20px;
     text-align: center;
   }
+
   .hero-color-box h1 {
     font-size: 2rem;
     letter-spacing: 1px;
   }
+
   .hero-color-box p {
     font-size: 1.1rem;
   }
+
   .hero-image-box {
     flex: none;
     height: 200px;
@@ -807,10 +848,12 @@ html {
     padding: 10px 0;
     margin-bottom: 10px;
   }
+
   .scroll-nav {
     margin-top: 0;
     padding: 0;
   }
+
   .scroll-nav ul {
     flex-direction: row !important;
     overflow-x: auto;
@@ -819,18 +862,22 @@ html {
     padding: 5px 5px 10px 5px;
     scrollbar-width: none;
   }
+
   .scroll-nav ul::-webkit-scrollbar {
     display: none;
   }
+
   .scroll-nav li {
     flex: 0 0 auto;
   }
+
   .scroll-nav a {
     font-size: 0.9rem;
     padding: 6px 12px;
     background: rgba(23, 53, 5, 0.05);
     border-radius: 20px;
   }
+
   .scroll-nav a.active {
     transform: none;
     border-left: none;
@@ -847,18 +894,61 @@ html {
     height: 100%;
   }
 
-  .statistik-kort {
-    display: flex;
+  .statistik-kort,
+  .kort {
     flex-direction: column;
     padding: 20px;
     gap: 25px;
     border-radius: 12px;
+    align-items: stretch;
+    display: flex;
+  }
+
+  .statistik-text,
+  .kort-text {
+    display: contents;
+  }
+
+  .statistik-text > h2,
+  .statistik-text > p,
+  .statistik-text > label,
+  .statistik-text > select,
+  .kort-text > h2,
+  .kort-text > p {
+    order: 1;
+  }
+
+  .statistik-kort > canvas,
+  #sverigekarta {
+    order: 2 !important;
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+  }
+
+  .statistik-text > .referens-rad,
+  .kort-text > .referens-rad {
+    order: 3 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    max-width: 450px;
+    margin: 15px auto 0 auto !important;
+  }
+
+  .referens-rad .referens-kort {
+    flex: 1;
+  }
+
+  .referens-kort summary {
+    padding: 10px 12px;
+    font-size: 0.85rem;
   }
 
   .statistik-text h2 {
     font-size: 1.5rem;
     padding-bottom: 0.8rem;
   }
+
   .statistik-text p {
     font-size: 0.95rem;
     padding-bottom: 0.8rem;
@@ -926,24 +1016,11 @@ html {
     margin-bottom: 20px;
   }
 
-  .karusell-container fakta-kort {
-    height: 550px;
-  }
-
   .fakta-kort {
     flex: 0 0 290px;
     display: flex;
     flex-direction: column;
     height: 520px;
-  }
-
-  .fakta-text h3 {
-    margin-bottom: 12px;
-  }
-
-  .fakta-text p {
-    font-size: 1rem;
-    margin-bottom: 12px;
   }
 
   .fakta-bild {
@@ -958,15 +1035,14 @@ html {
     gap: 15px;
   }
 
-  .fakta-kalla {
-    margin-top: auto;
-  }
-
   .container {
     flex-direction: column;
-    padding: 20px;
-    width: 100%;
-    height: 400px;
+    padding: 30px;
+    width: 80%;
+  }
+
+  .container p {
+    font-size: 1rem;
   }
 
   .container img {
@@ -974,9 +1050,18 @@ html {
   }
 
   .info-container {
-    width: 100%;
-    flex-direction: column;
     gap: 15px;
+  }
+
+  .kalla-dropdown,
+  .data-dropdown {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .kalla-dropdown summary,
+  .data-dropdown summary {
+    font-size: 1rem;
   }
 
   .footer {
@@ -984,5 +1069,9 @@ html {
     flex-direction: column;
     text-align: center;
     padding: 30px 20px;
+  }
+
+  .karusell-btn {
+    display: none;
   }
 }

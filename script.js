@@ -709,6 +709,9 @@ window.addEventListener("DOMContentLoaded", () => {
   const kort = document.querySelectorAll(".fakta-kort");
   const dots = document.querySelectorAll(".dot");
 
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
   if (!karusell) return;
 
   dots.forEach((dot, i) => {
@@ -742,4 +745,20 @@ window.addEventListener("DOMContentLoaded", () => {
   );
 
   kort.forEach((k) => observer.observe(k));
+
+  if (prevBtn && nextBtn) {
+    const getScrollAmount = () => {
+      const forstaKort = document.querySelector(".fakta-kort");
+
+      return forstaKort ? forstaKort.offsetWidth + 30 : 430;
+    };
+
+    prevBtn.addEventListener("click", () => {
+      karusell.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
+    });
+
+    nextBtn.addEventListener("click", () => {
+      karusell.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+    });
+  }
 });
