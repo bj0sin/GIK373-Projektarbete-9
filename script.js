@@ -208,10 +208,12 @@ async function displayVatmarkMap() {
     },
   ];
 
+  const isMobile = window.innerWidth <= 600;
+
   const layout = {
     map: {
-      center: { lon: 16.0, lat: 62 },
-      zoom: 3.9,
+      center: { lon: 16.0, lat: isMobile ? 62.5 : 62 },
+      zoom: isMobile ? 3.0 : 3.9,
     },
     margin: { r: 0, t: 0, b: 0, l: 0 },
     dragmode: false,

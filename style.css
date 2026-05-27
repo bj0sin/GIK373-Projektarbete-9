@@ -935,11 +935,21 @@ html {
     order: 1;
   }
 
-  .statistik-kort > canvas,
+  .statistik-kort > canvas {
+    order: 2 !important;
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+    min-height: 350px;
+    width: 100% !important;
+  }
+
+  /* Kartan får lite extra höjd så avlånga Sverige ryms perfekt */
   #sverigekarta {
     order: 2 !important;
     margin-top: 25px !important;
     margin-bottom: 25px !important;
+    min-height: 500px !important;
+    width: 100% !important;
   }
 
   .statistik-text > .referens-rad,
