@@ -224,6 +224,7 @@ html {
 #dropdowndiagram {
   max-width: 600px;
   min-height: 500px;
+  max-height: 500px;
   background-color: rgba(255, 255, 255, 0.195);
   border-radius: 10px;
   flex: 1;
@@ -247,10 +248,12 @@ html {
 }
 
 .referens-rad {
-  display: block;
-  width: 100%;
+  display: flex;
+  max-width: 40px;
+  gap: 15px;
   margin-top: 15px;
   clear: both;
+  align-items: flex-start;
 }
 
 .referens-rad::after {
@@ -261,10 +264,10 @@ html {
 
 .referens-kort {
   background-color: rgba(250, 255, 224, 0.08);
-
+  flex: 1;
   color: rgba(250, 255, 224, 1);
   border-radius: 6px;
-  margin-top: 10px;
+  margin-top: 0;
 }
 
 .referens-kort[open] {
@@ -281,6 +284,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .referens-kort summary::-webkit-details-marker {
@@ -290,6 +294,8 @@ html {
 .referens-kort summary::after {
   content: "▼";
   font-size: 0.75rem;
+  margin-left: auto;
+  padding-left: 15px;
 }
 
 .referens-kort[open] summary::after {
@@ -638,7 +644,6 @@ html {
   font-size: 1.4rem;
   padding-bottom: 1rem;
   line-height: 1.6;
-
 }
 
 .dropdown-om summary {
@@ -894,13 +899,55 @@ html {
     width: 100%;
   }
 
-  .statistik-kort {
+  .statistik-kort,
+  .kort {
     flex-direction: column;
     height: auto !important;
     padding: 20px;
     gap: 25px;
     border-radius: 12px;
     align-items: stretch;
+    display: flex;
+  }
+
+  .statistik-text,
+  .kort-text {
+    display: contents;
+  }
+
+  .statistik-text > h2,
+  .statistik-text > p,
+  .statistik-text > label,
+  .statistik-text > select,
+  .kort-text > h2,
+  .kort-text > p {
+    order: 1;
+  }
+
+  .statistik-kort > canvas,
+  #sverigekarta {
+    order: 2 !important;
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+  }
+
+  .statistik-text > .referens-rad,
+  .kort-text > .referens-rad {
+    order: 3 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    max-width: 450px;
+    margin: 15px auto 0 auto !important;
+  }
+
+  .referens-rad .referens-kort {
+    flex: 1;
+  }
+
+  .referens-kort summary {
+    padding: 10px 12px;
+    font-size: 0.85rem;
   }
 
   .statistik-text h2 {
