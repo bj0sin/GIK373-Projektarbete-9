@@ -208,10 +208,12 @@ async function displayVatmarkMap() {
     },
   ];
 
+  const isMobile = window.innerWidth <= 600;
+
   const layout = {
     map: {
-      center: { lon: 16.0, lat: 62 },
-      zoom: 3.9,
+      center: { lon: 16.0, lat: isMobile ? 62.5 : 62 },
+      zoom: isMobile ? 3.0 : 3.9,
     },
     margin: { r: 0, t: 0, b: 0, l: 0 },
     dragmode: false,
@@ -386,13 +388,14 @@ async function displayCirkeldiagram() {
           data: [byggnation, jarnvag, vagar],
           backgroundColor: ["#173505", "#4f7d33", "#8b966c"],
 
-          borderWidth: 1,
+          borderWidth: 0,
         },
       ],
     },
 
     options: {
       responsive: true,
+      maintainAspectRatio: false,
 
       layout: {
         padding: 30,
@@ -428,29 +431,23 @@ async function displayCirkeldiagram() {
   GRAF 3
   */
 
-//Skapa diagram
 async function displayLinjediagram() {
   const allVatmarkData = await fetchVatmark();
   console.log(allVatmarkData);
 
-  //Filtrera till;
-  //År 2020-2024
-  //Exkludera totalen
   const tid = ["2020", "2021", "2022", "2023", "2024"];
   const filteredData = allVatmarkData.filter((item) => {
     return tid.includes(item.key[2]) && item.key[1] !== "TOT";
   });
-  //År och Exploateringstyper
+
   const exploateringstyper = ["BYGGN", "JVAG", "VAG"];
 
-  //Färger
   const colors = {
     BYGGN: "#FAFFE0",
     JVAG: "#8b966c",
     VAG: "#173505",
   };
 
-  //Dataset för uppbyggnad av linjer
   const datasets = exploateringstyper.map((typ) => {
     const tidsData = tid.map((tid) => {
       let total = 0;
@@ -702,7 +699,7 @@ window.addEventListener("DOMContentLoaded", () => {
     .forEach((graf) => observer.observe(graf));
 });
 
-/* PRICKAR UNDER KORT */
+/* PRICKAR UNDER KORT, KNAPPAR */
 window.addEventListener("DOMContentLoaded", () => {
   const karusell = document.querySelector(".karusell");
   const kort = document.querySelectorAll(".fakta-kort");

@@ -1,4 +1,4 @@
-/* hela hemsidans css*/
+/* Hela hemsidans css*/
 
 * {
   margin: 0;
@@ -16,6 +16,8 @@ h1,
 h2,
 h3 {
   font-family: Geologica, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 html {
@@ -196,7 +198,7 @@ html {
   display: flex;
   gap: 50px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.291);
-  align-items: center;
+  align-items: flex-start;
 }
 
 .statistik-text {
@@ -224,6 +226,7 @@ html {
 #dropdowndiagram {
   max-width: 600px;
   min-height: 500px;
+  max-height: 500px;
   background-color: rgba(255, 255, 255, 0.195);
   border-radius: 10px;
   flex: 1;
@@ -247,10 +250,12 @@ html {
 }
 
 .referens-rad {
-  display: block;
-  width: 100%;
+  display: flex;
+  max-width: 40px;
+  gap: 15px;
   margin-top: 15px;
   clear: both;
+  align-items: flex-start;
 }
 
 .referens-rad::after {
@@ -261,10 +266,10 @@ html {
 
 .referens-kort {
   background-color: rgba(250, 255, 224, 0.08);
-
+  flex: 1;
   color: rgba(250, 255, 224, 1);
   border-radius: 6px;
-  margin-top: 10px;
+  margin-top: 0;
 }
 
 .referens-kort[open] {
@@ -281,6 +286,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .referens-kort summary::-webkit-details-marker {
@@ -290,6 +296,8 @@ html {
 .referens-kort summary::after {
   content: "▼";
   font-size: 0.75rem;
+  margin-left: auto;
+  padding-left: 15px;
 }
 
 .referens-kort[open] summary::after {
@@ -639,7 +647,6 @@ html {
   font-size: 1rem;
   padding-bottom: 1rem;
   line-height: 1.6;
-
 }
 
 .dropdown-om summary {
@@ -835,13 +842,18 @@ html {
   /* HORISONTELL SCROLL-NAV FÖR MOBIL */
   .sidomeny {
     flex: none;
-    width: 100%;
+    align-self: flex-start;
+    width: calc(100% +30px);
     position: sticky;
+    position: -webkit-sticky;
     top: 0;
     background-color: rgba(250, 255, 224, 1);
     z-index: 90;
+    width: 100vw;
+    margin-left: -15px;
     padding: 10px 0;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(23, 53, 5, 0.12);
   }
 
   .scroll-nav {
@@ -853,9 +865,11 @@ html {
     flex-direction: row !important;
     overflow-x: auto;
     white-space: nowrap;
-    gap: 15px;
-    padding: 5px 5px 10px 5px;
+    gap: 25px;
+    margin: 0;
+    padding: 4px 15px 10px 15px;
     scrollbar-width: none;
+    display: flex;
   }
 
   .scroll-nav ul::-webkit-scrollbar {
@@ -867,34 +881,92 @@ html {
   }
 
   .scroll-nav a {
-    font-size: 0.9rem;
-    padding: 6px 12px;
-    background: rgba(23, 53, 5, 0.05);
-    border-radius: 20px;
+    font-size: 1rem;
+    padding: 6px 0;
+    background: transparent;
+    color: rgba(23, 53, 5, 0.6);
+    display: inline-block;
+
+    border-bottom: 3px solid transparent;
   }
 
   .scroll-nav a.active {
     transform: none;
     border-left: none;
-    background: rgba(23, 53, 5, 1);
-    color: rgba(250, 255, 224, 1);
-    font-weight: 600;
-    padding-left: 12px;
+    background: transparent;
+    color: rgba(23, 53, 5, 1);
+    font-weight: bold;
+
+    border-bottom: 3px solid rgba(23, 54, 5, 1);
+    padding-bottom: 2px;
+    padding-left: 0;
   }
 
   /* --- DIAGRAM-KORTEN --- */
   .statistik-sektion {
     padding: 10px 0;
     width: 100%;
+    height: 100%;
   }
 
-  .statistik-kort {
+  .statistik-kort,
+  .kort {
     flex-direction: column;
-    height: auto !important;
     padding: 20px;
     gap: 25px;
     border-radius: 12px;
     align-items: stretch;
+    display: flex;
+  }
+
+  .statistik-text,
+  .kort-text {
+    display: contents;
+  }
+
+  .statistik-text>h2,
+  .statistik-text>p,
+  .statistik-text>label,
+  .statistik-text>select,
+  .kort-text>h2,
+  .kort-text>p {
+    order: 1;
+  }
+
+  .statistik-kort>canvas {
+    order: 2 !important;
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+    min-height: 350px;
+    width: 100% !important;
+  }
+
+  /* Kartan får lite extra höjd så avlånga Sverige ryms perfekt */
+  #sverigekarta {
+    order: 2 !important;
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+    min-height: 500px !important;
+    width: 100% !important;
+  }
+
+  .statistik-text>.referens-rad,
+  .kort-text>.referens-rad {
+    order: 3 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    max-width: 450px;
+    margin: 15px auto 0 auto !important;
+  }
+
+  .referens-rad .referens-kort {
+    flex: 1;
+  }
+
+  .referens-kort summary {
+    padding: 10px 12px;
+    font-size: 0.85rem;
   }
 
   .statistik-text h2 {
@@ -909,28 +981,15 @@ html {
 
   #stapeldiagram,
   #linjediagram,
-  #dropdowndiagram {
-    display: block;
+  #dropdowndiagram,
+  #cirkeldiagram {
     width: 100% !important;
-    max-width: 100% !important;
-    min-height: 0 !important;
-    height: 360px !important;
+    height: 100% !important;
     aspect-ratio: 4 / 3;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     padding: 10px;
-  }
-
-  #cirkeldiagram {
-    display: block;
-    width: 100% !important;
-    max-width: 100% !important;
-    min-height: 0 !important;
-    height: auto !important;
-    aspect-ratio: 1 / 1;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 10px;
+    box-sizing: border-box;
   }
 
   .region-select {
@@ -949,7 +1008,7 @@ html {
   }
 
   .kort {
-    height: auto;
+    height: 520px;
     flex-direction: column;
     padding: 20px;
   }
@@ -976,11 +1035,30 @@ html {
 
   .fakta-kort {
     flex: 0 0 290px;
-    height: auto;
+    display: flex;
+    flex-direction: column;
+    height: 480px;
   }
 
   .fakta-bild {
-    height: 180px;
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .fakta-text h3 {
+    font-size: 1.2rem;
+  }
+
+  .fakta-text p {
+    font-size: 1rem;
+    margin-bottom: auto;
+  }
+
+  .fakta-kalla {
+    font-size: 0.2rem;
+    margin-top: auto;
   }
 
   .lank-grid {
@@ -1026,5 +1104,59 @@ html {
 
   .karusell-btn {
     display: none;
+  }
+
+  /* OM OSS */
+
+  .info-container .kalla-dropdown {
+    background-color: rgba(23, 53, 5, 1);
+  }
+
+  .info-container .data-dropdown {
+    background-color: rgba(23, 53, 5, 1);
+  }
+
+  .kalla-dropdown summary {
+    color: rgba(250, 255, 224, 1);
+  }
+
+  details[open] summary::marker {
+    color: rgba(250, 255, 224, 1);
+  }
+
+  .kalla-dropdown summary {
+    color: rgba(250, 255, 224, 1);
+  }
+
+  .kalla-dropdown[open] summary {
+    color: rgba(250, 255, 224, 1);
+  }
+
+  .kallor li {
+    color: rgba(250, 255, 224, 1);
+  }
+
+  .kallor a {
+    color: rgb(255, 255, 255);
+  }
+
+  .data-dropdown summary {
+    color: rgba(250, 255, 224, 1);
+  }
+
+  .data-dropdown[open] summary {
+    color: rgba(250, 255, 224, 1);
+  }
+
+  .data li {
+    color: rgba(250, 255, 224, 1);
+  }
+
+  .kallor a {
+    color: rgb(255, 255, 255);
+  }
+
+  .data a {
+    color: rgb(255, 255, 255);
   }
 }
