@@ -196,7 +196,7 @@ html {
   display: flex;
   gap: 50px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.291);
-  align-items: center;
+  align-items: flex-start;
 }
 
 .statistik-text {
@@ -680,7 +680,6 @@ html {
   max-width: 1400px;
   margin: 60px auto;
   align-items: flex-start;
-
 }
 
 /* KORTEN */
