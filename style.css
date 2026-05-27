@@ -613,8 +613,9 @@ html {
   display: flex;
   grid-template-columns: repeat(2 1fr);
   gap: 40px;
-
+  align-items: flex-start;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.291);
+
 }
 
 /* TEXTDEL */
@@ -656,7 +657,8 @@ html {
 
   width: 100%;
   max-width: 500px;
-  min-height: 600px;
+  height: 600px;
+  /* fast höjd */
 
   object-fit: cover;
   border-radius: 10px;
@@ -669,12 +671,12 @@ html {
 ===================== */
 
 .info-container {
-  display: flex;
+
   gap: 40px;
-  width: 80%;
+  width: 100%;
   max-width: 1400px;
   margin: 60px auto;
-  align-items: flex-start;
+
 
 }
 
@@ -684,49 +686,42 @@ html {
   flex: 1;
   min-width: 280px;
   padding: 20px;
-  background-color: rgba(23, 53, 5);
+  background-color: rgba(250, 255, 224, 0.08);
   border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.291);
-  transition: background-color 0.3s ease;
+  margin: 20px;
 }
 
 /* NÄR DROPDOWN ÄR ÖPPEN */
 .kalla-dropdown[open],
 .data-dropdown[open] {
-  background-color: rgba(250, 255, 224, 1);
+  background-color: rgba(250, 255, 224, 0.08);
+
 }
 
 .kalla-dropdown[open] summary,
 .data-dropdown[open] summary,
 .kalla-dropdown[open] .kallor,
 .data-dropdown[open] .data {
-  color: rgba(23, 53, 5);
+  color: rgba(250, 255, 224, 1);
+
 }
 
 /* RUBRIKER */
-.kalla-dropdown summary,
-.data-dropdown summary {
-  cursor: pointer;
+/* KORTEN */
 
-  font-size: 1rem;
-  font-weight: bold;
-
-  color: rgba(250, 255, 224, 1);
-}
 
 /* INNEHÅLL */
 .kallor,
 .data {
   margin-top: 20px;
-
   font-size: 1.2rem;
   line-height: 1.8;
-
   padding-left: 20px;
-
   color: rgba(250, 255, 224, 1);
-
   font-family: Questrial, sans-serif;
+  width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .kallor li,
