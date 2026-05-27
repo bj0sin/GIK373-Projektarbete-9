@@ -418,6 +418,38 @@ html {
   width: 100%;
 }
 
+.karusell-btn {
+  background-color: rgba(23, 53, 5, 0.8);
+  color: rgba(250, 255, 224, 1);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+  z-index: 10;
+  position: absolute;
+}
+
+.karusell-btn.prev {
+  left: -20px;
+}
+
+.karusell-btn.next {
+  right: -20px;
+}
+
+.karusell-btn:hover {
+  background-color: rgba(23, 53, 5, 1);
+  transform: scale(1.1);
+}
+
 .karusell {
   display: flex;
   gap: 30px;
@@ -953,5 +985,9 @@ html {
     flex-direction: column;
     text-align: center;
     padding: 30px 20px;
+  }
+
+  .karusell-btn {
+    display: none;
   }
 }
