@@ -1108,11 +1108,11 @@ html {
 
     width: 100%;
     padding: 30px;
-    gap: 30px;
+    gap: 20px;
     background: linear-gradient(to right,
         rgba(23, 53, 5, 0.7) 0%,
-        rgba(23, 53, 5, 0.7) 35%,
-        rgb(23, 53, 5) 35%,
+        rgba(23, 53, 5, 0.7) 37%,
+        rgb(23, 53, 5) 37%,
         rgb(23, 53, 5) 100%);
 
   }
@@ -1126,7 +1126,7 @@ html {
   }
 
   .ikon {
-    width: 70px;
+    width: auto;
     margin: 20px;
 
   }
