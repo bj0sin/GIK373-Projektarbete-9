@@ -415,6 +415,7 @@ html {
   min-height: 600px;
   overflow: hidden;
   min-width: 700px;
+  max-height: 600px;
 }
 
 .fakta-sektion h2 {
@@ -1154,10 +1155,7 @@ html {
     width: 80%;
   }
 
-
-
   .container p {
-
     font-size: 1rem;
   }
 
