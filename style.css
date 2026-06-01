@@ -1094,10 +1094,44 @@ html {
   }
 
   .lank-grid {
+    display: grid;
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 25px;
+
   }
 
+  .lank-kort {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 30px;
+
+    width: 100%;
+    padding: 30px;
+    gap: 30px;
+    background: linear-gradient(to right,
+        rgba(23, 53, 5, 0.7) 0%,
+        rgba(23, 53, 5, 0.7) 20%,
+        rgb(23, 53, 5) 20%,
+        rgb(23, 53, 5) 100%);
+
+  }
+
+  .kort-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .ikon {
+    width: 80px;
+    margin: 20px;
+    padding-left: 20px;
+
+
+  }
 
   .container {
     flex-direction: column;
@@ -1114,13 +1148,14 @@ html {
   }
 
   .info-container {
-    gap: 15px;
+    gap: 10px;
+    flex-direction: column;
   }
 
   .kalla-dropdown,
   .data-dropdown {
     width: 100%;
-    padding: 1rem;
+    padding: 8px;
   }
 
   .kalla-dropdown summary,
@@ -1139,57 +1174,11 @@ html {
     display: none;
   }
 
-  /* OM OSS */
-
-  .info-container .kalla-dropdown {
-    background-color: rgba(23, 53, 5, 1);
+  .footer h3 {
+    font-size: 1.5rem;
   }
 
-  .info-container .data-dropdown {
-    background-color: rgba(23, 53, 5, 1);
-  }
-
-  .kalla-dropdown summary {
-    color: rgba(250, 255, 224, 1);
-  }
-
-  details[open] summary::marker {
-    color: rgba(250, 255, 224, 1);
-  }
-
-  .kalla-dropdown summary {
-    color: rgba(250, 255, 224, 1);
-  }
-
-  .kalla-dropdown[open] summary {
-    color: rgba(250, 255, 224, 1);
-  }
-
-  .kallor li {
-    color: rgba(250, 255, 224, 1);
-  }
-
-  .kallor a {
-    color: rgb(255, 255, 255);
-  }
-
-  .data-dropdown summary {
-    color: rgba(250, 255, 224, 1);
-  }
-
-  .data-dropdown[open] summary {
-    color: rgba(250, 255, 224, 1);
-  }
-
-  .data li {
-    color: rgba(250, 255, 224, 1);
-  }
-
-  .kallor a {
-    color: rgb(255, 255, 255);
-  }
-
-  .data a {
-    color: rgb(255, 255, 255);
+  .footer p {
+    font-size: 1rem;
   }
 }
