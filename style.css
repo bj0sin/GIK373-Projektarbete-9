@@ -369,7 +369,7 @@ html {
 
 .kort {
   background-color: rgba(23, 53, 5);
-  width: 100%;
+  max-width: 100%;
   min-height: 700px;
   height: auto !important;
   border-radius: 20px;
@@ -413,8 +413,10 @@ html {
   justify-content: center;
   align-items: center;
   min-height: 600px;
+  max-height: 600px;
   overflow: hidden;
   min-width: 700px;
+
 }
 
 .fakta-sektion h2 {
@@ -570,13 +572,11 @@ html {
 }
 
 .lank-kort {
-  background: linear-gradient(
-    to bottom,
-    rgb(23, 53, 5) 0%,
-    rgb(23, 53, 5) 50%,
-    rgb(23, 53, 5, 0.7) 50%,
-    rgb(23, 53, 5, 0.7) 100%
-  );
+  background: linear-gradient(to bottom,
+      rgb(23, 53, 5) 0%,
+      rgb(23, 53, 5) 50%,
+      rgb(23, 53, 5, 0.7) 50%,
+      rgb(23, 53, 5, 0.7) 100%);
 
   border-radius: 10px;
   padding: 30px 20px;
@@ -631,9 +631,9 @@ html {
 }
 
 .ikon {
-  width: 7rem;
-  height: 7rem;
-  margin-top: 30px;
+  width: 6rem;
+  height: 6rem;
+  margin-top: 20px;
   margin-bottom: 80px;
 }
 
@@ -681,18 +681,8 @@ html {
   line-height: 1.6;
 }
 
-.dropdown-om summary {
-  cursor: pointer;
-}
-
-.dropdown-om ul,
-.dropdown-om p {
-  margin-left: 5%;
-}
-
-.kalla-dropdown a,
-.data-dropdown a {
-  color: white;
+.text ul {
+  padding-left: 1rem;
 }
 
 /* BILD */
@@ -733,6 +723,11 @@ html {
   border-radius: 10px;
 
   overflow: hidden;
+}
+
+.kalla-dropdown a,
+.data-dropdown a {
+  color: white;
 }
 
 /* ÖPPEN */
@@ -989,16 +984,16 @@ html {
     display: contents;
   }
 
-  .statistik-text > h2,
-  .statistik-text > p,
-  .statistik-text > label,
-  .statistik-text > select,
-  .kort-text > h2,
-  .kort-text > p {
+  .statistik-text>h2,
+  .statistik-text>p,
+  .statistik-text>label,
+  .statistik-text>select,
+  .kort-text>h2,
+  .kort-text>p {
     order: 1;
   }
 
-  .statistik-kort > canvas {
+  .statistik-kort>canvas {
     order: 2 !important;
     margin-top: 25px !important;
     margin-bottom: 25px !important;
@@ -1014,8 +1009,8 @@ html {
     width: 100% !important;
   }
 
-  .statistik-text > .referens-rad,
-  .kort-text > .referens-rad {
+  .statistik-text>.referens-rad,
+  .kort-text>.referens-rad {
     order: 3 !important;
     display: flex !important;
     flex-direction: row !important;
@@ -1139,13 +1134,11 @@ html {
     width: 100%;
     padding: 40px;
     gap: 50px;
-    background: linear-gradient(
-      to right,
-      rgba(23, 53, 5) 0%,
-      rgba(23, 53, 5) 42%,
-      rgb(23, 53, 5, 0.7) 40%,
-      rgb(23, 53, 5, 0.7) 100%
-    );
+    background: linear-gradient(to right,
+        rgba(23, 53, 5) 0%,
+        rgba(23, 53, 5) 42%,
+        rgb(23, 53, 5, 0.7) 40%,
+        rgb(23, 53, 5, 0.7) 100%);
   }
 
   .lank-kort-text {
