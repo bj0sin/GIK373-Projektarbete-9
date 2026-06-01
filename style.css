@@ -101,7 +101,7 @@ html {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 0 0 20px 0;
+
 }
 
 .hero-color-box {
@@ -889,7 +889,7 @@ html {
   .hero-image-box {
     flex: none;
     height: 200px;
-    border-radius: 0 0 20px 20px;
+
   }
 
   .statistik-layout {
