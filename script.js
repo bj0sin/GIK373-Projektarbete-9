@@ -1,3 +1,7 @@
+/* 
+Grupp 9: Alva Danielsson, Klara Harnesk, Jennifer Back
+*/
+
 const vatmarkUrl =
   "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/MI/MI1303/MI1303B/ExplVatmark";
 
