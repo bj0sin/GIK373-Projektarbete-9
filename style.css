@@ -25,6 +25,7 @@ html {
   scroll-padding-top: 80px;
 }
 
+/* navbar*/
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -80,7 +81,7 @@ html {
   width: 100%;
 }
 
-/* STATISTIK HERO */
+/* data*/
 
 .statistik-hero {
   display: flex;
@@ -128,7 +129,7 @@ html {
   opacity: 0.9;
 }
 
-/* Sidomeny */
+
 
 .statistik-layout {
   display: flex;
@@ -181,7 +182,6 @@ html {
   padding-left: 10px;
 }
 
-/* Statistik-kort*/
 
 .statistik-sektion {
   padding: 60px 40px;
@@ -320,7 +320,7 @@ html {
   border-bottom: 1px solid rgba(250, 255, 224, 0.05);
 }
 
-/* HEM */
+/* hem */
 
 .hero {
   position: relative;
@@ -637,9 +637,7 @@ html {
   margin-bottom: 80px;
 }
 
-/* =====================
-   OM OSS CONTAINER
-===================== */
+/* om oss*/
 .container {
   background-color: rgba(23, 53, 5);
 
@@ -658,7 +656,7 @@ html {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.291);
 }
 
-/* TEXTDEL */
+
 .text {
   flex: 1;
   color: rgba(250, 255, 224, 1);
@@ -685,14 +683,14 @@ html {
   padding-left: 1rem;
 }
 
-/* BILD */
+
 .container img {
   flex: 0.6;
 
   width: 100%;
   max-width: 500px;
   height: 600px;
-  /* fast höjd */
+
 
   object-fit: cover;
   border-radius: 10px;
@@ -700,9 +698,7 @@ html {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* =====================
-   KÄLLOR + DATA (BOXAR)
-===================== */
+
 .info-container {
   display: flex;
   gap: 15px;
@@ -712,7 +708,7 @@ html {
   border-radius: 20px;
 }
 
-/* KORTEN */
+
 .kalla-dropdown,
 .data-dropdown {
   flex: 1;
@@ -730,13 +726,13 @@ html {
   color: white;
 }
 
-/* ÖPPEN */
+
 .kalla-dropdown[open],
 .data-dropdown[open] {
   background-color: rgba(250, 255, 224, 0.05);
 }
 
-/* SUMMARY */
+
 .kalla-dropdown summary,
 .data-dropdown summary {
   padding: 15px 20px;
@@ -754,13 +750,13 @@ html {
   align-items: center;
 }
 
-/* TAR BORT STANDARD PIL */
+
 .kalla-dropdown summary::-webkit-details-marker,
 .data-dropdown summary::-webkit-details-marker {
   display: none;
 }
 
-/* EGNA PILAR */
+
 .kalla-dropdown summary::after,
 .data-dropdown summary::after {
   content: "▼";
@@ -772,7 +768,7 @@ html {
   content: "▲";
 }
 
-/* INNEHÅLL */
+
 .kallor,
 .data {
   padding: 20px;
@@ -795,9 +791,7 @@ html {
   margin-bottom: 12px;
 }
 
-/* =====================
-   FOOTER
-===================== */
+/* footer */
 
 .footer {
   display: flex;
@@ -829,8 +823,10 @@ html {
   padding-bottom: 1.1rem;
 }
 
-/*MOBILE 600px*/
+/* mobil 600px*/
 @media (max-width: 600px) {
+
+  /* navbar */
   .navbar {
     padding: 15px 20px;
     position: relative;
@@ -892,6 +888,7 @@ html {
 
   }
 
+  /* data */
   .statistik-layout {
     flex-direction: column;
     padding: 0 15px;
@@ -899,7 +896,7 @@ html {
     gap: 15px;
   }
 
-  /* HORISONTELL SCROLL-NAV FÖR MOBIL */
+
   .sidomeny {
     flex: none;
     align-self: flex-start;
@@ -962,7 +959,7 @@ html {
     padding-left: 0;
   }
 
-  /* --- DIAGRAM-KORTEN --- */
+  /* Data */
   .statistik-sektion {
     padding: 10px 0;
     width: 100%;
@@ -1001,13 +998,7 @@ html {
     width: 100% !important;
   }
 
-  #sverigekarta {
-    order: 2 !important;
-    margin-top: 25px !important;
-    margin-bottom: 25px !important;
-    min-height: 500px !important;
-    width: 100% !important;
-  }
+
 
   .statistik-text>.referens-rad,
   .kort-text>.referens-rad {
@@ -1057,6 +1048,7 @@ html {
     font-size: 1rem;
   }
 
+  /* hem*/
   .hero {
     height: 45vh;
   }
@@ -1072,6 +1064,16 @@ html {
     padding: 20px;
   }
 
+  #sverigekarta {
+    order: 2 !important;
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+    min-height: 500px !important;
+    width: 100% !important;
+    min-height: 350px;
+    min-width: 350px;
+  }
+
   .kort-text h2 {
     font-size: 1.6rem;
     padding-bottom: 1rem;
@@ -1081,10 +1083,6 @@ html {
     font-size: 1rem;
   }
 
-  #sverigekarta {
-    min-height: 350px;
-    min-width: 350px;
-  }
 
   .fakta-sektion h2,
   .statistik-lankar-sektion h2 {
@@ -1118,6 +1116,10 @@ html {
   .fakta-kalla {
     font-size: 0.2rem;
     margin-top: auto;
+  }
+
+  .karusell-btn {
+    display: none;
   }
 
   .lank-grid {
@@ -1154,6 +1156,7 @@ html {
     margin: 20px;
   }
 
+  /* OM OSS*/
   .container {
     flex-direction: column;
     padding: 30px;
@@ -1188,6 +1191,8 @@ html {
     font-size: 1rem;
   }
 
+  /* footer */
+
   .footer {
     height: auto;
     flex-direction: column;
@@ -1195,9 +1200,7 @@ html {
     padding: 30px 20px;
   }
 
-  .karusell-btn {
-    display: none;
-  }
+
 
   .footer h3 {
     font-size: 1.5rem;
