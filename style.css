@@ -415,7 +415,6 @@ html {
   min-height: 600px;
   overflow: hidden;
   min-width: 700px;
-  max-height: 600px;
 }
 
 .fakta-sektion h2 {
@@ -654,7 +653,7 @@ html {
 }
 
 .text h2 {
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
   font-size: 3rem;
   font-family: Geologica, sans-serif;
 }
@@ -1155,7 +1154,14 @@ html {
     width: 80%;
   }
 
-  .container p {
+
+  .text h2 {
+    padding-bottom: 0.5rem;
+
+  }
+
+  .text p {
+
     font-size: 1rem;
   }
 
