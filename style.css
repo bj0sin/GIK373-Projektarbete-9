@@ -101,6 +101,7 @@ html {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 0 0 20px 0;
 }
 
 .hero-color-box {
@@ -112,6 +113,7 @@ html {
   flex-direction: column;
   justify-content: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 0 0 0 20px;
 }
 
 .hero-color-box h1 {
@@ -193,7 +195,7 @@ html {
   width: 100%;
   min-height: 600px;
   height: auto !important;
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 50px;
   display: flex;
   gap: 50px;
@@ -228,7 +230,7 @@ html {
   min-height: 500px;
   max-height: 500px;
   background-color: rgba(255, 255, 255, 0.195);
-  border-radius: 10px;
+  border-radius: 20px;
   flex: 1;
 }
 
@@ -370,7 +372,7 @@ html {
   width: 100%;
   min-height: 700px;
   height: auto !important;
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 40px;
   display: flex;
   gap: 40px;
@@ -397,15 +399,22 @@ html {
   line-height: 1.6rem;
 }
 
+.kort-text .referens-innehall p {
+  font-size: 1rem;
+  padding-bottom: 10px;
+  line-height: 1.5;
+}
+
 #sverigekarta {
   flex: 0.6;
   background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 600px;
   overflow: hidden;
+  min-width: 700px;
 }
 
 .fakta-sektion h2 {
@@ -478,7 +487,7 @@ html {
   height: 650px;
   scroll-snap-align: start;
   background-color: rgba(23, 53, 5);
-  border-radius: 10px;
+  border-radius: 15px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -585,7 +594,7 @@ html {
 }
 
 .lank-kort:hover {
-  background-color: rgba(10, 66, 21, 0.77);
+  background-color: rgb(23, 53, 5, 0.7) 50%;
 }
 
 .lank-kort h3 {
@@ -691,6 +700,7 @@ html {
   margin-top: 40px;
   align-items: flex-start;
   width: 100%;
+  border-radius: 20px;
 }
 
 /* KORTEN */
@@ -850,6 +860,7 @@ html {
   .hero-color-box {
     padding: 30px 20px;
     text-align: center;
+    border-radius: 0;
   }
 
   .hero-color-box h1 {
@@ -864,6 +875,7 @@ html {
   .hero-image-box {
     flex: none;
     height: 200px;
+    border-radius: 0 0 20px 20px;
   }
 
   .statistik-layout {
@@ -1057,7 +1069,7 @@ html {
 
   #sverigekarta {
     min-height: 350px;
-    width: 100%;
+    min-width: 350px;
   }
 
   .fakta-sektion h2,
