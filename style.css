@@ -101,6 +101,7 @@ html {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 0 0 20px 0;
 }
 
 .hero-color-box {
@@ -112,6 +113,7 @@ html {
   flex-direction: column;
   justify-content: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 0 0 0 20px;
 }
 
 .hero-color-box h1 {
@@ -193,7 +195,7 @@ html {
   width: 100%;
   min-height: 600px;
   height: auto !important;
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 50px;
   display: flex;
   gap: 50px;
@@ -228,7 +230,7 @@ html {
   min-height: 500px;
   max-height: 500px;
   background-color: rgba(255, 255, 255, 0.195);
-  border-radius: 10px;
+  border-radius: 20px;
   flex: 1;
 }
 
@@ -370,7 +372,7 @@ html {
   width: 100%;
   min-height: 700px;
   height: auto !important;
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 40px;
   display: flex;
   gap: 40px;
@@ -387,23 +389,32 @@ html {
 
 .kort-text h2 {
   padding-bottom: 2rem;
-  font-size: 3rem;
+  font-size: 2.2rem;
   font-family: Geologica, sans-serif;
 }
 
 .kort-text p {
-  font-size: 1.6rem;
-  padding-bottom: 1.6rem;
+  font-size: 1.3rem;
+  padding-bottom: 1.3rem;
+  line-height: 1.6rem;
+}
+
+.kort-text .referens-innehall p {
+  font-size: 1rem;
+  padding-bottom: 10px;
+  line-height: 1.5;
 }
 
 #sverigekarta {
   flex: 0.6;
   background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 600px;
+  overflow: hidden;
+  min-width: 700px;
 }
 
 .fakta-sektion h2 {
@@ -474,7 +485,7 @@ html {
   height: 650px;
   scroll-snap-align: start;
   background-color: rgba(23, 53, 5);
-  border-radius: 10px;
+  border-radius: 15px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -561,10 +572,10 @@ html {
 .lank-kort {
   background: linear-gradient(
     to bottom,
-    rgb(23, 53, 5, 0.7) 0%,
-    rgb(23, 53, 5, 0.7) 50%,
+    rgb(23, 53, 5) 0%,
     rgb(23, 53, 5) 50%,
-    rgb(23, 53, 5) 100%
+    rgb(23, 53, 5, 0.7) 50%,
+    rgb(23, 53, 5, 0.7) 100%
   );
 
   border-radius: 10px;
@@ -579,7 +590,7 @@ html {
 }
 
 .lank-kort:hover {
-  background-color: rgba(10, 66, 21, 0.77);
+  background-color: rgb(23, 53, 5, 0.7) 50%;
 }
 
 .lank-kort h3 {
@@ -640,7 +651,7 @@ html {
 }
 
 .text h2 {
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
   font-size: 3rem;
   font-family: Geologica, sans-serif;
 }
@@ -659,6 +670,11 @@ html {
 .dropdown-om ul,
 .dropdown-om p {
   margin-left: 5%;
+}
+
+.kalla-dropdown a,
+.data-dropdown a {
+  color: white;
 }
 
 /* BILD */
@@ -685,6 +701,7 @@ html {
   margin-top: 40px;
   align-items: flex-start;
   width: 100%;
+  border-radius: 20px;
 }
 
 /* KORTEN */
@@ -844,6 +861,7 @@ html {
   .hero-color-box {
     padding: 30px 20px;
     text-align: center;
+    border-radius: 0;
   }
 
   .hero-color-box h1 {
@@ -858,6 +876,7 @@ html {
   .hero-image-box {
     flex: none;
     height: 200px;
+    border-radius: 0 0 20px 20px;
   }
 
   .statistik-layout {
@@ -969,7 +988,6 @@ html {
     width: 100% !important;
   }
 
-  /* Kartan får lite extra höjd så avlånga Sverige ryms perfekt */
   #sverigekarta {
     order: 2 !important;
     margin-top: 25px !important;
@@ -1052,7 +1070,7 @@ html {
 
   #sverigekarta {
     min-height: 350px;
-    width: 100%;
+    min-width: 350px;
   }
 
   .fakta-sektion h2,
@@ -1099,21 +1117,20 @@ html {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap: 30px;
 
     width: 100%;
-    padding: 30px;
-    gap: 30px;
+    padding: 40px;
+    gap: 50px;
     background: linear-gradient(
       to right,
-      rgba(23, 53, 5, 0.7) 0%,
-      rgba(23, 53, 5, 0.7) 35%,
-      rgb(23, 53, 5) 35%,
-      rgb(23, 53, 5) 100%
+      rgba(23, 53, 5) 0%,
+      rgba(23, 53, 5) 42%,
+      rgb(23, 53, 5, 0.7) 40%,
+      rgb(23, 53, 5, 0.7) 100%
     );
   }
 
-  .kort-text {
+  .lank-kort-text {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -1122,7 +1139,7 @@ html {
   }
 
   .ikon {
-    width: 70px;
+    width: auto;
     margin: 20px;
   }
 
@@ -1132,7 +1149,11 @@ html {
     width: 80%;
   }
 
-  .container p {
+  .text h2 {
+    padding-bottom: 0.5rem;
+  }
+
+  .text p {
     font-size: 1rem;
   }
 
