@@ -575,10 +575,10 @@ html {
 
 .lank-kort {
   background: linear-gradient(to bottom,
-      rgb(23, 53, 5, 0.7) 0%,
-      rgb(23, 53, 5, 0.7) 50%,
+      rgb(23, 53, 5) 0%,
       rgb(23, 53, 5) 50%,
-      rgb(23, 53, 5) 100%);
+      rgb(23, 53, 5, 0.7) 50%,
+      rgb(23, 53, 5, 0.7) 100%);
 
   border-radius: 10px;
   padding: 30px 20px;
@@ -674,6 +674,11 @@ html {
   margin-left: 5%;
 }
 
+.kalla-dropdown a,
+.data-dropdown a {
+  color: white;
+}
+
 /* BILD */
 .container img {
   flex: 0.6;
@@ -718,6 +723,7 @@ html {
 .kalla-dropdown[open],
 .data-dropdown[open] {
   background-color: rgba(250, 255, 224, 0.05);
+
 }
 
 /* SUMMARY */
@@ -778,6 +784,9 @@ html {
 .data p {
   margin-bottom: 12px;
 }
+
+
+
 
 /* =====================
    FOOTER
