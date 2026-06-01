@@ -575,13 +575,11 @@ html {
 }
 
 .lank-kort {
-  background: linear-gradient(
-    to bottom,
-    rgb(23, 53, 5, 0.7) 0%,
-    rgb(23, 53, 5, 0.7) 50%,
-    rgb(23, 53, 5) 50%,
-    rgb(23, 53, 5) 100%
-  );
+  background: linear-gradient(to bottom,
+      rgb(23, 53, 5, 0.7) 0%,
+      rgb(23, 53, 5, 0.7) 50%,
+      rgb(23, 53, 5) 50%,
+      rgb(23, 53, 5) 100%);
 
   border-radius: 10px;
   padding: 30px 20px;
@@ -971,16 +969,16 @@ html {
     display: contents;
   }
 
-  .statistik-text > h2,
-  .statistik-text > p,
-  .statistik-text > label,
-  .statistik-text > select,
-  .kort-text > h2,
-  .kort-text > p {
+  .statistik-text>h2,
+  .statistik-text>p,
+  .statistik-text>label,
+  .statistik-text>select,
+  .kort-text>h2,
+  .kort-text>p {
     order: 1;
   }
 
-  .statistik-kort > canvas {
+  .statistik-kort>canvas {
     order: 2 !important;
     margin-top: 25px !important;
     margin-bottom: 25px !important;
@@ -996,8 +994,8 @@ html {
     width: 100% !important;
   }
 
-  .statistik-text > .referens-rad,
-  .kort-text > .referens-rad {
+  .statistik-text>.referens-rad,
+  .kort-text>.referens-rad {
     order: 3 !important;
     display: flex !important;
     flex-direction: row !important;
@@ -1117,21 +1115,19 @@ html {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap: 30px;
+
 
     width: 100%;
-    padding: 30px;
-    gap: 20px;
-    background: linear-gradient(
-      to right,
-      rgba(23, 53, 5, 0.7) 0%,
-      rgba(23, 53, 5, 0.7) 37%,
-      rgb(23, 53, 5) 37%,
-      rgb(23, 53, 5) 100%
-    );
+    padding: 40px;
+    gap: 50px;
+    background: linear-gradient(to right,
+        rgba(23, 53, 5) 0%,
+        rgba(23, 53, 5) 42%,
+        rgb(23, 53, 5, 0.7) 40%,
+        rgb(23, 53, 5, 0.7) 100%);
   }
 
-  .kort-text {
+  .lank-kort-text {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
