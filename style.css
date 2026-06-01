@@ -627,7 +627,7 @@ html {
   width: 0%;
   height: 2px;
   background-color: rgba(250, 255, 224, 1);
-  transition: width 0.3s ease;
+  transition: width 0.4s ease;
 }
 
 .lank-kort:hover .pil-lank::after {
@@ -1171,14 +1171,11 @@ html {
     width: 80%;
   }
 
-
   .text h2 {
     padding-bottom: 0.5rem;
-
   }
 
   .text p {
-
     font-size: 1rem;
   }
 
