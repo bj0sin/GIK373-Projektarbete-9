@@ -318,7 +318,7 @@ html {
   border-bottom: 1px solid rgba(250, 255, 224, 0.05);
 }
 
-/* hem */
+/* HEM */
 
 .hero {
   position: relative;
@@ -438,9 +438,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition:
-    background-color 0.3s ease,
-    transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
   z-index: 10;
   position: absolute;
 }
@@ -527,9 +525,7 @@ html {
   background-color: rgba(23, 53, 5, 0.3);
   border-radius: 50%;
   cursor: pointer;
-  transition:
-    background-color 03s ease,
-    transform 0.2s ease;
+  transition: background-color 03s ease, transform 0.2s ease;
 }
 
 .dot:hover {
@@ -563,11 +559,13 @@ html {
 }
 
 .lank-kort {
-  background: linear-gradient(to bottom,
-      rgb(23, 53, 5, 0.7) 0%,
-      rgb(23, 53, 5, 0.7) 50%,
-      rgb(23, 53, 5) 50%,
-      rgb(23, 53, 5) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgb(23, 53, 5, 0.7) 0%,
+    rgb(23, 53, 5, 0.7) 50%,
+    rgb(23, 53, 5) 50%,
+    rgb(23, 53, 5) 100%
+  );
 
   border-radius: 10px;
   padding: 30px 20px;
@@ -629,7 +627,6 @@ html {
   gap: 40px;
   align-items: flex-start;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.291);
-
 }
 
 /* TEXTDEL */
@@ -767,7 +764,6 @@ html {
 .data p {
   margin-bottom: 12px;
 }
-
 
 /* =====================
    FOOTER
@@ -956,16 +952,16 @@ html {
     display: contents;
   }
 
-  .statistik-text>h2,
-  .statistik-text>p,
-  .statistik-text>label,
-  .statistik-text>select,
-  .kort-text>h2,
-  .kort-text>p {
+  .statistik-text > h2,
+  .statistik-text > p,
+  .statistik-text > label,
+  .statistik-text > select,
+  .kort-text > h2,
+  .kort-text > p {
     order: 1;
   }
 
-  .statistik-kort>canvas {
+  .statistik-kort > canvas {
     order: 2 !important;
     margin-top: 25px !important;
     margin-bottom: 25px !important;
@@ -982,8 +978,8 @@ html {
     width: 100% !important;
   }
 
-  .statistik-text>.referens-rad,
-  .kort-text>.referens-rad {
+  .statistik-text > .referens-rad,
+  .kort-text > .referens-rad {
     order: 3 !important;
     display: flex !important;
     flex-direction: row !important;
@@ -1097,7 +1093,6 @@ html {
     display: grid;
     grid-template-columns: 1fr;
     gap: 25px;
-
   }
 
   .lank-kort {
@@ -1109,12 +1104,13 @@ html {
     width: 100%;
     padding: 30px;
     gap: 30px;
-    background: linear-gradient(to right,
-        rgba(23, 53, 5, 0.7) 0%,
-        rgba(23, 53, 5, 0.7) 35%,
-        rgb(23, 53, 5) 35%,
-        rgb(23, 53, 5) 100%);
-
+    background: linear-gradient(
+      to right,
+      rgba(23, 53, 5, 0.7) 0%,
+      rgba(23, 53, 5, 0.7) 35%,
+      rgb(23, 53, 5) 35%,
+      rgb(23, 53, 5) 100%
+    );
   }
 
   .kort-text {
@@ -1128,7 +1124,6 @@ html {
   .ikon {
     width: 70px;
     margin: 20px;
-
   }
 
   .container {
