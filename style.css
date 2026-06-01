@@ -117,7 +117,6 @@ html {
   flex-direction: column;
   justify-content: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  border-radius: 0 0 0 20px;
 }
 
 .hero-color-box h1 {
@@ -131,8 +130,6 @@ html {
   line-height: 1.5;
   opacity: 0.9;
 }
-
-
 
 .statistik-layout {
   display: flex;
@@ -184,7 +181,6 @@ html {
   border-left: 3px solid rgba(23, 53, 5, 1);
   padding-left: 10px;
 }
-
 
 .statistik-sektion {
   padding: 60px 40px;
@@ -578,11 +574,13 @@ html {
 }
 
 .lank-kort {
-  background: linear-gradient(to bottom,
-      rgb(23, 53, 5) 0%,
-      rgb(23, 53, 5) 50%,
-      rgb(23, 53, 5, 0.7) 50%,
-      rgb(23, 53, 5, 0.7) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgb(23, 53, 5) 0%,
+    rgb(23, 53, 5) 50%,
+    rgb(23, 53, 5, 0.7) 50%,
+    rgb(23, 53, 5, 0.7) 100%
+  );
 
   border-radius: 10px;
   padding: 30px 20px;
@@ -662,7 +660,6 @@ html {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.291);
 }
 
-
 .text {
   flex: 1;
   color: rgba(250, 255, 224, 1);
@@ -689,7 +686,6 @@ html {
   padding-left: 1rem;
 }
 
-
 .container img {
   flex: 0.6;
 
@@ -697,13 +693,11 @@ html {
   max-width: 500px;
   height: 600px;
 
-
   object-fit: cover;
   border-radius: 10px;
 
   background-color: rgba(255, 255, 255, 0.1);
 }
-
 
 .info-container {
   display: flex;
@@ -713,7 +707,6 @@ html {
   width: 100%;
   border-radius: 20px;
 }
-
 
 .kalla-dropdown,
 .data-dropdown {
@@ -732,12 +725,10 @@ html {
   color: white;
 }
 
-
 .kalla-dropdown[open],
 .data-dropdown[open] {
   background-color: rgba(250, 255, 224, 0.05);
 }
-
 
 .kalla-dropdown summary,
 .data-dropdown summary {
@@ -756,12 +747,10 @@ html {
   align-items: center;
 }
 
-
 .kalla-dropdown summary::-webkit-details-marker,
 .data-dropdown summary::-webkit-details-marker {
   display: none;
 }
-
 
 .kalla-dropdown summary::after,
 .data-dropdown summary::after {
@@ -773,7 +762,6 @@ html {
 .data-dropdown[open] summary::after {
   content: "▲";
 }
-
 
 .kallor,
 .data {
@@ -831,7 +819,6 @@ html {
 
 /* mobil 600px*/
 @media (max-width: 600px) {
-
   /* navbar */
   .navbar {
     padding: 15px 20px;
@@ -900,7 +887,6 @@ html {
     margin: 20px auto;
     gap: 15px;
   }
-
 
   .sidomeny {
     flex: none;
@@ -986,16 +972,16 @@ html {
     display: contents;
   }
 
-  .statistik-text>h2,
-  .statistik-text>p,
-  .statistik-text>label,
-  .statistik-text>select,
-  .kort-text>h2,
-  .kort-text>p {
+  .statistik-text > h2,
+  .statistik-text > p,
+  .statistik-text > label,
+  .statistik-text > select,
+  .kort-text > h2,
+  .kort-text > p {
     order: 1;
   }
 
-  .statistik-kort>canvas {
+  .statistik-kort > canvas {
     order: 2 !important;
     margin-top: 25px !important;
     margin-bottom: 25px !important;
@@ -1003,10 +989,8 @@ html {
     width: 100% !important;
   }
 
-
-
-  .statistik-text>.referens-rad,
-  .kort-text>.referens-rad {
+  .statistik-text > .referens-rad,
+  .kort-text > .referens-rad {
     order: 3 !important;
     display: flex !important;
     flex-direction: row !important;
@@ -1088,7 +1072,6 @@ html {
     font-size: 1rem;
   }
 
-
   .fakta-sektion h2,
   .statistik-lankar-sektion h2 {
     font-size: 2rem;
@@ -1141,11 +1124,13 @@ html {
     width: 100%;
     padding: 40px;
     gap: 70px;
-    background: linear-gradient(to right,
-        rgba(23, 53, 5) 0%,
-        rgba(23, 53, 5) 42%,
-        rgb(23, 53, 5, 0.7) 40%,
-        rgb(23, 53, 5, 0.7) 100%);
+    background: linear-gradient(
+      to right,
+      rgba(23, 53, 5) 0%,
+      rgba(23, 53, 5) 42%,
+      rgb(23, 53, 5, 0.7) 40%,
+      rgb(23, 53, 5, 0.7) 100%
+    );
   }
 
   .lank-kort-text {
@@ -1204,8 +1189,6 @@ html {
     text-align: center;
     padding: 30px 20px;
   }
-
-
 
   .footer h3 {
     font-size: 1.5rem;
